@@ -1,7 +1,7 @@
 ---
 title: "Tutorial 2 · Data Preparation and Verification"
 subtitle: "Empirical Research in Accounting, Auditing and Capital Markets · WS 2026/27"
-author: "Your Name"
+author: "Pauline Jans"
 date: "29 October 2026"
 output:
   html_document:
@@ -32,9 +32,9 @@ This R Markdown belongs to the slides of **Tutorial 2**. Today we spend most of 
 **Before you start:** pull the newest version of the course repository (Sync fork → Pull) and copy the new data files from Moodle into `data/`:
 
 -   `compustat.csv` (from Tutorial 1)
--   `crsp_ccm_link.csv` — CRSP/Compustat Merged link table (WRDS)
--   `crsp_msf_2009_2015.csv` — CRSP monthly stock file (WRDS)
--   `compustat_global_2023_2025.csv` — Compustat Global fundamentals, fiscal years 2023–2025 (WRDS)
+-   `linking_table.csv` — CRSP/Compustat Merged link table (WRDS)
+-   `monthly_stock_file.csv` — CRSP monthly stock file (WRDS)
+-   `funda_annual.csv` — Compustat Global fundamentals, fiscal years 2023–2025 (WRDS)
 
 The SRN data you download yourself in Part 2.
 
@@ -46,6 +46,7 @@ The SRN data you download yourself in Part 2.
 
 ```{r chunk_0_1}
 ## install.packages(c("tidyverse", "here", "httr2"))   # once, in the Console
+install.packages(c("tidyverse", "here", "httr2"))
 library(tidyverse)
 library(here)
 library(httr2)
@@ -73,7 +74,15 @@ A key for **firm-year data** is usually a combination, e.g. `gvkey` + `fyear`.
 ```{r chunk_1_1}
 ## Join by name: how many matches?
 
+reports <- tibble(company = c("BMW","Siemens Energy", "SAP"),
+                   year = 2024,
+scope1 = c(1.1,0.3,0.02))
 
+database <- tibble(company = c("Bayrische Motorenwerke", "Siemens Energy AG", "SAP SE"),
+                   year = 2024,
+                   revenue = 142380, 34465, 34176 )
+
+left_join(reports, database, by = c("company", "year"))
 ```
 
 *Illustrative numbers.* Not a single match — although all three firms are in both tables. That is why we use codes such as `isin` or `gvkey`, and why name matching ("fuzzy matching") is a last resort that must be checked by hand.
@@ -84,6 +93,15 @@ An ISIN has 12 characters: a 2-letter country code, 9 alphanumeric characters an
 
 ```{r chunk_1_2}
 ## Repair what can be repaired: trim spaces, upper case
+isins <- c("DE0005190003", "De0005190003", "de000519000", "DE00051900003", NA)
+nchar(isins)
+
+str_detect(isins, "^[A-Z]{2}[A-Z0-9]{9}[0-9]$")
+str_sub(isins, 1, 2)
+
+## Repair what can be repaired: trim spaces, upper case
+isins_clean <- str_to_upper(str_trim(isins))
+isins_clean
 
 
 ```
@@ -106,8 +124,29 @@ Advantages over clicking "download": the download becomes part of your code, so 
 ### Chunk 2.1 · An open endpoint: release metadata (no token needed)
 
 ```{r api_2_1}
-## Save a raw copy: raw data is never edited
+## Connection to srnlab data
+base_url <- "https://api.srnav.com"
+meta <- request(base_url) |>
+req_url_path_append("projects", "main-esrs-kpi", "releases", "v2.4", "meta") |> 
+  req_perform() |> 
+  resp_body_json(simplifyVector = TRUE)
 
+names(meta)
+meta$version
+meta$row_count
+
+srn_companies <- as_tibble(meta$companies)
+srn_fields <- tibble(meta$fields)
+
+## Save a raw copy: raw data is never edited
+write_csv(srn_companies |>  mutate(stock_index = map_chr(stock_index, ~paste(.x,
+                                                                             collapse = ";"))),
+          here("data","srn_companies_v2.4.csv"))
+write_csv(srn_fields, here("data", "srn_fields_v2.4.csv"))
+
+srn_companies <- read_csv(here("data", "srn_companies_v2.4.csv"), trim_ws = FALSE)
+#keep spaces as they are
+srn_fields <- read_csv(here("data", "srn_fields_v2.4.csv"))
 
 ```
 
@@ -126,7 +165,7 @@ The data values need a personal token. Create one at **srnav.com → MySRN → A
 ## Run ONCE in the Console. A file opens: add the line
 ##   SRN_TOKEN=srn_your_token_here
 ## save it, then restart R (Session -> Restart R).
-usethis::edit_r_environ()
+#usethis::edit_r_environ()
 
 ## Check (shows TRUE, not the token itself)
 nchar(Sys.getenv("SRN_TOKEN")) > 0
@@ -135,7 +174,17 @@ nchar(Sys.getenv("SRN_TOKEN")) > 0
 ### Chunk 2.3 · Download the data values (pinned to release v2.4)
 
 ```{r api_2_3}
+
+resp <- request(base_url) |> 
+  req_url_path_append("projects","main-esrs-kpi","releases", "v2.4.csv") |> 
+  req_auth_bearer_token(Sys.getenv("SRN_TOKEN")) |> 
+  req_perform()
+
+resp_status(resp)
 ## Save the raw download unchanged
+
+writeBin(resp_body_raw(resp), here("data", "srn_main_esrs_kpi_v2.4.csv"))
+
 
 
 ```
@@ -145,8 +194,21 @@ nchar(Sys.getenv("SRN_TOKEN")) > 0
 ### Chunk 2.4 · Read and inspect the raw data
 
 ```{r chunk_2_4}
+srn_raw<- read_csv(here("data", "srn_main_esrs_kpi_v2.4.csv"),
+                   col_types =cols(.default =col_character()))
+dim(srn_raw)
+
+names(srn_raw)
+head(srn_raw)
+
 ## One row per ... ?
+srn_raw |> count(field_slug) |>  print (n=30)
+
+n_distinct(srn_raw$company_id)
+table(srn_raw$year, useNA = "ifany")
+
 ## The value column: numbers as text — and a special code
+srn_raw |>  filter(is.na(suppressWarnings(as.numeric(value)))) |>  count(value, sort=TRUE)
 
 
 ```
