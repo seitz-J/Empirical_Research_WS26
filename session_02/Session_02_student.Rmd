@@ -16,7 +16,9 @@ knitr::opts_chunk$set(echo = TRUE, comment = "", message = FALSE, warning = FALS
 
 # How to use this document
 
-This R Markdown belongs to the slides of **Tutorial 2**. Today we spend most of the time in RStudio. Whenever a slide shows the blue **▶ IN RSTUDIO** bar, switch to this document.
+This R Markdown belongs to the slides of **Tutorial 2**.
+Today we spend most of the time in RStudio.
+Whenever a slide shows the blue **▶ IN RSTUDIO** bar, switch to this document.
 
 | Part | Topic                                           |
 |------|-------------------------------------------------|
@@ -55,10 +57,11 @@ library(httr2)
 
 # Part 1 · Identifiers
 
-Every merge needs a **key**: one or more variables that identify an observation uniquely. In accounting research, the most important keys are:
+Every merge needs a **key**: one or more variables that identify an observation uniquely.
+In accounting research, the most important keys are:
 
 | Identifier | Identifies | Source | Watch out |
-|-------------------|-------------------|-----------------|------------------|
+|-------------------|-------------------|------------------|------------------|
 | `gvkey` | a firm | Compustat | 6-digit **text** with leading zeros |
 | `permno` | a security (share class) | CRSP | a firm can have several permnos |
 | `cusip` | a security | US/Canada | changes after name changes |
@@ -83,11 +86,13 @@ database <- tibble(company = c("Bayerische Motoren Werke AG", "Siemens Energy AG
 left_join(reports, database, by = c("company","year"))
 ```
 
-*Illustrative numbers.* Not a single match — although all three firms are in both tables. That is why we use codes such as `isin` or `gvkey`, and why name matching ("fuzzy matching") is a last resort that must be checked by hand.
+*Illustrative numbers.* Not a single match — although all three firms are in both tables.
+That is why we use codes such as `isin` or `gvkey`, and why name matching ("fuzzy matching") is a last resort that must be checked by hand.
 
 ### Chunk 1.2 · What does a valid ISIN look like?
 
-An ISIN has 12 characters: a 2-letter country code, 9 alphanumeric characters and a check digit, e.g. `DE0005190003` (BMW).
+An ISIN has 12 characters: a 2-letter country code, 9 alphanumeric characters and a check digit, e.g.
+`DE0005190003` (BMW).
 
 ```{r chunk_1_2}
 
@@ -103,13 +108,15 @@ isins_clean <- str_to_upper(str_trim(isins))
 isins_clean
 ```
 
-**Lesson:** before you merge, check that keys look the way they should. A lower-case letter or an invisible space is enough to break a merge — without any error message.
+**Lesson:** before you merge, check that keys look the way they should.
+A lower-case letter or an invisible space is enough to break a merge — without any error message.
 
 ------------------------------------------------------------------------
 
 # Part 2 · Getting data from an API: the SRN database
 
-The **Sustainability Reporting Navigator (SRN)** collects data from European sustainability reports (ESRS). Its *Main ESRS KPI* dataset contains 27 indicators (emissions, energy, employees, revenues, …) for more than 600 firms, partly extracted by humans and partly by AI.
+The **Sustainability Reporting Navigator (SRN)** collects data from European sustainability reports (ESRS).
+Its *Main ESRS KPI* dataset contains 27 indicators (emissions, energy, employees, revenues, …) for more than 600 firms, partly extracted by humans and partly by AI.
 
 An **API** (application programming interface) lets your code ask a server for data:
 
@@ -156,9 +163,11 @@ srn_fields <- read_csv(here("data","srn_fields_v2.4.csv"))
 
 ### Chunk 2.2 · Your API token: keep it secret
 
-The data values need a personal token. Create one at **srnav.com → MySRN → API** (`srnav.com/dashboard/api`).
+The data values need a personal token.
+Create one at **srnav.com → MySRN → API** (`srnav.com/dashboard/api`).
 
-**Never** write the token into your R Markdown — it would end up on GitHub. Store it in your personal `.Renviron` file instead:
+**Never** write the token into your R Markdown — it would end up on GitHub.
+Store it in your personal `.Renviron` file instead:
 
 ```{r chunk_2_2, eval=FALSE}
 ## Run ONCE in the Console. A file opens: add the line
@@ -188,7 +197,9 @@ writeBin(resp_body_raw(resp), here("data", "srn_main_esrs_kpi_v2.4.csv"))
 
 ```
 
-**Why `v2.4` and not `latest`?** `latest` changes whenever SRN publishes a new release. Your results would change without you noticing. Pinning the version makes your analysis reproducible.
+**Why `v2.4` and not `latest`?** `latest` changes whenever SRN publishes a new release.
+Your results would change without you noticing.
+Pinning the version makes your analysis reproducible.
 
 ### Chunk 2.4 · Read and inspect the raw data
 
@@ -214,7 +225,8 @@ srn_raw |>  filter(is.na(suppressWarnings(as.numeric(value)))) |>  count(value, 
 
 ```
 
-The data are in **long format**: one row per company × year × indicator. For analysis we usually want **wide format**: one row per company-year, one column per indicator (Chunk 3.4).
+The data are in **long format**: one row per company × year × indicator.
+For analysis we usually want **wide format**: one row per company-year, one column per indicator (Chunk 3.4).
 
 ------------------------------------------------------------------------
 
@@ -228,7 +240,8 @@ A missing value (`NA`) can mean very different things:
 - the indicator **does not apply** (e.g. no land use for a software firm),
 - the value **was not extracted** (yet) — a data problem, not a firm decision.
 
-These are different economic stories. Treating all of them as "zero" or simply dropping them can bias your results.
+These are different economic stories.
+Treating all of them as "zero" or simply dropping them can bias your results.
 
 ### Chunk 3.1 · How much is missing?
 
@@ -236,7 +249,22 @@ These are different economic stories. Treating all of them as "zero" or simply d
 ## Missing per variable
 ## Three kinds of "missing" in the SRN data:
 ##   (1) value is NA, (2) value is the code "NOT_FOUND", (3) the row does not exist at all
+
+
+srn_raw |>
+  group_by(field_slug) |> 
+  summarise(rows = n(),
+            na = sum(is.na(value)),
+            not_found = sum(value == "NOT_FOUND", na.rm = TRUE),
+            share_found = mean(!is.na(value) & value != "NOT_FOUND")) |> 
+  arrange(share_found) |> 
+  print(n = 30)
+                     
+                      
 ## (3) Missing rows: how many company-years should there be?
+n_company_years <- srn_raw |> distinct(company_id, year) |> nrow()
+  
+n_company_years # each indicator should have this many rows
 
 
 ```
@@ -245,38 +273,76 @@ These are different economic stories. Treating all of them as "zero" or simply d
 
 ```{r chunk_3_2}
 ## Countries: spot the problem
+srn_companies |>  count(country) |>  print(n=30)
+
 ## Invisible trailing spaces
+srn_companies |> filter(country != str_trim(country)) |> select(name, country)
+
 ## Firms without ISIN: what do their IDs look like?
+srn_companies |>  filter(is.na(isin)) |> select(id, name, country)
+
 ## Does the ISIN country prefix match the country? (not always — and that can be fine)
+srn_companies |> 
+  filter(!is.na(isin)) |> 
+  mutate(isin_prefix = str_sub(isin, 1, 2)) |> 
+  count(country, isin_prefix) |> 
+  arrange(country, desc(n))
 
 
 ```
 
 ## Duplicates
 
-Before you merge or reshape, check that your key is unique: **one row per key**. If not, find out *why* before you decide what to do.
+Before you merge or reshape, check that your key is unique: **one row per key**.
+If not, find out *why* before you decide what to do.
 
 ### Chunk 3.3 · Is the key unique?
 
 ```{r chunk_3_3}
 ## SRN: key = company_id + year + field_slug
+srn_raw |> 
+  count(company_id, year, field_slug) |> 
+  filter(n > 1)
+
+
 ## Compustat (Tutorial 1): key = gvkey + fyear?
+cs <- read_csv(here("data", "compustat.csv"),
+               col_types = cols(gvkey = col_character()), guess_max = Inf)
+
+cs |> count(gvkey, fyear) |>  filter(n > 1) |> head()
 ## Why? Look at one duplicate
+cs |>  filter(gvkey == "001062") |> select(gvkey, fyear, indfmt, conm, at, sale)
 
 
 ```
 
-The Compustat duplicates are the same firm-year in two **formats**: `INDL` (industrial) and `FS` (financial services). The standard solution is to keep `indfmt == "INDL"`.
+The Compustat duplicates are the same firm-year in two **formats**: `INDL` (industrial) and `FS` (financial services).
+The standard solution is to keep `indfmt == "INDL"`.
 
 ```{r chunk_3_3b}
-## Who is left?
 
+cs_indl <- cs |> filter(indfmt == "INDL", !is.na(fyear))
+cs_indl |>  count(gvkey, fyear) |>  filter(n>1) |>  nrow() 
+
+
+## Who is left?
+cs_indl |> 
+  add_count(gvkey, fyear) |> 
+  filter(n > 1) |> 
+  select(gvkey, fyear, datadate, conm, at, sale)
 
 ```
 
-One firm reports **two fiscal year-ends per year** — it changed its fiscal year (June → December) and Compustat keeps both. A rule we can defend: keep the later `datadate` per firm-year.
+One firm reports **two fiscal year-ends per year** — it changed its fiscal year (June → December) and Compustat keeps both.
+A rule we can defend: keep the later `datadate` per firm-year.
 
 ```{r chunk_3_3c}
+
+cs_indl <- cs_indl |> 
+  arrange(gvkey, fyear, desc(datadate)) |> 
+  distinct(gvkey, fyear, .keep_all = TRUE)
+
+cs_indl |> count(gvkey, fyear) |> filter(n > 1) |>  nrow() 
 
 
 ```
@@ -284,15 +350,36 @@ One firm reports **two fiscal year-ends per year** — it changed its fiscal yea
 ### Chunk 3.4 · From long to wide
 
 ```{r chunk_3_4}
+
+srn_wide <- srn_raw |> 
+  select(company_id, isin, company_name, country, year, field_slug, value) |> 
+  pivot_wider(names_from = field_slug, values_from = value)
+
 ## Values are text. Convert the numeric indicators:
+num_fields <- srn_fields |>  filter(data_type %in% c("number", "percentage")) |> pull(slug)
 
 
+srn_wide <- srn_wide |> 
+  mutate(country = str_trim(country),
+         across(any_of(num_fields), ~ parse_number(.x, na = c("", "NA", "NOT_FOUND"))),
+         currency = na_if(currency, "NOT_FOUND"))
+
+problems(srn_wide)
+
+srn_wide |>  select(company_name, year, revenues, currency, employees_total, ghg_scope1) |>  head(10)
+
+
+nrow(srn_wide) == n_company_years
 ```
 
-**Task A:** Which share of firm-years reports Scope 1, Scope 2 (market-based) and Scope 3 emissions? Is "missing" here a firm decision or a data problem? How would you find out?
+**Task A:** Which share of firm-years reports Scope 1, Scope 2 (market-based) and Scope 3 emissions?
+Is "missing" here a firm decision or a data problem?
+How would you find out?
 
 ```{r task_A}
 
+scope_vars <- c("ghg_scope1","ghg_scope2_mkt","ghg_scope3")
+srn_wide |>  summarise(n_firm_years=n(), across(all_of(scope_vars), ~ mean(!is.na(.x)), .names = "share_{.col}"))
 
 ```
 
@@ -300,25 +387,28 @@ One firm reports **two fiscal year-ends per year** — it changed its fiscal yea
 
 # Part 4 · Merges: rebuilding a Ball & Brown (1968) sample
 
-Ball and Brown (1968) needed **three data sources**: annual earnings (Compustat), monthly stock returns (CRSP) and announcement dates (Wall Street Journal). Their inclusion criteria (p. 167):
+Ball and Brown (1968) needed **three data sources**: annual earnings (Compustat), monthly stock returns (CRSP) and announcement dates (Wall Street Journal).
+Their inclusion criteria (p. 167):
 
 1.  earnings data available on Compustat for each of the years 1946–1966,
 2.  fiscal year ending December 31,
 3.  price data available on CRSP for at least 100 months,
 4.  Wall Street Journal announcement dates available.
 
-Result: **261 firms**. Today we build a modern version for 2010–2014 and count, step by step, how many firms survive each criterion (a **sample funnel**).
+Result: **261 firms**.
+Today we build a modern version for 2010–2014 and count, step by step, how many firms survive each criterion (a **sample funnel**).
 
 ## Joins in dplyr
 
 | Function | Keeps |
-|------------------------------------------|------------------------------|
+|--------------------------------------|------------------------------|
 | `left_join(x, y)` | all rows of `x`; `NA` where `y` has no match |
 | `inner_join(x, y)` | only rows with a match in both |
 | `anti_join(x, y)` | rows of `x` **without** a match in `y` — your best diagnostic tool |
 | `full_join(x, y)` | all rows of both |
 
-**Fan-out:** if a key appears twice in `y`, every matching row in `x` is duplicated. Always compare the number of rows before and after a join.
+**Fan-out:** if a key appears twice in `y`, every matching row in `x` is duplicated.
+Always compare the number of rows before and after a join.
 
 ### Chunk 4.1 · Step 1: Compustat — US firms, earnings available, December year-end
 
@@ -333,59 +423,146 @@ add_step <- function(funnel, step, data) {
 
 ```{r chunk_4_1}
 
+bb <- cs_indl
+funnel <- add_step(funnel, "Compustat INDL, fiscal year known", bb)
+
+bb <- bb |> filter(fic == "USA", curcd == "USD")
+funnel <- add_step(funnel, "US firms reporting in USD", bb)
+
+bb <- bb |> filter(!is.na(ib))
+funnel <- add_step(funnel, "Earnings (ib) available", bb)
+
+bb <- bb |> filter(month(datadate) == 12)
+funnel <- add_step(funnel, "Fiscal year ends in December", bb)
+
+funnel
 
 ```
 
 ### Chunk 4.2 · Step 2: the CRSP–Compustat link table
 
-Compustat identifies **firms** (`gvkey`), CRSP identifies **securities** (`permno`). The link table says which permno belongs to which gvkey — and **when** (`linkdt` to `linkenddt`).
+Compustat identifies **firms** (`gvkey`), CRSP identifies **securities** (`permno`).
+The link table says which permno belongs to which gvkey — and **when** (`linkdt` to `linkenddt`).
 
 ```{r chunk_4_2}
 
+link_raw <- read_csv(here("data", "linking_table.csv"),
+                     col_types = cols(.default = col_character())) |> 
+  rename_with(tolower)
 
+print(link_raw)
+
+count(link_raw, linktype)
 ```
 
-Standard choice: keep primary links (`linkprim` P or C) of the reliable types `LU` and `LC`. An open-ended link has no end date (`E` or missing) — we set it to "today".
+Standard choice: keep primary links (`linkprim` P or C) of the reliable types `LU` and `LC`.
+An open-ended link has no end date (`E` or missing) — we set it to "today".
 
 ```{r chunk_4_2b}
+
+link <- link_raw |> 
+  filter(linktype %in% c("LU", "LC"), linkprim %in% c("P", "C")) |> 
+  mutate(linkdt = as.Date(linkdt),
+         linkenddt = as.Date(if_else(linkenddt == "E", "2099-12-31", linkenddt)),
+         permno = as.numeric(lpermno)) |> 
+  select(gvkey, permno, linkdt, linkenddt)
+
+
 ## How many permnos per gvkey (over all time)?
+link |>  count(gvkey) |>  count(n, name = "n_gvkeys")
+
+
 
 
 ```
 
 ### Chunk 4.3 · Merge with a date condition
 
-A plain join by `gvkey` attaches **every** link ever valid for that firm → fan-out. We must keep only the link valid on the fiscal year-end date (`datadate`).
+A plain join by `gvkey` attaches **every** link ever valid for that firm → fan-out.
+We must keep only the link valid on the fiscal year-end date (`datadate`).
 
 ```{r chunk_4_3}
-## Naive join: what happens to the number of rows?
-## Correct: keep only links valid on datadate
-## Check the key again: one row per gvkey-fyear?
-## Who got lost? anti_join shows firms without a valid link
+nrow(bb)
 
+## Naive join: what happens to the number of rows?
+naive <- bb |>  left_join(link, by = "gvkey", relationship = "many-to-many")
+
+nrow(naive)
+
+## Correct: keep only links valid on datadate
+bb_linked <- bb |> 
+  inner_join(link, by = join_by(gvkey, between(datadate, linkdt, linkenddt)))
+
+nrow(bb_linked)
+
+## Check the key again: one row per gvkey-fyear?
+bb_linked |>  count(gvkey, fyear) |>  filter(n > 1) |>  nrow()
+
+## Who got lost? anti_join shows firms without a valid link
+lost <- bb |>  anti_join(bb_linked, by = c("gvkey", "fyear"))
+
+nrow(lost)
+
+funnel <- add_step(funnel, "Valid CRSP link at fiscal year-end", bb_linked)
 
 ```
 
 ### Chunk 4.4 · Step 3: CRSP returns — at least 60 months of returns
 
-Ball and Brown required 100 months of price data. Our CRSP extract covers 2009–2015 (84 months), so we require **60 months**.
+Ball and Brown required 100 months of price data.
+Our CRSP extract covers 2009–2015 (84 months), so we require **60 months**.
 
 ```{r chunk_4_4}
-## Key check: one row per permno and month?
-## Look at one duplicate: are the rows identical?
 
+msf_raw <- read_csv(here("data", "monthly_stock_file.csv")) |> 
+  rename_with(tolower)
+
+print(msf_raw)
+
+## Key check: one row per permno and month?
+msf_raw |> count(permno, mthcaldt) |> filter(n > 1) |>  nrow()
+
+## Look at one duplicate: are the rows identical?
+msf_raw |>  filter(permno == 10065, mthcaldt == as.Date("2009-02-27"))
 
 ```
 
-Most of these duplicates are **exact copies** of the same row; in the others only the ticker differs (the firm changed its ticker that month). Return and price are identical, so we can keep one row — but only after we checked that they really are identical.
+Most of these duplicates are **exact copies** of the same row; in the others only the ticker differs (the firm changed its ticker that month).
+Return and price are identical, so we can keep one row — but only after we checked that they really are identical.
 
 ```{r chunk_4_4b}
+
+msf_raw |>  distinct() |>  count(permno, mthcaldt) |> filter(n>1) |> nrow()
+
+
+msf <- msf_raw |> 
+  select(permno, date = mthcaldt, ret = mthret, prc = mthprc) |> 
+  distinct()
+
+msf |>  distinct() |>  count(permno, date) |> filter(n>1) |> nrow()
+
+summary(msf$ret)
+
 ## Tickers are not stable: one permno, several tickers
 
+months_per_permno <- msf |> 
+  filter(!is.na(ret)) |> 
+  count(permno, name = "n_month")
 
+bb_crsp <- bb_linked |> 
+  inner_join(months_per_permno, by = "permno") |> 
+  filter(n_month >= 60)
+
+funnel <- add_step(funnel, "At least 60 monthly returns on CRSP", bb_crsp)
+
+funnel
 ```
 
-**Task B:** Look at the funnel. Which criterion removes the most firms? Which kinds of firms are lost (think: young firms, failed firms, foreign firms)? Ball and Brown wrote that their sample "does not include young firms, those which have failed …". What does that mean for the results?
+**Task B:** Look at the funnel.
+Which criterion removes the most firms?
+Which kinds of firms are lost (think: young firms, failed firms, foreign firms)?
+Ball and Brown wrote that their sample "does not include young firms, those which have failed …".
+What does that mean for the results?
 
 ```{r task_B}
 
@@ -398,6 +575,25 @@ Do firms with **earnings increases** have higher stock returns over the fiscal y
 
 ```{r chunk_4_5}
 
+annual_ret <- msf |> 
+  filter(!is.na(ret)) |> 
+  mutate(year = year(date)) |> 
+  group_by(permno, year) |> 
+  summarise(n = n(), ret_annual = prod(1 + ret) - 1, .groups = "drop") |> 
+  filter(n == 12)
+
+bb_result <- bb_crsp |> 
+  arrange(gvkey, fyear) |> 
+  group_by(gvkey) |> 
+  mutate(earnings_up = ib > lag(ib)) |> 
+  ungroup() |> 
+  filter(!is.na(earnings_up)) |> 
+  inner_join(annual_ret, by = c("permno", "fyear"="year")) |> 
+  mutate(abn_ret = ret_annual - mean(ret_annual), .by = fyear)
+
+bb_result |> 
+  group_by(earnings_up) |> 
+  summarise(n = n(), mean_abn_ret = mean(abn_ret), median_abn_ret = median(abn_ret))
 
 ```
 
@@ -405,9 +601,13 @@ Do firms with **earnings increases** have higher stock returns over the fiscal y
 
 # Part 5 · Auditing extracted data: SRN vs. Compustat
 
-SRN values are extracted from sustainability reports — partly by humans, partly by AI. SRN's own quality snapshot reports that about **74%** of the reviewed values are correct. Blankespoor, Croom and Grant (2026) classify investor questions with a machine-learning model that agrees with human coders in about **75%** of cases. In both cases: generated data are useful, but they must be **verified**.
+SRN values are extracted from sustainability reports — partly by humans, partly by AI.
+SRN's own quality snapshot reports that about **74%** of the reviewed values are correct.
+Blankespoor, Croom and Grant (2026) classify investor questions with a machine-learning model that agrees with human coders in about **75%** of cases.
+In both cases: generated data are useful, but they must be **verified**.
 
-Here we use an independent source: **revenues** in Compustat Global. Both should report the group's net revenues in millions of the reporting currency.
+Here we use an independent source: **revenues** in Compustat Global.
+Both should report the group's net revenues in millions of the reporting currency.
 
 ### Chunk 5.1 · Compustat Global
 
@@ -438,7 +638,10 @@ Here we use an independent source: **revenues** in Compustat Global. Both should
 
 ```
 
-**Task C:** Pick one firm with a large disagreement. Typical reasons: units (thousands vs. millions), currency, a different revenue definition, the wrong year — or an extraction error. Which is it? Who is right: SRN or Compustat?
+**Task C:** Pick one firm with a large disagreement.
+Typical reasons: units (thousands vs. millions), currency, a different revenue definition, the wrong year — or an extraction error.
+Which is it?
+Who is right: SRN or Compustat?
 
 ------------------------------------------------------------------------
 
@@ -458,7 +661,8 @@ Three assertions you can use in almost every merge:
 - no rows were added by a join: `stopifnot(nrow(after) == nrow(before))`
 - identifiers look right: `stopifnot(all(nchar(data$gvkey) == 6))`
 
-The script below was written by an AI for the prompt *"Merge Compustat with CRSP returns and the SRN revenues. Count the firms in the final sample."* It runs — mostly. **Find the bugs** (10 min by hand, then 10 min with an AI tool of your choice — code only, never the data).
+The script below was written by an AI for the prompt *"Merge Compustat with CRSP returns and the SRN revenues. Count the firms in the final sample."* It runs — mostly.
+**Find the bugs** (10 min by hand, then 10 min with an AI tool of your choice — code only, never the data).
 
 ### Chunk 6.1 · The AI-generated script
 
@@ -497,7 +701,8 @@ summary(srn_rev_wide$rev_per_emp)
 
 ### Chunk 6.2 · Solution: bugs and fixes
 
-Write your corrected version below. Add an assertion after every fix.
+Write your corrected version below.
+Add an assertion after every fix.
 
 ```{r chunk_6_2}
 

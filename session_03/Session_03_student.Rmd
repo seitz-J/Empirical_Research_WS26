@@ -17,19 +17,20 @@ knitr::opts_chunk$set(echo = TRUE, comment = "", message = FALSE, warning = FALS
 
 # How to use this document
 
-This R Markdown belongs to the slides of **Tutorial 3**. Whenever a slide shows the blue **▶ IN RSTUDIO** bar, switch to this document.
+This R Markdown belongs to the slides of **Tutorial 3**.
+Whenever a slide shows the blue **▶ IN RSTUDIO** bar, switch to this document.
 
-| Part | Topic |
-|------|-------|
-| 0 | Setup: data from Tutorials 1 and 2 |
-| 1 | Concepts and proxies: Libby boxes for the lecture papers |
-| 2 | Descriptive statistics |
-| 3 | Visualisation with ggplot2 |
-| 4 | Proxies and construct validity |
-| 5 | Design exercise: Lang & Lundholm (1996) today |
-| 6 | Wrap-up |
+| Part | Topic                                                    |
+|------|----------------------------------------------------------|
+| 0    | Setup: data from Tutorials 1 and 2                       |
+| 1    | Concepts and proxies: Libby boxes for the lecture papers |
+| 2    | Descriptive statistics                                   |
+| 3    | Visualisation with ggplot2                               |
+| 4    | Proxies and construct validity                           |
+| 5    | Design exercise: Lang & Lundholm (1996) today            |
+| 6    | Wrap-up                                                  |
 
-**Data needed in `data/`:** `compustat.csv`, `srn_main_esrs_kpi_v2.4.csv` (from Tutorial 2), `compustat_global_2023_2025.csv`.
+**Data needed in `data/`:** `compustat.csv`, `srn_main_esrs_kpi_v2.4.csv` (from Tutorial 2), `funda_annual.csv`.
 
 ------------------------------------------------------------------------
 
@@ -58,38 +59,43 @@ dim(cs)
 
 # Part 1 · Concepts and proxies
 
-Every empirical study translates **concepts** (what we want to talk about) into **measures** (what we can observe). Libby boxes make this translation explicit:
+Every empirical study translates **concepts** (what we want to talk about) into **measures** (what we can observe).
+Libby boxes make this translation explicit:
 
-| | Concept (X) | → | Concept (Y) |
-|---|---|---|---|
+|   | Concept (X) | → | Concept (Y) |
+|--------------------|------------------|------------------|------------------|
 | **Conceptual level** | Informativeness of disclosure policy | → | Analyst following |
-| | ↓ *construct validity* | | ↓ *construct validity* |
+|  | ↓ *construct validity* |  | ↓ *construct validity* |
 | **Operational level** | FAF disclosure score (rating by analysts) | → | Number of analysts with an IBES forecast |
-| **Other influences** | firm size, return volatility, earnings–return correlation | | |
+| **Other influences** | firm size, return volatility, earnings–return correlation |  |  |
 
-*Lang and Lundholm (1996).* The weakest link? The FAF score measures **analysts' perception** of disclosure — and the same group of people (analysts) also produce the outcome. The authors discuss this themselves (p. 474–475).
+*Lang and Lundholm (1996).* The weakest link?
+The FAF score measures **analysts' perception** of disclosure — and the same group of people (analysts) also produce the outcome.
+The authors discuss this themselves (p. 474–475).
 
-**Task A:** Fill in the Libby boxes for the frontier paper, **Huang, Hugon, Zhang and Zheng (2026)**. Which link worries you most?
+**Task A:** Fill in the Libby boxes for the frontier paper, **Huang, Hugon, Zhang and Zheng (2026)**.
+Which link worries you most?
 
-| | Concept (X) | → | Concept (Y) |
-|---|---|---|---|
-| **Conceptual level** | | → | |
-| **Operational level** | | → | |
-| **Other influences** | | | |
-
+|                       | Concept (X) | →   | Concept (Y) |
+|-----------------------|-------------|-----|-------------|
+| **Conceptual level**  |             | →   |             |
+| **Operational level** |             | →   |             |
+| **Other influences**  |             |     |             |
 
 Both papers measure the **same concept**, forecast accuracy, with **different proxies**:
 
--   Lang & Lundholm: $-\,|EPS - \text{median forecast}| \,/\, \text{Price}$
--   Huang et al.: $-$ PMAFE, the analyst's absolute error divided by the average absolute error of all analysts for that firm
+- Lang & Lundholm: $-\,|EPS - \text{median forecast}| \,/\, \text{Price}$
+- Huang et al.: $-$ PMAFE, the analyst's absolute error divided by the average absolute error of all analysts for that firm
 
-Scaling matters: dividing by price makes firms with low prices look extremely inaccurate. We see the same problem with our own data in Part 4.
+Scaling matters: dividing by price makes firms with low prices look extremely inaccurate.
+We see the same problem with our own data in Part 4.
 
 ------------------------------------------------------------------------
 
 # Part 2 · Descriptive statistics
 
-Descriptive statistics come first in every paper (usually Table 1 or 2). They tell the reader — and you — what the data look like: how many observations, typical values, spread, extreme values.
+Descriptive statistics come first in every paper (usually Table 1 or 2).
+They tell the reader — and you — what the data look like: how many observations, typical values, spread, extreme values.
 
 ### Chunk 2.1 · Build the variables
 
@@ -144,13 +150,20 @@ desc_table <- cs |>
 desc_table |> mutate(across(where(is.numeric), ~ round(.x, 3)))
 ```
 
-**Task B:** Read the table like a referee. Why is the mean of `roa` `NaN`? Which variables are heavily skewed (mean far from the median)? Which values look implausible? What is the unit of `mv`, `at` and `emp`? And what do you make of the industry shares in Chunk 2.2?
-
+**Task B:** Read the table like a referee.
+Why is the mean of `roa` `NaN`?
+Which variables are heavily skewed (mean far from the median)?
+Which values look implausible?
+What is the unit of `mv`, `at` and `emp`?
+And what do you make of the industry shares in Chunk 2.2?
 
 ### Chunk 2.4 · Fix the ratio and look again
 
 ```{r chunk_2_4}
 
+cs <- cs |>  mutate(roa = if_else(at > 0,  ib/at, NA_real_))
+
+summary(cs$roa)
 
 ```
 
@@ -160,7 +173,7 @@ desc_table |> mutate(across(where(is.numeric), ~ round(.x, 3)))
 
 `ggplot2` builds a figure in layers: **data** + **aesthetics** (`aes()`: which variable goes on which axis) + **geoms** (the type of plot) + options, connected with `+`.
 
-```
+```         
 ggplot(data, aes(x = ..., y = ...)) +
   geom_...() +
   labs(...)
@@ -170,15 +183,23 @@ ggplot(data, aes(x = ..., y = ...)) +
 
 ```{r chunk_3_1}
 
+ggplot(cs, aes(x = mv)) + 
+  geom_histogram(bins = 50) +
+  labs(title = "Market value (USD millions)", x = NULL, y = "Firm-years")
+
+ggplot(cs, aes(x = log(mv))) + 
+  geom_histogram(bins = 50) +
+  labs(title = "Market value (USD millions)", x = "log(MV)", y = "Firm-years")
 
 ```
 
 ## Winsorizing and truncating
 
-Accounting data almost always contain extreme values: tiny shell companies, data errors, firms in distress. Two standard ways to limit their influence:
+Accounting data almost always contain extreme values: tiny shell companies, data errors, firms in distress.
+Two standard ways to limit their influence:
 
-| | **Winsorizing** | **Truncating** (trimming) |
-|---|---|---|
+|   | **Winsorizing** | **Truncating** (trimming) |
+|------------------------|------------------------|------------------------|
 | What happens | values below the 1st / above the 99th percentile are **replaced** by these percentiles | observations below the 1st / above the 99th percentile are **deleted** |
 | Sample size | unchanged | smaller |
 | Typical use | continuous variables in regressions (most accounting papers: 1% / 99%) | when extreme values are likely errors or a different population |
@@ -190,6 +211,26 @@ Both are decisions you must **report** (variable, cut-offs, pooled or by year).
 
 ```{r chunk_3_2}
 ## Test on numbers we know (known inputs!)
+winsorize <- function(x, p_low = 0.01, p_high = 0.99) {
+  cuts <- quantile(x, probs = c(p_low, p_high), type = 2, na.rm = TRUE) 
+  x[x < cuts[1]] <- cuts[1]
+  x[x > cuts[2]] <- cuts[2]
+}
+
+truncate <- function(x, p_low = 0.01, p_high = 0.99) {
+  cuts <- quantile(x, probs = c(p_low, p_high), type = 2, na.rm = TRUE) 
+  x[x < cuts[1] | x > cuts[2]] <- NA
+  x
+}
+
+
+## Test on numbers we know
+test <- c(-1000, 1:99, 5000)
+range(winsorize(test))
+
+sum(is.na(truncate(test)))
+
+sum
 
 
 ```
@@ -201,9 +242,13 @@ Both are decisions you must **report** (variable, cut-offs, pooled or by year).
 
 ```
 
-Even after winsorizing, the lowest values are around −34: the bottom 1% consists of tiny shell companies with almost no assets. Winsorizing is a technical fix; a **sample choice** (e.g. total assets of at least USD 1 million) is a substantive one — and you must report it.
+Even after winsorizing, the lowest values are around −34: the bottom 1% consists of tiny shell companies with almost no assets.
+Winsorizing is a technical fix; a **sample choice** (e.g. total assets of at least USD 1 million) is a substantive one — and you must report it.
 
-**Task C1:** The median hardly changes — the mean changes a lot. Why? Which firms disappear with truncation? Does the share of loss firms change?
+**Task C1:** The median hardly changes — the mean changes a lot.
+Why?
+Which firms disappear with truncation?
+Does the share of loss firms change?
 
 ```{r task_C1}
 ## Which firms are cut off at the bottom and at the top?
@@ -212,14 +257,14 @@ Even after winsorizing, the lowest values are around −34: the bottom 1% consis
 
 ```
 
-
-**Task C2:** Winsorize *before* or *after* filtering the sample? Winsorize pooled or by year? Compute the 1% cut-off of ROA for each fiscal year separately — are they similar?
+**Task C2:** Winsorize *before* or *after* filtering the sample?
+Winsorize pooled or by year?
+Compute the 1% cut-off of ROA for each fiscal year separately — are they similar?
 
 ```{r task_C2}
 
 
 ```
-
 
 ### Chunk 3.4 · Boxplot by industry and a time trend
 
@@ -228,7 +273,8 @@ Even after winsorizing, the lowest values are around −34: the bottom 1% consis
 
 ```
 
-**Task C3:** Create a scatter plot of `log(at)` (x) against `log(mv)` (y) for fiscal year 2014. What does the picture tell you about these two size proxies?
+**Task C3:** Create a scatter plot of `log(at)` (x) against `log(mv)` (y) for fiscal year 2014.
+What does the picture tell you about these two size proxies?
 
 ```{r task_C}
 
@@ -239,11 +285,14 @@ Even after winsorizing, the lowest values are around −34: the bottom 1% consis
 
 # Part 4 · Proxies and construct validity
 
-A **proxy** is an observable variable that stands in for a concept we cannot observe directly. **Construct validity** asks: does the proxy capture the concept — and *only* the concept?
+A **proxy** is an observable variable that stands in for a concept we cannot observe directly.
+**Construct validity** asks: does the proxy capture the concept — and *only* the concept?
 
 ## 4.1 One concept, several proxies: firm size
 
-Lang and Lundholm use **market value** for size. Others use total assets, sales or employees. Do they measure the same thing?
+Lang and Lundholm use **market value** for size.
+Others use total assets, sales or employees.
+Do they measure the same thing?
 
 ### Chunk 4.1 · Correlations between size proxies
 
@@ -253,9 +302,11 @@ Lang and Lundholm use **market value** for size. Others use total assets, sales 
 
 ```
 
-The Pearson correlations of the raw values are driven by a handful of giant firms. Rank correlations (Spearman) are more robust.
+The Pearson correlations of the raw values are driven by a handful of giant firms.
+Rank correlations (Spearman) are more robust.
 
-**Task D:** Are the ten "largest" firms the same under each proxy? Which proxy makes banks (SIC 6) look biggest — and why?
+**Task D:** Are the ten "largest" firms the same under each proxy?
+Which proxy makes banks (SIC 6) look biggest — and why?
 
 ```{r task_D}
 ## Banks: huge balance sheets, relatively few employees
@@ -263,10 +314,10 @@ The Pearson correlations of the raw values are driven by a handful of giant firm
 
 ```
 
-
 ## 4.2 Scaling and extreme values: the earnings surprise
 
-Lang and Lundholm control for the **earnings surprise**: $|EPS_t - EPS_{t-1}| / P_{t-1}$. Dividing by price makes the measure comparable across firms — but what happens when the price is tiny?
+Lang and Lundholm control for the **earnings surprise**: $|EPS_t - EPS_{t-1}| / P_{t-1}$.
+Dividing by price makes the measure comparable across firms — but what happens when the price is tiny?
 
 ### Chunk 4.2 · Where do the extreme values come from?
 
@@ -289,12 +340,14 @@ Three ways to deal with it:
 
 ```
 
-**Task E:** The ranks are almost perfectly correlated with the raw values in Spearman terms — so what do we gain? And what do we lose when we use ranks?
-
+**Task E:** The ranks are almost perfectly correlated with the raw values in Spearman terms — so what do we gain?
+And what do we lose when we use ranks?
 
 ## 4.3 Measuring disclosure today: the SRN data
 
-Lang and Lundholm measured disclosure with expert ratings. Today we have machine-readable sustainability reports. A simple proxy for **disclosure completeness**: the share of the 27 ESRS indicators that SRN found in a firm's report.
+Lang and Lundholm measured disclosure with expert ratings.
+Today we have machine-readable sustainability reports.
+A simple proxy for **disclosure completeness**: the share of the 27 ESRS indicators that SRN found in a firm's report.
 
 ### Chunk 4.4 · A completeness proxy
 
@@ -310,8 +363,8 @@ Lang and Lundholm measured disclosure with expert ratings. Today we have machine
 
 ```
 
-**Task F:** Is "share of indicators found" a good proxy for *disclosure informativeness*? Think of at least two reasons why a firm can have low completeness **without** being less transparent — and one reason why high completeness can be misleading.
-
+**Task F:** Is "share of indicators found" a good proxy for *disclosure informativeness*?
+Think of at least two reasons why a firm can have low completeness **without** being less transparent — and one reason why high completeness can be misleading.
 
 ------------------------------------------------------------------------
 
@@ -319,22 +372,25 @@ Lang and Lundholm measured disclosure with expert ratings. Today we have machine
 
 **The question:** Do firms with more informative **sustainability** disclosure attract more analyst following?
 
-Work in pairs (room: with your neighbour; Zoom: breakout rooms). 20 minutes. Fill in the template below as text — no code needed. Be ready to present your weakest link.
+Work in pairs (room: with your neighbour; Zoom: breakout rooms).
+20 minutes.
+Fill in the template below as text — no code needed.
+Be ready to present your weakest link.
 
-| Element | Your design |
-|---------|-------------|
-| Concept X | |
-| Proxy for X (which data?) | |
-| Concept Y | |
-| Proxy for Y (which data?) | |
-| Unit of observation and years | |
-| Main alternative explanation (confounder) | |
-| How you would control for it | |
-| Weakest construct-validity link | |
-| What would change your mind? | |
+| Element                                   | Your design |
+|-------------------------------------------|-------------|
+| Concept X                                 |             |
+| Proxy for X (which data?)                 |             |
+| Concept Y                                 |             |
+| Proxy for Y (which data?)                 |             |
+| Unit of observation and years             |             |
+| Main alternative explanation (confounder) |             |
+| How you would control for it              |             |
+| Weakest construct-validity link           |             |
+| What would change your mind?              |             |
 
-
-**Bonus (AI):** Ask an AI tool: *"Suggest three proxies for the informativeness of a firm's sustainability disclosure."* For each suggestion: which Libby link is weak? Is the data actually available?
+**Bonus (AI):** Ask an AI tool: *"Suggest three proxies for the informativeness of a firm's sustainability disclosure."* For each suggestion: which Libby link is weak?
+Is the data actually available?
 
 ------------------------------------------------------------------------
 
@@ -342,12 +398,12 @@ Work in pairs (room: with your neighbour; Zoom: breakout rooms). 20 minutes. Fil
 
 **Checklist — can you do this now?**
 
--   [ ] Draw Libby boxes for a paper and name the weakest link
--   [ ] Produce a descriptive statistics table and read it like a referee
--   [ ] Build histograms, boxplots and scatter plots with ggplot2
--   [ ] Explain why skewness and scaling matter — and use logs, winsorizing, truncating or ranks
--   [ ] Compare several proxies for the same concept
--   [ ] Judge whether a proxy measures the concept you care about
+- [ ] Draw Libby boxes for a paper and name the weakest link
+- [ ] Produce a descriptive statistics table and read it like a referee
+- [ ] Build histograms, boxplots and scatter plots with ggplot2
+- [ ] Explain why skewness and scaling matter — and use logs, winsorizing, truncating or ranks
+- [ ] Compare several proxies for the same concept
+- [ ] Judge whether a proxy measures the concept you care about
 
 **Before Tutorial 4 (Thu 26 Nov):** commit and push your completed version of this document.
 
