@@ -1,0 +1,1634 @@
+SIC;FF_12;industry_name
+100;1;Consumer Nondurables
+110;1;Consumer Nondurables
+112;1;Consumer Nondurables
+115;1;Consumer Nondurables
+116;1;Consumer Nondurables
+120;1;Consumer Nondurables
+130;1;Consumer Nondurables
+131;1;Consumer Nondurables
+133;1;Consumer Nondurables
+139;1;Consumer Nondurables
+161;1;Consumer Nondurables
+170;1;Consumer Nondurables
+173;1;Consumer Nondurables
+174;1;Consumer Nondurables
+179;1;Consumer Nondurables
+180;1;Consumer Nondurables
+181;1;Consumer Nondurables
+189;1;Consumer Nondurables
+190;1;Consumer Nondurables
+191;1;Consumer Nondurables
+200;1;Consumer Nondurables
+210;1;Consumer Nondurables
+211;1;Consumer Nondurables
+212;1;Consumer Nondurables
+214;1;Consumer Nondurables
+241;1;Consumer Nondurables
+250;1;Consumer Nondurables
+251;1;Consumer Nondurables
+254;1;Consumer Nondurables
+270;1;Consumer Nondurables
+272;1;Consumer Nondurables
+279;1;Consumer Nondurables
+400;1;Consumer Nondurables
+530;1;Consumer Nondurables
+700;1;Consumer Nondurables
+710;1;Consumer Nondurables
+711;1;Consumer Nondurables
+720;1;Consumer Nondurables
+721;1;Consumer Nondurables
+723;1;Consumer Nondurables
+740;1;Consumer Nondurables
+742;1;Consumer Nondurables
+750;1;Consumer Nondurables
+752;1;Consumer Nondurables
+759;1;Consumer Nondurables
+762;1;Consumer Nondurables
+780;1;Consumer Nondurables
+781;1;Consumer Nondurables
+782;1;Consumer Nondurables
+783;1;Consumer Nondurables
+790;1;Consumer Nondurables
+800;1;Consumer Nondurables
+810;1;Consumer Nondurables
+811;1;Consumer Nondurables
+830;1;Consumer Nondurables
+831;1;Consumer Nondurables
+851;1;Consumer Nondurables
+900;1;Consumer Nondurables
+910;1;Consumer Nondurables
+912;1;Consumer Nondurables
+913;1;Consumer Nondurables
+919;1;Consumer Nondurables
+920;1;Consumer Nondurables
+921;1;Consumer Nondurables
+999;1;Consumer Nondurables
+1000;12;Other 
+1010;12;Other 
+1011;12;Other 
+1020;12;Other 
+1021;12;Other 
+1024;12;Other 
+1030;12;Other 
+1031;12;Other 
+1040;12;Other 
+1041;12;Other 
+1044;12;Other 
+1051;12;Other 
+1060;12;Other 
+1061;12;Other 
+1070;12;Other 
+1080;12;Other 
+1081;12;Other 
+1090;12;Other 
+1091;12;Other 
+1092;12;Other 
+1094;12;Other 
+1099;12;Other 
+1100;12;Other 
+1101;12;Other 
+1110;12;Other 
+1111;12;Other 
+1112;12;Other 
+1154;12;Other 
+1200;4;Oil&Gas
+1210;4;Oil&Gas
+1211;4;Oil&Gas
+1220;4;Oil&Gas
+1221;4;Oil&Gas
+1222;4;Oil&Gas
+1226;4;Oil&Gas
+1241;4;Oil&Gas
+1300;4;Oil&Gas
+1310;4;Oil&Gas
+1311;4;Oil&Gas
+1320;4;Oil&Gas
+1321;4;Oil&Gas
+1330;4;Oil&Gas
+1372;4;Oil&Gas
+1374;4;Oil&Gas
+1380;4;Oil&Gas
+1381;4;Oil&Gas
+1382;4;Oil&Gas
+1389;4;Oil&Gas
+1390;4;Oil&Gas
+1400;12;Other 
+1411;12;Other 
+1420;12;Other 
+1422;12;Other 
+1423;12;Other 
+1429;12;Other 
+1442;12;Other 
+1446;12;Other 
+1450;12;Other 
+1459;12;Other 
+1470;12;Other 
+1474;12;Other 
+1477;12;Other 
+1479;12;Other 
+1480;12;Other 
+1481;12;Other 
+1490;12;Other 
+1497;12;Other 
+1499;12;Other 
+1500;12;Other 
+1510;12;Other 
+1511;12;Other 
+1520;12;Other 
+1521;12;Other 
+1522;12;Other 
+1524;12;Other 
+1530;12;Other 
+1531;12;Other 
+1540;12;Other 
+1541;12;Other 
+1542;12;Other 
+1590;12;Other 
+1600;12;Other 
+1610;12;Other 
+1611;12;Other 
+1620;12;Other 
+1621;12;Other 
+1622;12;Other 
+1623;12;Other 
+1629;12;Other 
+1630;12;Other 
+1680;12;Other 
+1700;12;Other 
+1710;12;Other 
+1711;12;Other 
+1730;12;Other 
+1731;12;Other 
+1740;12;Other 
+1742;12;Other 
+1743;12;Other 
+1752;12;Other 
+1761;12;Other 
+1780;12;Other 
+1781;12;Other 
+1790;12;Other 
+1791;12;Other 
+1794;12;Other 
+1795;12;Other 
+1796;12;Other 
+1799;12;Other 
+2000;1;Consumer Nondurables
+2002;1;Consumer Nondurables
+2010;1;Consumer Nondurables
+2011;1;Consumer Nondurables
+2013;1;Consumer Nondurables
+2015;1;Consumer Nondurables
+2016;1;Consumer Nondurables
+2017;1;Consumer Nondurables
+2020;1;Consumer Nondurables
+2021;1;Consumer Nondurables
+2022;1;Consumer Nondurables
+2023;1;Consumer Nondurables
+2024;1;Consumer Nondurables
+2026;1;Consumer Nondurables
+2030;1;Consumer Nondurables
+2031;1;Consumer Nondurables
+2032;1;Consumer Nondurables
+2033;1;Consumer Nondurables
+2034;1;Consumer Nondurables
+2035;1;Consumer Nondurables
+2037;1;Consumer Nondurables
+2038;1;Consumer Nondurables
+2040;1;Consumer Nondurables
+2041;1;Consumer Nondurables
+2042;1;Consumer Nondurables
+2043;1;Consumer Nondurables
+2044;1;Consumer Nondurables
+2045;1;Consumer Nondurables
+2046;1;Consumer Nondurables
+2047;1;Consumer Nondurables
+2048;1;Consumer Nondurables
+2050;1;Consumer Nondurables
+2051;1;Consumer Nondurables
+2052;1;Consumer Nondurables
+2060;1;Consumer Nondurables
+2061;1;Consumer Nondurables
+2062;1;Consumer Nondurables
+2063;1;Consumer Nondurables
+2064;1;Consumer Nondurables
+2065;1;Consumer Nondurables
+2066;1;Consumer Nondurables
+2067;1;Consumer Nondurables
+2068;1;Consumer Nondurables
+2070;1;Consumer Nondurables
+2075;1;Consumer Nondurables
+2077;1;Consumer Nondurables
+2079;1;Consumer Nondurables
+2080;1;Consumer Nondurables
+2082;1;Consumer Nondurables
+2083;1;Consumer Nondurables
+2084;1;Consumer Nondurables
+2085;1;Consumer Nondurables
+2086;1;Consumer Nondurables
+2087;1;Consumer Nondurables
+2090;1;Consumer Nondurables
+2091;1;Consumer Nondurables
+2092;1;Consumer Nondurables
+2095;1;Consumer Nondurables
+2096;1;Consumer Nondurables
+2097;1;Consumer Nondurables
+2098;1;Consumer Nondurables
+2099;1;Consumer Nondurables
+2100;1;Consumer Nondurables
+2110;1;Consumer Nondurables
+2111;1;Consumer Nondurables
+2120;1;Consumer Nondurables
+2121;1;Consumer Nondurables
+2131;1;Consumer Nondurables
+2190;1;Consumer Nondurables
+2192;1;Consumer Nondurables
+2200;1;Consumer Nondurables
+2210;1;Consumer Nondurables
+2211;1;Consumer Nondurables
+2220;1;Consumer Nondurables
+2221;1;Consumer Nondurables
+2230;1;Consumer Nondurables
+2231;1;Consumer Nondurables
+2240;1;Consumer Nondurables
+2241;1;Consumer Nondurables
+2250;1;Consumer Nondurables
+2251;1;Consumer Nondurables
+2252;1;Consumer Nondurables
+2253;1;Consumer Nondurables
+2254;1;Consumer Nondurables
+2257;1;Consumer Nondurables
+2258;1;Consumer Nondurables
+2259;1;Consumer Nondurables
+2260;1;Consumer Nondurables
+2261;1;Consumer Nondurables
+2262;1;Consumer Nondurables
+2269;1;Consumer Nondurables
+2270;1;Consumer Nondurables
+2271;1;Consumer Nondurables
+2272;1;Consumer Nondurables
+2273;1;Consumer Nondurables
+2279;1;Consumer Nondurables
+2280;1;Consumer Nondurables
+2281;1;Consumer Nondurables
+2282;1;Consumer Nondurables
+2283;1;Consumer Nondurables
+2284;1;Consumer Nondurables
+2290;1;Consumer Nondurables
+2292;1;Consumer Nondurables
+2294;1;Consumer Nondurables
+2295;1;Consumer Nondurables
+2297;1;Consumer Nondurables
+2298;1;Consumer Nondurables
+2299;1;Consumer Nondurables
+2300;1;Consumer Nondurables
+2310;1;Consumer Nondurables
+2311;1;Consumer Nondurables
+2320;1;Consumer Nondurables
+2321;1;Consumer Nondurables
+2322;1;Consumer Nondurables
+2323;1;Consumer Nondurables
+2325;1;Consumer Nondurables
+2326;1;Consumer Nondurables
+2327;1;Consumer Nondurables
+2328;1;Consumer Nondurables
+2329;1;Consumer Nondurables
+2330;1;Consumer Nondurables
+2331;1;Consumer Nondurables
+2335;1;Consumer Nondurables
+2337;1;Consumer Nondurables
+2339;1;Consumer Nondurables
+2340;1;Consumer Nondurables
+2341;1;Consumer Nondurables
+2342;1;Consumer Nondurables
+2352;1;Consumer Nondurables
+2360;1;Consumer Nondurables
+2361;1;Consumer Nondurables
+2363;1;Consumer Nondurables
+2369;1;Consumer Nondurables
+2371;1;Consumer Nondurables
+2379;1;Consumer Nondurables
+2380;1;Consumer Nondurables
+2384;1;Consumer Nondurables
+2385;1;Consumer Nondurables
+2387;1;Consumer Nondurables
+2389;1;Consumer Nondurables
+2390;1;Consumer Nondurables
+2391;1;Consumer Nondurables
+2392;1;Consumer Nondurables
+2393;1;Consumer Nondurables
+2394;1;Consumer Nondurables
+2395;1;Consumer Nondurables
+2396;1;Consumer Nondurables
+2399;1;Consumer Nondurables
+2400;12;Other 
+2410;12;Other 
+2411;12;Other 
+2420;12;Other 
+2421;12;Other 
+2426;12;Other 
+2429;12;Other 
+2430;12;Other 
+2431;12;Other 
+2434;12;Other 
+2435;12;Other 
+2436;12;Other 
+2439;12;Other 
+2440;12;Other 
+2449;12;Other 
+2450;12;Other 
+2451;12;Other 
+2452;12;Other 
+2490;12;Other 
+2491;12;Other 
+2493;12;Other 
+2499;12;Other 
+2500;2;Consumer Durables
+2510;2;Consumer Durables
+2511;2;Consumer Durables
+2512;2;Consumer Durables
+2514;2;Consumer Durables
+2515;2;Consumer Durables
+2517;2;Consumer Durables
+2519;2;Consumer Durables
+2520;3;Manufacturing
+2521;3;Manufacturing
+2522;3;Manufacturing
+2531;3;Manufacturing
+2540;3;Manufacturing
+2541;3;Manufacturing
+2542;3;Manufacturing
+2590;2;Consumer Durables
+2591;2;Consumer Durables
+2599;2;Consumer Durables
+2600;3;Manufacturing
+2610;3;Manufacturing
+2611;3;Manufacturing
+2615;3;Manufacturing
+2620;3;Manufacturing
+2621;3;Manufacturing
+2630;3;Manufacturing
+2631;3;Manufacturing
+2640;3;Manufacturing
+2641;3;Manufacturing
+2642;3;Manufacturing
+2643;3;Manufacturing
+2645;3;Manufacturing
+2646;3;Manufacturing
+2647;3;Manufacturing
+2648;3;Manufacturing
+2649;3;Manufacturing
+2650;3;Manufacturing
+2651;3;Manufacturing
+2653;3;Manufacturing
+2654;3;Manufacturing
+2655;3;Manufacturing
+2656;3;Manufacturing
+2657;3;Manufacturing
+2660;3;Manufacturing
+2661;3;Manufacturing
+2670;3;Manufacturing
+2671;3;Manufacturing
+2672;3;Manufacturing
+2673;3;Manufacturing
+2674;3;Manufacturing
+2675;3;Manufacturing
+2676;3;Manufacturing
+2677;3;Manufacturing
+2678;3;Manufacturing
+2679;3;Manufacturing
+2700;1;Consumer Nondurables
+2710;1;Consumer Nondurables
+2711;1;Consumer Nondurables
+2720;1;Consumer Nondurables
+2721;1;Consumer Nondurables
+2730;1;Consumer Nondurables
+2731;1;Consumer Nondurables
+2732;1;Consumer Nondurables
+2740;1;Consumer Nondurables
+2741;1;Consumer Nondurables
+2750;3;Manufacturing
+2751;3;Manufacturing
+2752;3;Manufacturing
+2753;3;Manufacturing
+2754;3;Manufacturing
+2758;3;Manufacturing
+2759;3;Manufacturing
+2760;3;Manufacturing
+2761;3;Manufacturing
+2770;1;Consumer Nondurables
+2771;1;Consumer Nondurables
+2780;1;Consumer Nondurables
+2782;1;Consumer Nondurables
+2790;1;Consumer Nondurables
+2791;1;Consumer Nondurables
+2794;1;Consumer Nondurables
+2795;1;Consumer Nondurables
+2796;1;Consumer Nondurables
+2800;5;Chemicals 
+2810;5;Chemicals 
+2812;5;Chemicals 
+2813;5;Chemicals 
+2816;5;Chemicals 
+2818;5;Chemicals 
+2819;5;Chemicals 
+2820;5;Chemicals 
+2821;5;Chemicals 
+2822;5;Chemicals 
+2823;5;Chemicals 
+2824;5;Chemicals 
+2830;10;Healthcare
+2831;10;Healthcare
+2833;10;Healthcare
+2834;10;Healthcare
+2835;10;Healthcare
+2836;10;Healthcare
+2840;5;Chemicals 
+2841;5;Chemicals 
+2842;5;Chemicals 
+2843;5;Chemicals 
+2844;5;Chemicals 
+2850;5;Chemicals 
+2851;5;Chemicals 
+2860;5;Chemicals 
+2861;5;Chemicals 
+2865;5;Chemicals 
+2869;5;Chemicals 
+2870;5;Chemicals 
+2873;5;Chemicals 
+2874;5;Chemicals 
+2875;5;Chemicals 
+2879;5;Chemicals 
+2890;5;Chemicals 
+2891;5;Chemicals 
+2892;5;Chemicals 
+2893;5;Chemicals 
+2895;5;Chemicals 
+2899;5;Chemicals 
+2910;4;Oil&Gas
+2911;4;Oil&Gas
+2912;4;Oil&Gas
+2950;4;Oil&Gas
+2951;4;Oil&Gas
+2952;4;Oil&Gas
+2990;4;Oil&Gas
+2992;4;Oil&Gas
+2999;4;Oil&Gas
+3000;3;Manufacturing
+3010;3;Manufacturing
+3011;3;Manufacturing
+3020;3;Manufacturing
+3021;3;Manufacturing
+3031;3;Manufacturing
+3041;3;Manufacturing
+3050;3;Manufacturing
+3052;3;Manufacturing
+3053;3;Manufacturing
+3060;3;Manufacturing
+3061;3;Manufacturing
+3069;3;Manufacturing
+3070;3;Manufacturing
+3079;3;Manufacturing
+3080;3;Manufacturing
+3081;3;Manufacturing
+3083;3;Manufacturing
+3084;3;Manufacturing
+3085;3;Manufacturing
+3086;3;Manufacturing
+3089;3;Manufacturing
+3090;3;Manufacturing
+3100;1;Consumer Nondurables
+3110;1;Consumer Nondurables
+3111;1;Consumer Nondurables
+3131;1;Consumer Nondurables
+3140;1;Consumer Nondurables
+3141;1;Consumer Nondurables
+3142;1;Consumer Nondurables
+3143;1;Consumer Nondurables
+3144;1;Consumer Nondurables
+3149;1;Consumer Nondurables
+3151;1;Consumer Nondurables
+3160;1;Consumer Nondurables
+3161;1;Consumer Nondurables
+3170;1;Consumer Nondurables
+3171;1;Consumer Nondurables
+3172;1;Consumer Nondurables
+3199;1;Consumer Nondurables
+3210;3;Manufacturing
+3211;3;Manufacturing
+3220;3;Manufacturing
+3221;3;Manufacturing
+3225;3;Manufacturing
+3229;3;Manufacturing
+3230;3;Manufacturing
+3231;3;Manufacturing
+3240;3;Manufacturing
+3241;3;Manufacturing
+3250;3;Manufacturing
+3251;3;Manufacturing
+3253;3;Manufacturing
+3255;3;Manufacturing
+3259;3;Manufacturing
+3260;3;Manufacturing
+3261;3;Manufacturing
+3262;3;Manufacturing
+3264;3;Manufacturing
+3269;3;Manufacturing
+3270;3;Manufacturing
+3271;3;Manufacturing
+3272;3;Manufacturing
+3273;3;Manufacturing
+3274;3;Manufacturing
+3275;3;Manufacturing
+3280;3;Manufacturing
+3281;3;Manufacturing
+3290;3;Manufacturing
+3291;3;Manufacturing
+3292;3;Manufacturing
+3293;3;Manufacturing
+3295;3;Manufacturing
+3296;3;Manufacturing
+3297;3;Manufacturing
+3299;3;Manufacturing
+3310;3;Manufacturing
+3311;3;Manufacturing
+3312;3;Manufacturing
+3313;3;Manufacturing
+3315;3;Manufacturing
+3316;3;Manufacturing
+3317;3;Manufacturing
+3320;3;Manufacturing
+3321;3;Manufacturing
+3322;3;Manufacturing
+3324;3;Manufacturing
+3325;3;Manufacturing
+3330;3;Manufacturing
+3331;3;Manufacturing
+3332;3;Manufacturing
+3333;3;Manufacturing
+3334;3;Manufacturing
+3337;3;Manufacturing
+3339;3;Manufacturing
+3340;3;Manufacturing
+3341;3;Manufacturing
+3350;3;Manufacturing
+3351;3;Manufacturing
+3353;3;Manufacturing
+3354;3;Manufacturing
+3356;3;Manufacturing
+3357;3;Manufacturing
+3360;3;Manufacturing
+3361;3;Manufacturing
+3362;3;Manufacturing
+3364;3;Manufacturing
+3365;3;Manufacturing
+3366;3;Manufacturing
+3369;3;Manufacturing
+3370;3;Manufacturing
+3390;3;Manufacturing
+3398;3;Manufacturing
+3399;3;Manufacturing
+3400;3;Manufacturing
+3410;3;Manufacturing
+3411;3;Manufacturing
+3412;3;Manufacturing
+3420;3;Manufacturing
+3421;3;Manufacturing
+3422;3;Manufacturing
+3423;3;Manufacturing
+3424;3;Manufacturing
+3425;3;Manufacturing
+3426;3;Manufacturing
+3429;3;Manufacturing
+3430;3;Manufacturing
+3431;3;Manufacturing
+3432;3;Manufacturing
+3433;3;Manufacturing
+3440;3;Manufacturing
+3441;3;Manufacturing
+3442;3;Manufacturing
+3443;3;Manufacturing
+3444;3;Manufacturing
+3446;3;Manufacturing
+3448;3;Manufacturing
+3449;3;Manufacturing
+3450;3;Manufacturing
+3451;3;Manufacturing
+3452;3;Manufacturing
+3460;3;Manufacturing
+3462;3;Manufacturing
+3463;3;Manufacturing
+3465;3;Manufacturing
+3469;3;Manufacturing
+3470;3;Manufacturing
+3471;3;Manufacturing
+3472;3;Manufacturing
+3479;3;Manufacturing
+3480;3;Manufacturing
+3482;3;Manufacturing
+3483;3;Manufacturing
+3484;3;Manufacturing
+3489;3;Manufacturing
+3490;3;Manufacturing
+3491;3;Manufacturing
+3492;3;Manufacturing
+3493;3;Manufacturing
+3494;3;Manufacturing
+3495;3;Manufacturing
+3496;3;Manufacturing
+3497;3;Manufacturing
+3498;3;Manufacturing
+3499;3;Manufacturing
+3510;3;Manufacturing
+3511;3;Manufacturing
+3519;3;Manufacturing
+3520;3;Manufacturing
+3522;3;Manufacturing
+3523;3;Manufacturing
+3524;3;Manufacturing
+3530;3;Manufacturing
+3531;3;Manufacturing
+3532;3;Manufacturing
+3533;3;Manufacturing
+3534;3;Manufacturing
+3535;3;Manufacturing
+3536;3;Manufacturing
+3537;3;Manufacturing
+3538;3;Manufacturing
+3540;3;Manufacturing
+3541;3;Manufacturing
+3542;3;Manufacturing
+3544;3;Manufacturing
+3545;3;Manufacturing
+3546;3;Manufacturing
+3547;3;Manufacturing
+3549;3;Manufacturing
+3550;3;Manufacturing
+3551;3;Manufacturing
+3552;3;Manufacturing
+3553;3;Manufacturing
+3554;3;Manufacturing
+3555;3;Manufacturing
+3556;3;Manufacturing
+3559;3;Manufacturing
+3560;3;Manufacturing
+3561;3;Manufacturing
+3562;3;Manufacturing
+3563;3;Manufacturing
+3564;3;Manufacturing
+3565;3;Manufacturing
+3566;3;Manufacturing
+3567;3;Manufacturing
+3568;3;Manufacturing
+3569;3;Manufacturing
+3570;6;Business Equipmen
+3571;6;Business Equipmen
+3572;6;Business Equipmen
+3573;6;Business Equipmen
+3574;6;Business Equipmen
+3575;6;Business Equipmen
+3576;6;Business Equipmen
+3577;6;Business Equipmen
+3578;6;Business Equipmen
+3579;6;Business Equipmen
+3580;3;Manufacturing
+3581;3;Manufacturing
+3582;3;Manufacturing
+3585;3;Manufacturing
+3586;3;Manufacturing
+3589;3;Manufacturing
+3590;3;Manufacturing
+3592;3;Manufacturing
+3593;3;Manufacturing
+3594;3;Manufacturing
+3599;3;Manufacturing
+3600;3;Manufacturing
+3610;3;Manufacturing
+3611;3;Manufacturing
+3612;3;Manufacturing
+3613;3;Manufacturing
+3620;3;Manufacturing
+3621;3;Manufacturing
+3622;3;Manufacturing
+3623;3;Manufacturing
+3624;3;Manufacturing
+3625;3;Manufacturing
+3629;3;Manufacturing
+3630;2;Consumer Durables
+3631;2;Consumer Durables
+3632;2;Consumer Durables
+3633;2;Consumer Durables
+3634;2;Consumer Durables
+3635;2;Consumer Durables
+3636;2;Consumer Durables
+3639;2;Consumer Durables
+3640;2;Consumer Durables
+3641;2;Consumer Durables
+3643;2;Consumer Durables
+3644;2;Consumer Durables
+3645;2;Consumer Durables
+3646;2;Consumer Durables
+3647;2;Consumer Durables
+3648;2;Consumer Durables
+3650;2;Consumer Durables
+3651;2;Consumer Durables
+3652;2;Consumer Durables
+3660;6;Business Equipmen
+3661;6;Business Equipmen
+3662;6;Business Equipmen
+3663;6;Business Equipmen
+3664;6;Business Equipmen
+3669;6;Business Equipmen
+3670;6;Business Equipmen
+3671;6;Business Equipmen
+3672;6;Business Equipmen
+3673;6;Business Equipmen
+3674;6;Business Equipmen
+3675;6;Business Equipmen
+3676;6;Business Equipmen
+3677;6;Business Equipmen
+3678;6;Business Equipmen
+3679;6;Business Equipmen
+3680;6;Business Equipmen
+3690;6;Business Equipmen
+3691;6;Business Equipmen
+3692;6;Business Equipmen
+3693;10;Healthcare
+3694;6;Business Equipmen
+3695;6;Business Equipmen
+3699;6;Business Equipmen
+3700;3;Manufacturing
+3710;2;Consumer Durables
+3711;2;Consumer Durables
+3713;3;Manufacturing
+3714;2;Consumer Durables
+3715;3;Manufacturing
+3716;2;Consumer Durables
+3720;3;Manufacturing
+3721;3;Manufacturing
+3723;3;Manufacturing
+3724;3;Manufacturing
+3725;3;Manufacturing
+3728;3;Manufacturing
+3729;3;Manufacturing
+3730;3;Manufacturing
+3731;3;Manufacturing
+3732;3;Manufacturing
+3740;3;Manufacturing
+3741;3;Manufacturing
+3743;3;Manufacturing
+3750;2;Consumer Durables
+3751;2;Consumer Durables
+3754;3;Manufacturing
+3760;3;Manufacturing
+3761;3;Manufacturing
+3764;3;Manufacturing
+3769;3;Manufacturing
+3780;3;Manufacturing
+3790;3;Manufacturing
+3791;3;Manufacturing
+3792;2;Consumer Durables
+3795;3;Manufacturing
+3799;3;Manufacturing
+3810;6;Business Equipmen
+3811;6;Business Equipmen
+3812;6;Business Equipmen
+3820;6;Business Equipmen
+3821;6;Business Equipmen
+3822;6;Business Equipmen
+3823;6;Business Equipmen
+3824;6;Business Equipmen
+3825;6;Business Equipmen
+3826;6;Business Equipmen
+3827;6;Business Equipmen
+3829;6;Business Equipmen
+3830;3;Manufacturing
+3832;3;Manufacturing
+3840;10;Healthcare
+3841;10;Healthcare
+3842;10;Healthcare
+3843;10;Healthcare
+3844;10;Healthcare
+3845;10;Healthcare
+3850;10;Healthcare
+3851;10;Healthcare
+3860;3;Manufacturing
+3861;3;Manufacturing
+3870;3;Manufacturing
+3873;3;Manufacturing
+3899;3;Manufacturing
+3900;2;Consumer Durables
+3910;2;Consumer Durables
+3911;2;Consumer Durables
+3914;2;Consumer Durables
+3915;2;Consumer Durables
+3930;2;Consumer Durables
+3931;2;Consumer Durables
+3940;1;Consumer Nondurables
+3941;1;Consumer Nondurables
+3942;1;Consumer Nondurables
+3944;1;Consumer Nondurables
+3948;1;Consumer Nondurables
+3949;1;Consumer Nondurables
+3950;1;Consumer Nondurables
+3951;1;Consumer Nondurables
+3952;1;Consumer Nondurables
+3953;1;Consumer Nondurables
+3955;1;Consumer Nondurables
+3960;1;Consumer Nondurables
+3961;1;Consumer Nondurables
+3962;1;Consumer Nondurables
+3964;1;Consumer Nondurables
+3965;1;Consumer Nondurables
+3970;1;Consumer Nondurables
+3980;1;Consumer Nondurables
+3990;2;Consumer Durables
+3991;2;Consumer Durables
+3993;2;Consumer Durables
+3995;2;Consumer Durables
+3996;2;Consumer Durables
+3999;2;Consumer Durables
+4000;12;Other 
+4010;12;Other 
+4011;12;Other 
+4013;12;Other 
+4100;12;Other 
+4110;12;Other 
+4111;12;Other 
+4119;12;Other 
+4120;12;Other 
+4121;12;Other 
+4131;12;Other 
+4140;12;Other 
+4142;12;Other 
+4150;12;Other 
+4151;12;Other 
+4180;12;Other 
+4190;12;Other 
+4200;12;Other 
+4210;12;Other 
+4212;12;Other 
+4213;12;Other 
+4214;12;Other 
+4215;12;Other 
+4220;12;Other 
+4221;12;Other 
+4222;12;Other 
+4224;12;Other 
+4225;12;Other 
+4226;12;Other 
+4231;12;Other 
+4240;12;Other 
+4310;12;Other 
+4400;12;Other 
+4410;12;Other 
+4411;12;Other 
+4412;12;Other 
+4420;12;Other 
+4421;12;Other 
+4423;12;Other 
+4424;12;Other 
+4430;12;Other 
+4441;12;Other 
+4449;12;Other 
+4454;12;Other 
+4460;12;Other 
+4469;12;Other 
+4480;12;Other 
+4481;12;Other 
+4482;12;Other 
+4490;12;Other 
+4491;12;Other 
+4492;12;Other 
+4499;12;Other 
+4500;12;Other 
+4510;12;Other 
+4511;12;Other 
+4512;12;Other 
+4513;12;Other 
+4520;12;Other 
+4521;12;Other 
+4522;12;Other 
+4523;12;Other 
+4550;12;Other 
+4580;12;Other 
+4581;12;Other 
+4582;12;Other 
+4583;12;Other 
+4600;12;Other 
+4610;12;Other 
+4611;12;Other 
+4612;12;Other 
+4613;12;Other 
+4619;12;Other 
+4626;12;Other 
+4700;12;Other 
+4710;12;Other 
+4712;12;Other 
+4720;12;Other 
+4722;12;Other 
+4723;12;Other 
+4724;12;Other 
+4725;12;Other 
+4729;12;Other 
+4730;12;Other 
+4731;12;Other 
+4740;12;Other 
+4741;12;Other 
+4742;12;Other 
+4743;12;Other 
+4780;12;Other 
+4784;12;Other 
+4785;12;Other 
+4789;12;Other 
+4800;7;Telephone and Television Transmission
+4810;7;Telephone and Television Transmission
+4811;7;Telephone and Television Transmission
+4812;7;Telephone and Television Transmission
+4813;7;Telephone and Television Transmission
+4820;7;Telephone and Television Transmission
+4821;7;Telephone and Television Transmission
+4822;7;Telephone and Television Transmission
+4830;7;Telephone and Television Transmission
+4832;7;Telephone and Television Transmission
+4833;7;Telephone and Television Transmission
+4840;7;Telephone and Television Transmission
+4841;7;Telephone and Television Transmission
+4876;7;Telephone and Television Transmission
+4880;7;Telephone and Television Transmission
+4888;7;Telephone and Television Transmission
+4890;7;Telephone and Television Transmission
+4899;7;Telephone and Television Transmission
+4905;8;Utilities
+4910;8;Utilities
+4911;8;Utilities
+4920;8;Utilities
+4922;8;Utilities
+4923;8;Utilities
+4924;8;Utilities
+4925;8;Utilities
+4930;8;Utilities
+4931;8;Utilities
+4932;8;Utilities
+4939;8;Utilities
+4940;8;Utilities
+4941;8;Utilities
+4942;8;Utilities
+4950;12;Other 
+4952;12;Other 
+4953;12;Other 
+4955;12;Other 
+4959;12;Other 
+4960;12;Other 
+4961;12;Other 
+4971;12;Other 
+4990;12;Other 
+4991;12;Other 
+5000;9;Wholesale & Retail
+5010;9;Wholesale & Retail
+5012;9;Wholesale & Retail
+5013;9;Wholesale & Retail
+5014;9;Wholesale & Retail
+5015;9;Wholesale & Retail
+5020;9;Wholesale & Retail
+5021;9;Wholesale & Retail
+5023;9;Wholesale & Retail
+5030;9;Wholesale & Retail
+5031;9;Wholesale & Retail
+5032;9;Wholesale & Retail
+5033;9;Wholesale & Retail
+5039;9;Wholesale & Retail
+5040;9;Wholesale & Retail
+5041;9;Wholesale & Retail
+5042;9;Wholesale & Retail
+5043;9;Wholesale & Retail
+5044;9;Wholesale & Retail
+5045;9;Wholesale & Retail
+5046;9;Wholesale & Retail
+5047;9;Wholesale & Retail
+5048;9;Wholesale & Retail
+5049;9;Wholesale & Retail
+5050;9;Wholesale & Retail
+5051;9;Wholesale & Retail
+5052;9;Wholesale & Retail
+5056;9;Wholesale & Retail
+5060;9;Wholesale & Retail
+5063;9;Wholesale & Retail
+5064;9;Wholesale & Retail
+5065;9;Wholesale & Retail
+5070;9;Wholesale & Retail
+5072;9;Wholesale & Retail
+5074;9;Wholesale & Retail
+5075;9;Wholesale & Retail
+5080;9;Wholesale & Retail
+5081;9;Wholesale & Retail
+5082;9;Wholesale & Retail
+5083;9;Wholesale & Retail
+5084;9;Wholesale & Retail
+5085;9;Wholesale & Retail
+5086;9;Wholesale & Retail
+5087;9;Wholesale & Retail
+5088;9;Wholesale & Retail
+5090;9;Wholesale & Retail
+5091;9;Wholesale & Retail
+5092;9;Wholesale & Retail
+5093;9;Wholesale & Retail
+5094;9;Wholesale & Retail
+5099;9;Wholesale & Retail
+5110;9;Wholesale & Retail
+5111;9;Wholesale & Retail
+5112;9;Wholesale & Retail
+5120;9;Wholesale & Retail
+5122;9;Wholesale & Retail
+5130;9;Wholesale & Retail
+5131;9;Wholesale & Retail
+5133;9;Wholesale & Retail
+5134;9;Wholesale & Retail
+5136;9;Wholesale & Retail
+5137;9;Wholesale & Retail
+5139;9;Wholesale & Retail
+5140;9;Wholesale & Retail
+5141;9;Wholesale & Retail
+5142;9;Wholesale & Retail
+5143;9;Wholesale & Retail
+5144;9;Wholesale & Retail
+5145;9;Wholesale & Retail
+5146;9;Wholesale & Retail
+5147;9;Wholesale & Retail
+5148;9;Wholesale & Retail
+5149;9;Wholesale & Retail
+5150;9;Wholesale & Retail
+5152;9;Wholesale & Retail
+5153;9;Wholesale & Retail
+5159;9;Wholesale & Retail
+5160;9;Wholesale & Retail
+5161;9;Wholesale & Retail
+5162;9;Wholesale & Retail
+5169;9;Wholesale & Retail
+5170;9;Wholesale & Retail
+5171;9;Wholesale & Retail
+5172;9;Wholesale & Retail
+5180;9;Wholesale & Retail
+5181;9;Wholesale & Retail
+5182;9;Wholesale & Retail
+5190;9;Wholesale & Retail
+5191;9;Wholesale & Retail
+5192;9;Wholesale & Retail
+5194;9;Wholesale & Retail
+5199;9;Wholesale & Retail
+5200;9;Wholesale & Retail
+5210;9;Wholesale & Retail
+5211;9;Wholesale & Retail
+5212;9;Wholesale & Retail
+5220;9;Wholesale & Retail
+5230;9;Wholesale & Retail
+5231;9;Wholesale & Retail
+5250;9;Wholesale & Retail
+5251;9;Wholesale & Retail
+5260;9;Wholesale & Retail
+5261;9;Wholesale & Retail
+5270;9;Wholesale & Retail
+5271;9;Wholesale & Retail
+5300;9;Wholesale & Retail
+5310;9;Wholesale & Retail
+5311;9;Wholesale & Retail
+5317;9;Wholesale & Retail
+5320;9;Wholesale & Retail
+5330;9;Wholesale & Retail
+5331;9;Wholesale & Retail
+5340;9;Wholesale & Retail
+5390;9;Wholesale & Retail
+5399;9;Wholesale & Retail
+5400;9;Wholesale & Retail
+5410;9;Wholesale & Retail
+5411;9;Wholesale & Retail
+5412;9;Wholesale & Retail
+5416;9;Wholesale & Retail
+5420;9;Wholesale & Retail
+5421;9;Wholesale & Retail
+5422;9;Wholesale & Retail
+5430;9;Wholesale & Retail
+5440;9;Wholesale & Retail
+5441;9;Wholesale & Retail
+5450;9;Wholesale & Retail
+5451;9;Wholesale & Retail
+5460;9;Wholesale & Retail
+5461;9;Wholesale & Retail
+5462;9;Wholesale & Retail
+5490;9;Wholesale & Retail
+5499;9;Wholesale & Retail
+5500;9;Wholesale & Retail
+5510;9;Wholesale & Retail
+5511;9;Wholesale & Retail
+5520;9;Wholesale & Retail
+5521;9;Wholesale & Retail
+5530;9;Wholesale & Retail
+5531;9;Wholesale & Retail
+5540;9;Wholesale & Retail
+5541;9;Wholesale & Retail
+5550;9;Wholesale & Retail
+5551;9;Wholesale & Retail
+5560;9;Wholesale & Retail
+5561;9;Wholesale & Retail
+5571;9;Wholesale & Retail
+5599;9;Wholesale & Retail
+5600;9;Wholesale & Retail
+5610;9;Wholesale & Retail
+5611;9;Wholesale & Retail
+5620;9;Wholesale & Retail
+5621;9;Wholesale & Retail
+5626;9;Wholesale & Retail
+5630;9;Wholesale & Retail
+5631;9;Wholesale & Retail
+5632;9;Wholesale & Retail
+5640;9;Wholesale & Retail
+5641;9;Wholesale & Retail
+5650;9;Wholesale & Retail
+5651;9;Wholesale & Retail
+5660;9;Wholesale & Retail
+5661;9;Wholesale & Retail
+5680;9;Wholesale & Retail
+5690;9;Wholesale & Retail
+5699;9;Wholesale & Retail
+5700;9;Wholesale & Retail
+5710;9;Wholesale & Retail
+5712;9;Wholesale & Retail
+5714;9;Wholesale & Retail
+5719;9;Wholesale & Retail
+5720;9;Wholesale & Retail
+5722;9;Wholesale & Retail
+5730;9;Wholesale & Retail
+5731;9;Wholesale & Retail
+5732;9;Wholesale & Retail
+5733;9;Wholesale & Retail
+5734;9;Wholesale & Retail
+5735;9;Wholesale & Retail
+5736;9;Wholesale & Retail
+5750;9;Wholesale & Retail
+5800;9;Wholesale & Retail
+5810;9;Wholesale & Retail
+5811;9;Wholesale & Retail
+5812;9;Wholesale & Retail
+5813;9;Wholesale & Retail
+5820;9;Wholesale & Retail
+5890;9;Wholesale & Retail
+5899;9;Wholesale & Retail
+5900;9;Wholesale & Retail
+5910;9;Wholesale & Retail
+5911;9;Wholesale & Retail
+5912;9;Wholesale & Retail
+5921;9;Wholesale & Retail
+5930;9;Wholesale & Retail
+5931;9;Wholesale & Retail
+5932;9;Wholesale & Retail
+5940;9;Wholesale & Retail
+5941;9;Wholesale & Retail
+5942;9;Wholesale & Retail
+5943;9;Wholesale & Retail
+5944;9;Wholesale & Retail
+5945;9;Wholesale & Retail
+5946;9;Wholesale & Retail
+5947;9;Wholesale & Retail
+5949;9;Wholesale & Retail
+5954;9;Wholesale & Retail
+5960;9;Wholesale & Retail
+5961;9;Wholesale & Retail
+5962;9;Wholesale & Retail
+5963;9;Wholesale & Retail
+5970;9;Wholesale & Retail
+5980;9;Wholesale & Retail
+5983;9;Wholesale & Retail
+5984;9;Wholesale & Retail
+5990;9;Wholesale & Retail
+5995;9;Wholesale & Retail
+5999;9;Wholesale & Retail
+6000;11;Finance
+6010;11;Finance
+6011;11;Finance
+6020;11;Finance
+6021;11;Finance
+6022;11;Finance
+6023;11;Finance
+6025;11;Finance
+6026;11;Finance
+6027;11;Finance
+6028;11;Finance
+6029;11;Finance
+6030;11;Finance
+6032;11;Finance
+6033;11;Finance
+6034;11;Finance
+6035;11;Finance
+6036;11;Finance
+6040;11;Finance
+6042;11;Finance
+6044;11;Finance
+6050;11;Finance
+6052;11;Finance
+6056;11;Finance
+6059;11;Finance
+6060;11;Finance
+6062;11;Finance
+6081;11;Finance
+6082;11;Finance
+6090;11;Finance
+6091;11;Finance
+6099;11;Finance
+6110;11;Finance
+6111;11;Finance
+6112;11;Finance
+6120;11;Finance
+6122;11;Finance
+6123;11;Finance
+6124;11;Finance
+6125;11;Finance
+6130;11;Finance
+6140;11;Finance
+6141;11;Finance
+6144;11;Finance
+6145;11;Finance
+6146;11;Finance
+6149;11;Finance
+6150;11;Finance
+6153;11;Finance
+6159;11;Finance
+6160;11;Finance
+6162;11;Finance
+6163;11;Finance
+6170;11;Finance
+6172;11;Finance
+6190;11;Finance
+6199;11;Finance
+6200;11;Finance
+6210;11;Finance
+6211;11;Finance
+6217;11;Finance
+6220;11;Finance
+6221;11;Finance
+6231;11;Finance
+6280;11;Finance
+6281;11;Finance
+6282;11;Finance
+6289;11;Finance
+6300;11;Finance
+6305;11;Finance
+6310;11;Finance
+6311;11;Finance
+6320;11;Finance
+6321;11;Finance
+6323;11;Finance
+6324;11;Finance
+6325;11;Finance
+6330;11;Finance
+6331;11;Finance
+6350;11;Finance
+6351;11;Finance
+6360;11;Finance
+6361;11;Finance
+6371;11;Finance
+6374;11;Finance
+6390;11;Finance
+6399;11;Finance
+6410;11;Finance
+6411;11;Finance
+6500;11;Finance
+6510;11;Finance
+6512;11;Finance
+6513;11;Finance
+6514;11;Finance
+6515;11;Finance
+6519;11;Finance
+6520;11;Finance
+6522;11;Finance
+6530;11;Finance
+6531;11;Finance
+6532;11;Finance
+6540;11;Finance
+6550;11;Finance
+6552;11;Finance
+6553;11;Finance
+6590;11;Finance
+6610;11;Finance
+6611;11;Finance
+6700;11;Finance
+6710;11;Finance
+6711;11;Finance
+6712;11;Finance
+6719;11;Finance
+6720;11;Finance
+6722;11;Finance
+6723;11;Finance
+6724;11;Finance
+6725;11;Finance
+6726;11;Finance
+6727;11;Finance
+6730;11;Finance
+6732;11;Finance
+6733;11;Finance
+6740;11;Finance
+6750;11;Finance
+6770;11;Finance
+6779;11;Finance
+6790;11;Finance
+6792;11;Finance
+6793;11;Finance
+6794;11;Finance
+6795;11;Finance
+6797;11;Finance
+6798;11;Finance
+6799;11;Finance
+7000;12;Other 
+7010;12;Other 
+7011;12;Other 
+7020;12;Other 
+7021;12;Other 
+7030;12;Other 
+7032;12;Other 
+7033;12;Other 
+7040;12;Other 
+7041;12;Other 
+7110;12;Other 
+7130;12;Other 
+7200;9;Wholesale & Retail
+7210;9;Wholesale & Retail
+7211;9;Wholesale & Retail
+7213;9;Wholesale & Retail
+7214;9;Wholesale & Retail
+7215;9;Wholesale & Retail
+7218;9;Wholesale & Retail
+7220;9;Wholesale & Retail
+7221;9;Wholesale & Retail
+7230;9;Wholesale & Retail
+7231;9;Wholesale & Retail
+7260;9;Wholesale & Retail
+7261;9;Wholesale & Retail
+7269;9;Wholesale & Retail
+7272;9;Wholesale & Retail
+7273;9;Wholesale & Retail
+7275;9;Wholesale & Retail
+7280;9;Wholesale & Retail
+7290;9;Wholesale & Retail
+7291;9;Wholesale & Retail
+7292;9;Wholesale & Retail
+7299;9;Wholesale & Retail
+7300;12;Other 
+7301;12;Other 
+7310;12;Other 
+7311;12;Other 
+7312;12;Other 
+7313;12;Other 
+7319;12;Other 
+7320;12;Other 
+7321;12;Other 
+7322;12;Other 
+7323;12;Other 
+7327;12;Other 
+7330;12;Other 
+7331;12;Other 
+7334;12;Other 
+7336;12;Other 
+7338;12;Other 
+7340;12;Other 
+7342;12;Other 
+7349;12;Other 
+7350;12;Other 
+7351;12;Other 
+7352;12;Other 
+7353;12;Other 
+7359;12;Other 
+7360;12;Other 
+7361;12;Other 
+7362;12;Other 
+7363;12;Other 
+7369;12;Other 
+7370;6;Business Equipmen
+7371;6;Business Equipmen
+7372;6;Business Equipmen
+7373;6;Business Equipmen
+7374;6;Business Equipmen
+7375;6;Business Equipmen
+7376;6;Business Equipmen
+7377;6;Business Equipmen
+7378;6;Business Equipmen
+7379;6;Business Equipmen
+7380;12;Other 
+7381;12;Other 
+7382;12;Other 
+7383;12;Other 
+7384;12;Other 
+7385;12;Other 
+7389;12;Other 
+7390;12;Other 
+7391;12;Other 
+7392;12;Other 
+7393;12;Other 
+7394;12;Other 
+7395;12;Other 
+7396;12;Other 
+7397;12;Other 
+7399;12;Other 
+7500;12;Other 
+7510;12;Other 
+7512;12;Other 
+7513;12;Other 
+7514;12;Other 
+7515;12;Other 
+7519;12;Other 
+7521;12;Other 
+7523;12;Other 
+7530;12;Other 
+7531;12;Other 
+7532;12;Other 
+7534;12;Other 
+7538;12;Other 
+7539;12;Other 
+7540;12;Other 
+7549;12;Other 
+7557;12;Other 
+7570;12;Other 
+7600;9;Wholesale & Retail
+7620;9;Wholesale & Retail
+7623;9;Wholesale & Retail
+7629;9;Wholesale & Retail
+7641;9;Wholesale & Retail
+7690;9;Wholesale & Retail
+7699;9;Wholesale & Retail
+7810;12;Other 
+7812;12;Other 
+7813;12;Other 
+7814;12;Other 
+7819;12;Other 
+7820;12;Other 
+7822;12;Other 
+7823;12;Other 
+7824;12;Other 
+7829;12;Other 
+7830;12;Other 
+7832;12;Other 
+7833;12;Other 
+7840;12;Other 
+7841;12;Other 
+7842;12;Other 
+7870;12;Other 
+7900;12;Other 
+7910;12;Other 
+7911;12;Other 
+7920;12;Other 
+7922;12;Other 
+7929;12;Other 
+7930;12;Other 
+7932;12;Other 
+7933;12;Other 
+7940;12;Other 
+7941;12;Other 
+7948;12;Other 
+7950;12;Other 
+7980;12;Other 
+7990;12;Other 
+7991;12;Other 
+7992;12;Other 
+7993;12;Other 
+7996;12;Other 
+7997;12;Other 
+7999;12;Other 
+8000;10;Healthcare
+8010;10;Healthcare
+8011;10;Healthcare
+8020;10;Healthcare
+8021;10;Healthcare
+8031;10;Healthcare
+8040;10;Healthcare
+8041;10;Healthcare
+8042;10;Healthcare
+8049;10;Healthcare
+8050;10;Healthcare
+8051;10;Healthcare
+8052;10;Healthcare
+8059;10;Healthcare
+8060;10;Healthcare
+8062;10;Healthcare
+8063;10;Healthcare
+8067;10;Healthcare
+8069;10;Healthcare
+8070;10;Healthcare
+8071;10;Healthcare
+8072;10;Healthcare
+8080;10;Healthcare
+8081;10;Healthcare
+8082;10;Healthcare
+8090;10;Healthcare
+8091;10;Healthcare
+8092;10;Healthcare
+8093;10;Healthcare
+8099;10;Healthcare
+8110;12;Other 
+8111;12;Other 
+8130;12;Other 
+8170;12;Other 
+8200;12;Other 
+8210;12;Other 
+8211;12;Other 
+8220;12;Other 
+8221;12;Other 
+8222;12;Other 
+8231;12;Other 
+8240;12;Other 
+8241;12;Other 
+8243;12;Other 
+8244;12;Other 
+8249;12;Other 
+8260;12;Other 
+8290;12;Other 
+8299;12;Other 
+8300;12;Other 
+8310;12;Other 
+8322;12;Other 
+8330;12;Other 
+8331;12;Other 
+8350;12;Other 
+8351;12;Other 
+8360;12;Other 
+8361;12;Other 
+8370;12;Other 
+8390;12;Other 
+8399;12;Other 
+8400;12;Other 
+8411;12;Other 
+8520;12;Other 
+8600;12;Other 
+8610;12;Other 
+8611;12;Other 
+8621;12;Other 
+8690;12;Other 
+8699;12;Other 
+8700;12;Other 
+8710;12;Other 
+8711;12;Other 
+8712;12;Other 
+8713;12;Other 
+8720;12;Other 
+8721;12;Other 
+8730;12;Other 
+8731;12;Other 
+8732;12;Other 
+8733;12;Other 
+8734;12;Other 
+8740;12;Other 
+8741;12;Other 
+8742;12;Other 
+8743;12;Other 
+8744;12;Other 
+8748;12;Other 
+8780;12;Other 
+8799;12;Other 
+8811;12;Other 
+8900;12;Other 
+8910;12;Other 
+8911;12;Other 
+8922;12;Other 
+8930;12;Other 
+8931;12;Other 
+8950;12;Other 
+8970;12;Other 
+8980;12;Other 
+8990;12;Other 
+8999;12;Other 
+9199;12;Other 
+9220;12;Other 
+9311;12;Other 
+9370;12;Other 
+9379;12;Other 
+9430;12;Other 
+9431;12;Other 
+9441;12;Other 
+9500;12;Other 
+9511;12;Other 
+9531;12;Other 
+9611;12;Other 
+9641;12;Other 
+9651;12;Other 
+9800;12;Other 
+9910;12;Other 
+9983;12;Other 
+9990;12;Other 
+9995;12;Other 
+9997;12;Other 
+9998;12;Other 
+9999;12;Other 
+6230;11;Finance
+2652;3;Manufacturing
+3355;3;Manufacturing
+3548;3;Manufacturing
+252;1;Consumer Nondurables
+172;1;Consumer Nondurables
+3363;3;Manufacturing
+119;1;Consumer Nondurables
+8412;12;Other 
+5992;9;Wholesale & Retail
+9222;12;Other 
+4783;12;Other 
+5713;9;Wholesale & Retail
+4489;12;Other 
+9711;12;Other 
+1751;12;Other 
+5193;9;Wholesale & Retail

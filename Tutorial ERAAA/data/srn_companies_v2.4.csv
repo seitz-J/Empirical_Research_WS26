@@ -1,0 +1,644 @@
+id,name,isin,country,sector,industry,stock_index
+FR0000053225,(M6) Metropole Television,FR0000053225,France,Services,Media & Entertainment,
+DE0005545503,1&1 Drillisch,DE0005545503,Germany,Technology & Communications,Telecommunication Services,
+FR0011040500,74Software,FR0011040500,France,Technology & Communications,Software & IT Services,
+AT0000720008,A1 Telekom Austria,AT0000720008,Austria,Technology & Communications,Telecommunication Services,
+IT0001233417,A2A,IT0001233417,Italy,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+BE0974293251,AB Inbev,BE0974293251,Belgium,Food & Beverage,Alcoholic Beverages,Euro Stoxx 50;Euro Stoxx 600
+CH0012221716,ABB,CH0012221716,Switzerland,Resource Transformation,Electrical & Electronic Equipment,OMX Stockholm 30;Euro Stoxx 600
+NL0011540547,ABN Amro,NL0011540547,Netherlands,Financials,Commercial Banks,Euro Stoxx 600
+DE0005760029,ABO Energy GmbH & Co. KGaA,DE0005760029,Germany,Infrastructure,Electric Utilities & Power Generators,
+ES0167050915,ACS Actividades de Construccion y Servicios,ES0167050915,Spain,Infrastructure,Engineering & Construction Services,Euro Stoxx 600
+IE00BF0L3536,AIB,IE00BF0L3536,Ireland,Financials,Commercial Banks,Euro Stoxx 600
+DE000A0WMPJ6,AIXTRON,DE000A0WMPJ6,Germany,Technology & Communications,Semiconductors,Euro Stoxx 600
+DK0061802139,ALK,DK0061802139,Denmark,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+AT00000AMAG3,AMAG Austria Metall,AT00000AMAG3,Austria,Extractives & Minerals Processing,Metals & Mining,
+NL0000888691,AMG Critical Materials,NL0000888691,Netherlands,Resource Transformation,Chemicals,
+AT0000730007,ANDRITZ,AT0000730007,Austria,Resource Transformation,NA,Euro Stoxx 600
+DK0010244508,AP Moller Maersk,DK0010244508,Denmark,Transportation,Marine Transportation,Euro Stoxx 600
+LU0569974404,APERAM SA,LU0569974404,Luxembourg,Extractives & Minerals Processing,Metals & Mining,
+NL0000334118,ASM International,NL0000334118,Netherlands,Technology & Communications,Semiconductors,Euro Stoxx 600
+NL0010273215,ASML,NL0010273215,Netherlands,Technology & Communications,Semiconductors,Euro Stoxx 50;Euro Stoxx 600
+AT0000969985,AT&S Austria Technologie & Systemtechnik,AT0000969985,Austria,Technology & Communications,Hardware,
+FR0000120628,AXA,FR0000120628,France,Financials,Insurance,Euro Stoxx 50;Euro Stoxx 600
+NL0000852564,Aalberts,NL0000852564,Netherlands,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+DE000A37FT90,Aareal Bank,DE000A37FT90,Germany,Financials,Consumer Finance,
+ES0111845014,Abertis,ES0111845014,Spain,Infrastructure,Engineering & Construction Services,
+DE000A3CNK42,About You Holding,DE000A3CNK42,Germany,Consumer Goods,E-Commerce,
+SE0007897079,Academedia,SE0007897079,Sweden,Services,Education,
+FR0000120404,Accor,FR0000120404,France,Services,Hotels & Lodging,Euro Stoxx 600
+IT0001207098,Acea,IT0001207098,Italy,Infrastructure,Electric Utilities & Power Generators,
+ES0132105018,Acerinox,ES0132105018,Spain,Extractives & Minerals Processing,Iron & Steel Producers,
+cf137b31-9327-43ba-bbe6-f3ac94489604,Achmea Holding,NA,Netherlands,Financials,Insurance,
+BE0003764785,Ackermans & van Haaren,BE0003764785,Belgium,Financials,Asset Management & Custody Activities,Euro Stoxx 600
+SE0014401378,AddLife,SE0014401378,Sweden,Health Care,Biotechnology & Pharmaceuticals,
+AT000ADDIKO0,Addiko Bank,AT000ADDIKO0,Austria,Financials,Commercial Banks,
+SE0014781795,Addtech,SE0014781795,Sweden,Resource Transformation,Industrial Machinery & Goods,OMX Stockholm 30
+DE000A0Z23Q5,Adesso,DE000A0Z23Q5,Germany,Technology & Communications,Software & IT Services,
+LU1250154413,Adler Group,LU1250154413,Luxembourg,Infrastructure,Real Estate,
+NL0012969182,Adyen,NL0012969182,Netherlands,Consumer Goods,E-Commerce,Euro Stoxx 50;Euro Stoxx 600
+GRS495003006,Aegean Airlines,GRS495003006,Greece,Transportation,Airlines,
+NL0000303709,Aegon,NL0000303709,Netherlands,Financials,Insurance,
+ES0105046009,Aena,ES0105046009,Spain,Transportation,Air Freight & Logistics,
+FR0010340141,Aeroports de Paris,FR0010340141,France,Services,Professional & Commercial Services,Euro Stoxx 600
+BE0974264930,Ageas,BE0974264930,Belgium,Financials,Insurance,Euro Stoxx 600
+AT000AGRANA3,Agrana,AT000AGRANA3,Austria,Food & Beverage,Processed Foods,
+FR001400J770,Air France-KLM,FR001400J770,France,Transportation,Airlines,
+FR0000120073,Air Liquide,FR0000120073,France,Resource Transformation,Chemicals,Euro Stoxx 50;Euro Stoxx 600
+NL0000235190,Airbus,NL0000235190,France,Resource Transformation,Aerospace & Defence,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+NO0010345853,Aker BP,NO0010345853,Norway,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+NO0010716582,Aker Solutions,NO0010716582,Norway,Extractives & Minerals Processing,Oil & Gas – Services,
+LT0000128092,Akola Group,LT0000128092,Lithuania,Food & Beverage,Agricultural Products,
+NL0013267909,Akzo Nobel,NL0013267909,Netherlands,Resource Transformation,Chemicals,Euro Stoxx 600
+NL0012817175,Alfen,NL0012817175,Netherlands,Resource Transformation,Electrical & Electronic Equipment,
+DE0005110001,All For One Steeb ,DE0005110001,Germany,Technology & Communications,Software & IT Services,
+LU2237380790,Allegro,LU2237380790,Luxembourg,Consumer Goods,E-Commerce,Euro Stoxx 600
+4e600fec-a5e1-4d88-bb4d-f758a713552d,Alliander,NA,Netherlands,Infrastructure,Electric Utilities & Power Generators,
+DE0008404005,Allianz,DE0008404005,Germany,Financials,Insurance,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+FI0009013114,Alma Media,FI0009013114,Finland,Services,Media & Entertainment,
+FR0000039216,Altareit,FR0000039216,France,Infrastructure,Real Estate,
+FR0000071946,Alten,FR0000071946,France,Services,Professional & Commercial Services,
+PTALT0AE0002,Altri SGPS,PTALT0AE0002,Portugal,Renewable Resources & Alternative Energy,Pulp & Paper Products,
+DE000A2YNT30,Alzchem,DE000A2YNT30,Germany,Resource Transformation,Chemicals,
+DE0005093108,Amadeus Fire,DE0005093108,Germany,Services,Professional & Commercial Services,
+ES0109067019,Amadeus IT,ES0109067019,Spain,Technology & Communications,Software & IT Services,Euro Stoxx 600
+DK0060946788,Ambu,DK0060946788,Denmark,Health Care,Medical Equipment & Supplies,
+IT0004056880,Amplifon,IT0004056880,Italy,Health Care,Health Care Distributors,
+NL0000313286,Amsterdam Commodities,NL0000313286,Netherlands,Food & Beverage,Processed Foods,
+FI4000292438,Anora Group,FI4000292438,Finland,Food & Beverage,Alcoholic Beverages,
+FR0014003U94,Aramis Group,FR0014003U94,France,Consumer Goods,E-Commerce,
+NL0006237562,Arcadis,NL0006237562,Netherlands,Infrastructure,Engineering & Construction Services,Euro Stoxx 600
+HRARNTRA0004,Arena Hospitality,HRARNTRA0004,Croatia,Services,Hotels & Lodging,
+NL0010832176,Argenx,NL0010832176,Netherlands,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 50;Euro Stoxx 600
+NL0015000N33,Ariston Holding,NL0015000N33,Netherlands,Consumer Goods,Appliance Manufacturing,
+SE0010468116,Arjo,SE0010468116,Sweden,Health Care,Medical Equipment & Supplies,
+FR0010313833,Arkema,FR0010313833,France,Resource Transformation,Chemicals,Euro Stoxx 600
+IT0001469383,Arnoldo Mondadori Editore,IT0001469383,Italy,Services,Media & Entertainment,
+LU1673108939,Aroundtown,LU1673108939,Luxembourg,Infrastructure,Real Estate,
+FI0009008072,Aspo,FI0009008072,Finland,Extractives & Minerals Processing,Oil & Gas – Refining & Marketing,
+SE0007100581,Assa Abloy,SE0007100581,Sweden,Resource Transformation,Electrical & Electronic Equipment,OMX Stockholm 30;Euro Stoxx 600
+PLSOFTB00016,Asseco Poland,PLSOFTB00016,Poland,Technology & Communications,Software & IT Services,
+FR0000074148,Assystem,FR0000074148,France,Technology & Communications,Software & IT Services,
+GB0009895292,AstraZeneca,GB0009895292,United Kingdom,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600;OMX Stockholm 30
+NO0004822503,Atea,NO0004822503,Norway,Technology & Communications,Software & IT Services,
+BE0003837540,Atenor,BE0003837540,Belgium,Infrastructure,Home Builders,
+SE0017486889,Atlas Copco,SE0017486889,Sweden,Resource Transformation,Industrial Machinery & Goods,OMX Stockholm 30;Euro Stoxx 600
+FI0009006548,Atria,FI0009006548,Finland,Food & Beverage,"Meat, Poultry & Dairy",
+SE0007666110,Attendo,SE0007666110,Sweden,Health Care,Health Care Delivery,
+DE0006766504,Aurubis,DE0006766504,Germany,Extractives & Minerals Processing,Metals & Mining,Euro Stoxx 600
+AT0000APOST4,Austrian Post,AT0000APOST4,Austria,Transportation,Air Freight & Logistics,
+361dc0e3-5065-4fca-80ab-dbb899ae5f40,Avinor,NA,Norway,Services,Professional & Commercial Services,
+IT0005119810,Avio,IT0005119810,Italy,Resource Transformation,Aerospace & Defence,
+SE0006993770,Axfood,SE0006993770,Sweden,Food & Beverage,Food Retailers & Distributors,Euro Stoxx 600
+GB0002634946,BAE Systems,GB0002634946,United Kingdom,Resource Transformation,Aerospace & Defence,Euro Stoxx 600
+NL0000337319,BAM,NL0000337319,Netherlands,Infrastructure,Engineering & Construction Services,
+DE000BASF111,BASF,DE000BASF111,Germany,Resource Transformation,Chemicals,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+ES0113211835,BBVA,ES0113211835,Spain,Financials,Commercial Banks,Euro Stoxx 50;Euro Stoxx 600
+NL0012866412,BE Semiconductor Industries,NL0012866412,Netherlands,Technology & Communications,Semiconductors,Euro Stoxx 600
+NO0010890965,BEWi,NO0010890965,Norway,Resource Transformation,Chemicals,
+FR0000120966,BIC,FR0000120966,France,Consumer Goods,Household & Personal Products,
+DE0005190003,BMW,DE0005190003,Germany,Transportation,Automobiles,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+FR0000131104,BNP Paribas,FR0000131104,France,Financials,Commercial Banks,Euro Stoxx 50;Euro Stoxx 600
+BMG1738J1247,BW Offshore,BMG1738J1247,Norway,Transportation,Marine Transportation,
+ES0113900J37,Banco Santander,ES0113900J37,Spain,Financials,Commercial Banks,Euro Stoxx 50;Euro Stoxx 600
+DK0010218429,Bang & Olufson,DK0010218429,Denmark,Technology & Communications,Hardware,
+BE0974371032,Banqup,BE0974371032,Belgium,Technology & Communications,Software & IT Services,
+DE0005102008,Basler,DE0005102008,Germany,Technology & Communications,Hardware,
+DK0015998017,Bavarian Nordic,DK0015998017,Denmark,Health Care,Biotechnology & Pharmaceuticals,
+DE000BAY0017,Bayer,DE000BAY0017,Germany,Health Care,Biotechnology & Pharmaceuticals,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE0005158703,Bechtle,DE0005158703,Germany,Technology & Communications,Software & IT Services,
+DE0005200000,Beiersdorf,DE0005200000,Germany,Consumer Goods,Household & Personal Products,DAX 40;Euro Stoxx 600
+SE0000671711,Beijer Electronics Group,SE0000671711,Sweden,Resource Transformation,Industrial Machinery & Goods,
+BE0974258874,Bekaert,BE0974258874,Belgium,Resource Transformation,Industrial Machinery & Goods,
+DE0005229942,Bertelsmann,DE0005229942,Germany,Services,Media & Entertainment,
+DE0005232805,Bertrandt,DE0005232805,Germany,Transportation,Auto Parts,
+IT0003097257,Biesse,IT0003097257,Italy,Resource Transformation,Industrial Machinery & Goods,
+DE0005909006,Bilfinger,DE0005909006,Germany,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+SE0000862997,BillerudKorsnas,SE0000862997,Sweden,Resource Transformation,Containers & Packaging,
+FR0000063935,Bonduelle,FR0000063935,France,Food & Beverage,Processed Foods,
+AT0000A24UY3,Borealis,AT0000A24UY3,Austria,Resource Transformation,Chemicals,
+NO0010657505,Borregaard,NO0010657505,Norway,Resource Transformation,Chemicals,
+DE0005493092,Borussia Dortmund,DE0005493092,Germany,Services,Leisure Facilities,
+FR0000120503,Bouygues,FR0000120503,France,Infrastructure,Engineering & Construction Services,Euro Stoxx 600
+BE0974268972,Bpost,BE0974268972,Belgium,Transportation,Air Freight & Logistics,
+IT0005252728,Brembo,IT0005252728,Italy,Transportation,Auto Parts,
+DE000A1DAHH0,Brenntag,DE000A1DAHH0,Germany,Resource Transformation,Chemicals,DAX 40;Euro Stoxx 600
+GB0002875804,British American Tobacco,GB0002875804,United Kingdom,Consumer Goods,Household & Personal Products,Euro Stoxx 600
+NL0010776944,Brunel International,NL0010776944,Netherlands,Services,Professional & Commercial Services,
+IT0004764699,Brunello Cucinelli,IT0004764699,Italy,Consumer Goods,"Apparel, Accessories & Footwear",
+FR0006174348,Bureau Veritas,FR0006174348,France,Services,Professional & Commercial Services,Euro Stoxx 600
+35a3e491-c867-455d-898c-053a5c4fbfec,CPI Europe,NA,Austria,Infrastructure,Real Estate,
+LU0251710041,CPI Property Group,LU0251710041,Luxembourg,Infrastructure,Real Estate,
+NL00150006R6,CTP,NL00150006R6,Netherlands,Infrastructure,Real Estate,
+e7f225af-e1be-4d1f-967c-3285057e6d83,CUF,NA,Portugal,Health Care,Health Care Delivery,
+FR0000125338,Capgemini,FR0000125338,France,Technology & Communications,Software & IT Services,Euro Stoxx 600
+FI4000571013,Cargotec,FI4000571013,Finland,Resource Transformation,Industrial Machinery & Goods,
+DE0005313704,Carl Zeiss Meditec,DE0005313704,Germany,Health Care,Medical Equipment & Supplies,
+DK0010181759,Carlsberg,DK0010181759,Denmark,Food & Beverage,Alcoholic Beverages,Euro Stoxx 600
+DE0007257503,Ceconomy,DE0007257503,Germany,Food & Beverage,Food Retailers & Distributors,
+ES0105066007,Cellnex,ES0105066007,Spain,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+NL0013995087,Cementir,NL0013995087,Netherlands,Extractives & Minerals Processing,Construction Materials,
+DE0005403901,Cewe Stiftung,DE0005403901,Germany,Services,Professional & Commercial Services,
+IE00BKYC3F77,Cimpress,IE00BKYC3F77,Ireland,Services,Professional & Commercial Services,
+FR0013426004,Claranova,FR0013426004,France,Technology & Communications,Software & IT Services,
+FR0010386334,Clariane,FR0010386334,France,Health Care,Health Care Delivery,
+CH0198251305,Coca Cola HBC,CH0198251305,Switzerland,Food & Beverage,Non-Alcoholic Beverages,Euro Stoxx 600
+DK0060448595,Coloplast,DK0060448595,Denmark,Health Care,Medical Equipment & Supplies,
+IT0005246191,Comer Industries,IT0005246191,Italy,Resource Transformation,Industrial Machinery & Goods,
+DE000CBK1001,Commerzbank,DE000CBK1001,Germany,Financials,Commercial Banks,DAX 40;Euro Stoxx 600
+DE000A288904,CompuGroup Medical,DE000A288904,Germany,Technology & Communications,Telecommunication Services,
+FI4000178256,Consti Yhtiot,FI4000178256,Finland,Infrastructure,Engineering & Construction Services,
+DE0005439004,Continental,DE0005439004,Germany,Transportation,Auto Parts,DAX 40;Euro Stoxx 600
+DK0010201102,Copenhagen Airport,DK0010201102,Denmark,Services,Professional & Commercial Services,
+NL0010583399,Corbion,NL0010583399,Netherlands,Food & Beverage,Processed Foods,
+DE0006062144,Covestro,DE0006062144,Germany,Resource Transformation,Chemicals,
+FR0000064578,Covivio,FR0000064578,France,Infrastructure,Real Estate,Euro Stoxx 600
+FR0000060303,Covivio Hotels,FR0000060303,France,Infrastructure,Real Estate,
+DK0060083210,D/S Norden,DK0060083210,Denmark,Transportation,Marine Transportation,
+IE0002424939,DCC,IE0002424939,Ireland,Extractives & Minerals Processing,Oil & Gas – Refining & Marketing,
+DE0005552004,DHL,DE0005552004,Germany,Transportation,Air Freight & Logistics,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE0005878003,DMG Mori,DE0005878003,Germany,Resource Transformation,Industrial Machinery & Goods,
+NO0003921009,DNO,NO0003921009,Norway,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,
+3f9a24df-0b1f-41e4-a110-97e718a0d6c6,DNV,NA,Norway,Services,Professional & Commercial Services,
+AT0000818802,DO & CO,AT0000818802,Austria,Food & Beverage,Restaurants,
+NO0012851874,DOF,NO0012851874,Norway,Extractives & Minerals Processing,Oil & Gas – Services,
+0049fd8d-13d0-4ab5-9a89-5dcdbb5df761,DSB,NA,Denmark,Transportation,Rail Transportation,
+CH1216478797,DSM-Firmenich,CH1216478797,Switzerland,Resource Transformation,Chemicals,Euro Stoxx 600
+DK0060079531,DSV Panalpina,DK0060079531,Denmark,Transportation,Air Freight & Logistics,Euro Stoxx 600
+DE000DTR0CK8,Daimler Truck,DE000DTR0CK8,Germany,Transportation,Automobiles,DAX 40;Euro Stoxx 600
+4d52336e-6a99-40b6-90fc-9d7cadcfcb9a,Danfoss,NA,Denmark,Technology & Communications,NA,
+IT0000076502,Danieli & C Officine Meccaniche,IT0000076502,Italy,Resource Transformation,Industrial Machinery & Goods,
+FR0000120644,Danone,FR0000120644,France,Food & Beverage,Processed Foods,Euro Stoxx 50;Euro Stoxx 600
+FR0014004L86,Dassault Aviation,FR0014004L86,France,Resource Transformation,Aerospace & Defence,Euro Stoxx 600
+FR0014003TT8,Dassault Systèmes,FR0014003TT8,France,Technology & Communications,Software & IT Services,Euro Stoxx 600
+NL0015435975,Davide Campari-Milano,NL0015435975,Italy,Food & Beverage,Alcoholic Beverages,Euro Stoxx 600
+BE0003789063,Deceuninck,BE0003789063,Belgium,Consumer Goods,Building Products & Furnishings,
+DK0060738599,Demant,DK0060738599,Denmark,Health Care,Medical Equipment & Supplies,
+BE0974413453,Deme Group,BE0974413453,Belgium,Infrastructure,Engineering & Construction Services,
+FR0000053381,Derichebourg,FR0000053381,France,Infrastructure,Waste Management,
+DE0005140008,Deutsche Bank,DE0005140008,Germany,Financials,Investment Banking & Brokerage,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE0005810055,Deutsche Börse,DE0005810055,Germany,Financials,Security & Commodity Exchange,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE0008232125,Deutsche Lufthansa,DE0008232125,Germany,Transportation,Airlines,Euro Stoxx 600
+DE0005557508,Deutsche Telekom,DE0005557508,Germany,Technology & Communications,Telecommunication Services,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DK0060655629,Dfds,DK0060655629,Denmark,Transportation,Marine Transportation,
+IT0003492391,DiaSorin,IT0003492391,Italy,Health Care,Medical Equipment & Supplies,
+FI0009007983,Digia,FI0009007983,Finland,Technology & Communications,Software & IT Services,
+PLDINPL00011,Dino Polska,PLDINPL00011,Poland,Food & Beverage,Food Retailers & Distributors,
+ES0126775032,Distribuidora Internacional de Alimentacion,ES0126775032,Spain,Food & Beverage,Food Retailers & Distributors,
+CH0042615283,DocMorris,CH0042615283,Switzerland,Health Care,Drug Retailers,
+DE0005550636,Dräger,DE0005550636,Germany,Health Care,Medical Equipment & Supplies,
+SE0006625471,Dustin Group,SE0006625471,Sweden,Consumer Goods,E-Commerce,
+DE0005565204,Dürr,DE0005565204,Germany,Resource Transformation,Industrial Machinery & Goods,
+DE000ENAG999,E.ON,DE000ENAG999,Germany,Infrastructure,Electric Utilities & Power Generators,DAX 40;Euro Stoxx 600
+ES0127797019,EDP Renováveis,ES0127797019,Portugal,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+d0e7fe4e-ef62-4e54-aa85-7a06478ec034,EPSO-G,NA,Lithuania,Infrastructure,Electric Utilities & Power Generators,
+IT0001157020,ERG,IT0001157020,Italy,Infrastructure,Electric Utilities & Power Generators,
+AT0000741053,EVN,AT0000741053,Austria,Infrastructure,Electric Utilities & Power Generators,
+ES0112501012,Ebro Foods,ES0112501012,Spain,Food & Beverage,Processed Foods,
+DE0005659700,Eckert & Ziegler Strahlen- und Medizintechnik,DE0005659700,Germany,Health Care,Medical Equipment & Supplies,
+FR0010908533,Edenred,FR0010908533,France,Services,Professional & Commercial Services,Euro Stoxx 600
+LU1048328220,Edreams Odigeo,LU1048328220,Luxembourg,Technology & Communications,Internet Media & Services,
+BE0003822393,Elia System Operator,BE0003822393,Belgium,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+FR0011950732,Elior Group,FR0011950732,France,Food & Beverage,Restaurants,
+FR0012435121,Elis,FR0012435121,France,Services,Professional & Commercial Services,Euro Stoxx 600
+FI0009007884,Elisa,FI0009007884,Finland,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+NO0010816093,Elkem,NO0010816093,Norway,Resource Transformation,Chemicals,
+NO0011002586,Elopak,NO0011002586,Norway,Resource Transformation,Containers & Packaging,
+SE0023615885,Embracer Group,SE0023615885,Sweden,Technology & Communications,Software & IT Services,
+DE0005220008,EnBW,DE0005220008,Germany,Infrastructure,Electric Utilities & Power Generators,
+ES0130960018,Enagas,ES0130960018,Spain,Extractives & Minerals Processing,Oil & Gas – Midstream,Euro Stoxx 600
+ES0130670112,Endesa,ES0130670112,Spain,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+IT0003128367,Enel,IT0003128367,Italy,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 50;Euro Stoxx 600
+PTEDP0AM0009,Energias de Portugal,PTEDP0AM0009,Portugal,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+FR0010208488,Engie,FR0010208488,France,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+IT0003132476,Eni,IT0003132476,Italy,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 50;Euro Stoxx 600
+NO0010716418,Entra,NO0010716418,Norway,Infrastructure,Real Estate Services,
+NO0010096985,Equinor,NO0010096985,Norway,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+FR0000131757,Eramet,FR0000131757,France,Extractives & Minerals Processing,Metals & Mining,
+PLERBUD00012,Erbud Group,PLERBUD00012,Poland,Infrastructure,Engineering & Construction Services,
+SE0000108656,Ericsson,SE0000108656,Sweden,Technology & Communications,Hardware,OMX Stockholm 30;Euro Stoxx 600
+IT0003850929,Esprinet,IT0003850929,Italy,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+FR0000121667,EssilorLuxottica,FR0000121667,France,Health Care,Medical Equipment & Supplies,Euro Stoxx 50;Euro Stoxx 600
+FR0000051070,Etablissements Maurel et Prom,FR0000051070,France,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,
+FI0009008650,Etteplan,FI0009008650,Finland,Resource Transformation,Industrial Machinery & Goods,
+FR0000121121,Eurazeo,FR0000121121,France,Financials,Asset Management & Custody Activities,
+FR0014008VX5,Euroapi,FR0014008VX5,France,Health Care,Biotechnology & Pharmaceuticals,
+PLEURCH00011,Eurocash,PLEURCH00011,Poland,Food & Beverage,Food Retailers & Distributors,
+DK0030521927,European Energy,DK0030521927,Denmark,Renewable Resources & Alternative Energy,Wind Technology & Project Developers,
+NO0010735343,Europris,NO0010735343,Norway,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+FR0010221234,Eutelsat,FR0010221234,France,Technology & Communications,Telecommunication Services,
+DE000EVNK013,Evonik,DE000EVNK013,Germany,Resource Transformation,Chemicals,Euro Stoxx 600
+FI0009007306,Exel Composites,FI0009007306,Finland,Resource Transformation,Chemicals,
+FR0004527638,Exel Industries,FR0004527638,France,Resource Transformation,Industrial Machinery & Goods,
+FI4000519236,F-Secure,FI4000519236,Finland,Technology & Communications,Software & IT Services,
+AT00000FACC2,FACC,AT00000FACC2,Austria,Resource Transformation,Aerospace & Defence,
+DK0010234467,FLSmidth,DK0010234467,Denmark,Infrastructure,Engineering & Construction Services,
+DE0005785802,FMC,DE0005785802,Germany,Health Care,Health Care Delivery,DAX 40;Euro Stoxx 600
+SE0010048884,Fagerhult,SE0010048884,Sweden,Resource Transformation,Electrical & Electronic Equipment,
+BE0003874915,Fagron,BE0003874915,Belgium,Health Care,Biotechnology & Pharmaceuticals,
+NL0011585146,Ferrari,NL0011585146,Italy,Transportation,Automobiles,Euro Stoxx 50;Euro Stoxx 600
+NL0015001FS8,Ferrovial,NL0015001FS8,Spain,Infrastructure,Engineering & Construction Services,Euro Stoxx 600
+DE0005772206,Fielmann,DE0005772206,Germany,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+3baef3b4-9ef6-4503-8913-8ba0f910008f,Fingrid,NA,Finland,Infrastructure,Electric Utilities & Power Generators,
+FI4000567029,FinnAir,FI4000567029,Finland,Transportation,Airlines,
+FI0009000400,Fiskars,FI0009000400,Finland,Consumer Goods,Appliance Manufacturing,
+ES0137650018,Fluidra,ES0137650018,Spain,Resource Transformation,Electrical & Electronic Equipment,
+FR0011476928,Fnac Darty,FR0011476928,France,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+NL0011832811,ForFarmers,NL0011832811,Netherlands,Food & Beverage,Agricultural Products,
+FI0009007132,Fortum,FI0009007132,Finland,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+FR0000121147,Forvia,FR0000121147,France,Transportation,Auto Parts,
+DE0005785604,Fresenius,DE0005785604,Germany,Health Care,Health Care Delivery,DAX 40;Euro Stoxx 600
+NL00150003E1,Fugro,NL00150003E1,Netherlands,Extractives & Minerals Processing,Oil & Gas – Services,
+DE0006602006,GEA,DE0006602006,Germany,Resource Transformation,Industrial Machinery & Goods,DAX 40;Euro Stoxx 600
+DK0010272632,GN Store Nord,DK0010272632,Denmark,Health Care,Medical Equipment & Supplies,
+GB00BN7SWP63,GSK,GB00BN7SWP63,United Kingdom,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+IT0005411209,GVS,IT0005411209,Italy,Health Care,Medical Equipment & Supplies,
+BE0003818359,Galapagos,BE0003818359,Belgium,Health Care,Biotechnology & Pharmaceuticals,
+IT0005345233,Garofalo Health Care,IT0005345233,Italy,Health Care,Health Care Delivery,
+FR0011726835,Gaztransport Et Technigaz,FR0011726835,France,Infrastructure,Engineering & Construction Services,
+IT0003203947,Gefran,IT0003203947,Italy,Resource Transformation,Electrical & Electronic Equipment,
+DK0010272202,Genmab,DK0010272202,Denmark,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+IT0003697080,Geox,IT0003697080,Italy,Consumer Goods,"Apparel, Accessories & Footwear",
+ES0105223004,Gestamp Automocion,ES0105223004,Spain,Transportation,Auto Parts,
+FR0010533075,Getlink,FR0010533075,France,Transportation,Rail Transportation,Euro Stoxx 600
+IE0000669501,Glanbia,IE0000669501,Ireland,Food & Beverage,"Meat, Poultry & Dairy",Euro Stoxx 600
+FI4000369657,Glaston,FI4000369657,Finland,Resource Transformation,Industrial Machinery & Goods,
+IE00BD6JX574,Glenveagh Poperties,IE00BD6JX574,Ireland,Infrastructure,Home Builders,
+FI4000283130,Gofore,FI4000283130,Finland,Technology & Communications,Software & IT Services,
+LU0775917882,Grand City Properties,LU0775917882,Luxembourg,Infrastructure,Real Estate,
+SE0006288015,Granges,SE0006288015,Sweden,Extractives & Minerals Processing,Metals & Mining,
+NO0010365521,Grieg Seafood,NO0010365521,Norway,Food & Beverage,"Meat, Poultry & Dairy",
+ES0171996087,Grifols,ES0171996087,Spain,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+FR0004155000,Groupe SFPI,FR0004155000,France,Resource Transformation,Industrial Machinery & Goods,
+ES0180918015,Grupo Empresarial San Jose,ES0180918015,Spain,Infrastructure,Engineering & Construction Services,
+FR0000032526,Guerbet,FR0000032526,France,Health Care,Medical Equipment & Supplies,
+DK0015202451,H+H International,DK0015202451,Denmark,Extractives & Minerals Processing,Construction Materials,
+DE000A13SX22,HELLA,DE000A13SX22,Germany,Transportation,Auto Parts,
+GRS298343005,HELLENiQ ENERGY Holdings,GRS298343005,Greece,Extractives & Minerals Processing,Oil & Gas – Refining & Marketing,
+FI0009006308,HKFoods,FI0009006308,Finland,Food & Beverage,"Meat, Poultry & Dairy",
+7be64de0-8f6c-4bee-863c-0451481a4c38,Hafslund,NA,Norway,Infrastructure,Electric Utilities & Power Generators,
+DE0008402215,Hannover Rück,DE0008402215,Germany,Financials,Insurance,DAX 40;Euro Stoxx 600
+SE0005878543,Hanza Holding,SE0005878543,Sweden,Technology & Communications,NA,
+DE000HLAG475,Hapag Lloyd,DE000HLAG475,Germany,Transportation,Marine Transportation,
+FI4000306873,Harvia,FI4000306873,Finland,Consumer Goods,Toys & Sporting Goods,
+FR0000066755,Haulotte Group,FR0000066755,France,Resource Transformation,Industrial Machinery & Goods,
+DE0006047004,Heidelberg Materials,DE0006047004,Germany,Extractives & Minerals Processing,Construction Materials,DAX 40
+NL0000009165,Heineken,NL0000009165,Netherlands,Food & Beverage,Alcoholic Beverages,Euro Stoxx 600
+NL0000008977,Heineken Holding,NL0000008977,Netherlands,Food & Beverage,Alcoholic Beverages,Euro Stoxx 600
+DE0006048408,Henkel,DE0006048408,Germany,Consumer Goods,Household & Personal Products,Euro Stoxx 600
+DE000HAG0005,Hensoldt,DE000HAG0005,Germany,Technology & Communications,Semiconductors,Euro Stoxx 600
+FR0000052292,Hermes,FR0000052292,France,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 600;Euro Stoxx 50
+DE0006070006,Hochtief,DE0006070006,Germany,Infrastructure,Engineering & Construction Services,Euro Stoxx 600
+HRHT00RA0005,Hrvatski Telekom,HRHT00RA0005,Croatia,Technology & Communications,Telecommunication Services,
+FI0009000459,Huhtamaki,FI0009000459,Finland,Resource Transformation,Containers & Packaging,Euro Stoxx 600
+ES0177542018,IAG,ES0177542018,Spain,Transportation,Airlines,Euro Stoxx 600
+SE0000652216,ICA Gruppen,SE0000652216,Sweden,Food & Beverage,Food Retailers & Distributors,
+NL0010801007,IMCD,NL0010801007,Netherlands,Resource Transformation,Chemicals,Euro Stoxx 600
+NL0011821202,ING,NL0011821202,Netherlands,Financials,Commercial Banks,Euro Stoxx 50;Euro Stoxx 600
+DK0060542181,ISS,DK0060542181,Denmark,Services,Professional & Commercial Services,Euro Stoxx 600
+ES0144580Y14,Iberdrola,ES0144580Y14,Spain,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 50;Euro Stoxx 600
+FR0000035081,Icade,FR0000035081,France,Infrastructure,Real Estate,
+LT0000115768,Ignitis,LT0000115768,Lithuania,Infrastructure,Electric Utilities & Power Generators,
+FR0000120859,Imerys,FR0000120859,France,Extractives & Minerals Processing,Metals & Mining,
+PTIPR0AM0000,Impresa,PTIPR0AM0000,Portugal,Services,Media & Entertainment,
+ES0148396007,Inditex,ES0148396007,Spain,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 50;Euro Stoxx 600
+DE0006231004,Infineon,DE0006231004,Germany,Technology & Communications,Semiconductors,Euro Stoxx 600;DAX 40
+FI0009007637,Innofactor,FI0009007637,Finland,Technology & Communications,Software & IT Services,
+DE0005759807,Innovation in Traffic Systems,DE0005759807,Germany,Technology & Communications,Hardware,
+LU2290522684,Inpost,LU2290522684,Luxembourg,Transportation,Air Freight & Logistics,Euro Stoxx 600
+PLINTCS00010,Inter Cars Group,PLINTCS00010,Poland,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+IT0000072618,Intesa Sanpaolo,IT0000072618,Italy,Financials,Commercial Banks,Euro Stoxx 50;Euro Stoxx 600
+SE0010100958,Investment AB Latour,SE0010100958,Sweden,Resource Transformation,Electrical & Electronic Equipment,
+FR0010259150,Ipsen,FR0010259150,France,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+IT0005211237,Italgas,IT0005211237,Italy,Infrastructure,NA,Euro Stoxx 600
+NL0015000LU4,Iveco,NL0015000LU4,Netherlands,Transportation,Automobiles,Euro Stoxx 600
+FR0000077919,JCDecaux,FR0000077919,France,Services,Advertising & Marketing,
+NL0014332678,JDE Peet's,NL0014332678,Netherlands,Food & Beverage,Non-Alcoholic Beverages,Euro Stoxx 600
+DE000A2NB601,Jenoptik,DE000A2NB601,Germany,Technology & Communications,Hardware,
+DE0006219934,Jungheinrich,DE0006219934,Germany,Resource Transformation,Industrial Machinery & Goods,
+IT0005572778,Juventus Football Club,IT0005572778,Italy,Services,Leisure Facilities,
+DE000KSAG888,K+S,DE000KSAG888,Germany,Resource Transformation,Chemicals,
+DE0006208408,KAP,DE0006208408,Germany,Resource Transformation,Chemicals,
+BE0003565737,KBC,BE0003565737,Belgium,Financials,Commercial Banks,
+DE000KGX8881,KION Group,DE000KGX8881,Germany,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+NL0000009082,KPN,NL0000009082,Netherlands,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+PLKRK0000010,KRUK,PLKRK0000010,Poland,Services,Professional & Commercial Services,
+FI4000571054,Kalmar Global,FI4000571054,Finland,Resource Transformation,Industrial Machinery & Goods,
+FI0009004824,Kemira,FI0009004824,Finland,Resource Transformation,Chemicals,
+FI4000513593,Kempower,FI4000513593,Finland,Resource Transformation,Electrical & Electronic Equipment,
+NL0000852531,Kendrion,NL0000852531,Netherlands,Resource Transformation,Electrical & Electronic Equipment,
+FR0000121485,Kering,FR0000121485,France,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 600
+IE0004906560,Kerry Group ,IE0004906560,Ireland,Food & Beverage,Food Retailers & Distributors,Euro Stoxx 600
+FI0009000202,Kesko,FI0009000202,Finland,Food & Beverage,Food Retailers & Distributors,Euro Stoxx 600
+IE0004927939,Kingspan,IE0004927939,Ireland,Consumer Goods,Building Products & Furnishings,Euro Stoxx 600
+NO0003079709,Kitron Group,NO0003079709,Norway,Technology & Communications,NA,
+FR0000121964,Klepierre,FR0000121964,France,Infrastructure,Real Estate,Euro Stoxx 600
+DE000KC01000,Kloeckner & Co,DE000KC01000,Germany,Extractives & Minerals Processing,Iron & Steel Producers,
+DE000A2YN504,Knaus Tabbert,DE000A2YN504,Germany,Transportation,Automobiles,
+DE000KBX1006,Knorr-Bremse,DE000KBX1006,Germany,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+FI0009013403,Kone,FI0009013403,Finland,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+FI0009005870,Konecranes,FI0009005870,Finland,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+NO0003033102,Kongsberg Automotive,NO0003033102,Norway,Transportation,Auto Parts,
+NO0003043309,Kongsberg Gruppen,NO0003043309,Norway,Resource Transformation,Aerospace & Defence,Euro Stoxx 600
+NL0009432491,Koninklijke Vopak,NL0009432491,Netherlands,Extractives & Minerals Processing,Oil & Gas – Midstream,
+AT0000A0E9W5,Kontron AG,AT0000A0E9W5,Austria ,Technology & Communications,Software & IT Services,
+DE0006335003,Krones,DE0006335003,Germany,Resource Transformation,Industrial Machinery & Goods,
+DE000LEG1110,LEG Immobilien,DE000LEG1110,Germany,Infrastructure,Real Estate,Euro Stoxx 600
+PLLPP0000011,LPP,PLLPP0000011,Poland,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 600
+IT0005107492,LU-VE,IT0005107492,Italy,Consumer Goods,Building Products & Furnishings,
+FR0000121014,LVMH,FR0000121014,France,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 50;Euro Stoxx 600
+ES0157261019,Laboratorios Farmaceuticos Rovi,ES0157261019,Spain,Health Care,Biotechnology & Pharmaceuticals,
+FR0000130213,Lagardere,FR0000130213,France,Services,Media & Entertainment,
+FI4000512488,Lamor Corp,FI4000512488,Finland,Infrastructure,Engineering & Construction Services,
+DE0005470405,Lanxess,DE0005470405,Germany,Resource Transformation,Chemicals,
+FR0000065484,Lectra,FR0000065484,France,Technology & Communications,Software & IT Services,
+FR0010307819,Legrand,FR0010307819,France,Resource Transformation,Electrical & Electronic Equipment,Euro Stoxx 600
+DE0006464506,Leifheit,DE0006464506,Germany,Consumer Goods,Household & Personal Products,
+AT0000644505,Lenzing,AT0000644505,Austria,Resource Transformation,Chemicals,
+IT0003856405,Leonardo,IT0003856405,Italy,Resource Transformation,Aerospace & Defence,Euro Stoxx 600
+SE0001852419,Lindab International,SE0001852419,Sweden,Resource Transformation,Electrical & Electronic Equipment,
+FI0009000251,Lindex Group,FI0009000251,Finland,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+ES0105027009,Logista Integral,ES0105027009,Spain,Transportation,Air Freight & Logistics,
+DK0061804697,Lundbeck,DK0061804697,Denmark,Health Care,Biotechnology & Pharmaceuticals,
+61f13791-33d4-4d26-b140-9ff0dd91e1e9,L´Occitane International,NA,Luxembourg,Consumer Goods,Household & Personal Products,
+FR0000120321,L’Oréal,FR0000120321,France,Consumer Goods,Household & Personal Products,Euro Stoxx 50;Euro Stoxx 600
+441a43d5-1d41-4386-98b6-2005d037c3b2,MAXIMA,NA,Lithuania,Food & Beverage,Food Retailers & Distributors,
+BE0165385973,MELEXIS,BE0165385973,Belgium,Technology & Communications,Semiconductors,
+DK0010255975,MT Højgaard Holding,DK0010255975,Denmark,Infrastructure,Engineering & Construction Services,
+DE000A0D9PT0,MTU Aero Engines,DE000A0D9PT0,Germany,Resource Transformation,Aerospace & Defence,DAX 40;Euro Stoxx 600
+DE000A0H52F5,MVV Energie,DE000A0H52F5,Germany,Infrastructure,Electric Utilities & Power Generators,
+FR0013153541,Maisons du Monde,FR0013153541,France,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+HU0000093943,Masterplast,HU0000093943,Hungary,Consumer Goods,Building Products & Furnishings,
+DK0060497295,Matas,DK0060497295,Denmark,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+DE0006595101,Mediclin,DE0006595101,Germany,Health Care,Health Care Delivery,
+SE0009778848,Medicover,SE0009778848,Sweden,Health Care,Health Care Delivery,
+DE0007100000,Mercedes,DE0007100000,Germany,Transportation,Automobiles,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE0006599905,Merck,DE0006599905,Germany,Health Care,Biotechnology & Pharmaceuticals,DAX 40;Euro Stoxx 600
+GRS393503008,Metlen,GRS393503008,Greece,Infrastructure,Engineering & Construction Services,
+DE000BFB0019,Metro,DE000BFB0019,Germany,Food & Beverage,Food Retailers & Distributors,
+FI0009014575,Metso,FI0009014575,Finland,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+FI0009000665,Metsä,FI0009000665,Finland,Renewable Resources & Alternative Energy,Pulp & Paper Products,
+FR001400AJ45,Michelin,FR001400AJ45,France,Transportation,Auto Parts,Euro Stoxx 600
+ES0161560018,Minor Hotels Europe & Americas,ES0161560018,Spain,Services,Hotels & Lodging,
+SE0018012494,Modern Times Group (MTG),SE0018012494,Sweden,Technology & Communications,Software & IT Services,
+IT0004965148,Moncler,IT0004965148,Italy,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 600
+NO0003054108,Mowi,NO0003054108,Norway,Food & Beverage,"Meat, Poultry & Dairy",Euro Stoxx 600
+NO0010734338,Multiconsult,NO0010734338,Norway,Infrastructure,Engineering & Construction Services,
+a651466e-243b-43d7-9556-afbfb9ce26ce,Mundys,NA,Italy,Infrastructure,Engineering & Construction Services,
+DE0008430026,Munich Re,DE0008430026,Germany,Financials,Insurance,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+SE0000375115,Mycronic AB,SE0000375115,Sweden,Technology & Communications,Semiconductors,
+DK0010287663,NKT,DK0010287663,Denmark,Resource Transformation,Electrical & Electronic Equipment,Euro Stoxx 600
+DK0060580512,NNIT,DK0060580512,Denmark,Technology & Communications,Software & IT Services,
+PTZON0AM0006,NOS,PTZON0AM0006,Portugal,Technology & Communications,Telecommunication Services,
+NO0003679102,NRC Group,NO0003679102,Norway,Infrastructure,Engineering & Construction Services,
+DK0061141215,NTG Nordic Transport Group,DK0061141215,Denmark,Transportation,Air Freight & Logistics,
+GB00BDR05C01,National Grid,GB00BDR05C01,United Kingdom,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+ES0116870314,Naturgy Energy Group,ES0116870314,Spain,Infrastructure,NA,Euro Stoxx 600
+CH0038863350,Nestlé SA,CH0038863350,Switzerland,Food & Beverage,Processed Foods,Euro Stoxx 600
+DK0060952919,Netcompany,DK0060952919,Denmark,Technology & Communications,Internet Media & Services,
+IT0005385213,Newlat Food,IT0005385213,Italy,Food & Beverage,Processed Foods,
+FR0000044448,Nexans,FR0000044448,France,Resource Transformation,Electrical & Electronic Equipment,Euro Stoxx 600
+FR0010112524,Nexity,FR0010112524,France,Infrastructure,Home Builders,
+DK0060907293,Nilfisk,DK0060907293,Denmark,Resource Transformation,Industrial Machinery & Goods,
+SE0000949331,Nobia,SE0000949331,Sweden,Consumer Goods,Building Products & Furnishings,
+FI4000064332,Noho Partners,FI4000064332,Finland,Food & Beverage,Restaurants,
+FI0009000681,Nokia,FI0009000681,Finland,Technology & Communications,Hardware,Euro Stoxx 600
+FI0009005318,Nokian Tyres,FI0009005318,Finland,Transportation,Auto Parts,
+FI4000297767,Nordea,FI4000297767,Finland,Financials,Commercial Banks,Euro Stoxx 50;OMX Stockholm 30;Euro Stoxx 600
+DE000A0D6554,Nordex,DE000A0D6554,Germany,Renewable Resources & Alternative Energy,Wind Technology & Project Developers,Euro Stoxx 600
+NO0003055501,Nordic Semiconductor,NO0003055501,Norway,Technology & Communications,Semiconductors,Euro Stoxx 600
+NO0005052605,Norsk Hydro,NO0005052605,Norway,Extractives & Minerals Processing,Metals & Mining,Euro Stoxx 600
+NO0010861115,Norske Skog,NO0010861115,Norway,Renewable Resources & Alternative Energy,Pulp & Paper Products,
+DK0062498333,Novo Nordisk,DK0062498333,Denmark,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+DK0060336014,Novonesis,DK0060336014,Denmark,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+3356da6f-21f0-4cae-85d9-f0d9ef6fb3db,Nykredit Realkredit,NA,Denmark,Infrastructure,Real Estate,
+NL0010558797,OCI,NL0010558797,Netherlands,Resource Transformation,Chemicals,
+AT0000743059,OMV,AT0000743059,Austria,Extractives & Minerals Processing,Oil & Gas – Refining & Marketing,Euro Stoxx 600
+GRS419003009,OPAP,GRS419003009,Greece,Services,Casinos & Gaming,
+FR0014005HJ9,OVH Groupe,FR0014005HJ9,France,Technology & Communications,Software & IT Services,
+IT0005043507,OVS,IT0005043507,Italy,Consumer Goods,"Apparel, Accessories & Footwear",
+BMG671801022,Odfjell Drilling,BMG671801022,Norway,Extractives & Minerals Processing,Oil & Gas – Services,
+NO0003399917,Odjefell Shipping,NO0003399917,Norway,Transportation,Marine Transportation,
+FI0009900401,Olvi,FI0009900401,Finland,Food & Beverage,Alcoholic Beverages,
+BE0974276082,Ontex,BE0974276082,Belgium,Consumer Goods,Household & Personal Products,
+FR0000124570,Op Mobility,FR0000124570,France,Consumer Goods,Building Products & Furnishings,
+HU0000110226,Opus Global Nyrt,HU0000110226,Hungary,Transportation,Auto Parts,
+FR0000133308,Orange,FR0000133308,France,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+BE0003735496,Orange Belgium,BE0003735496,Belgium,Technology & Communications,Telecommunication Services,
+2ea5816b-d596-4b07-905d-c07d0d9fba20,Orano,NA,France,Resource Transformation,Electrical & Electronic Equipment,
+IE00B1WV4493,Origin Enterprises ,IE00B1WV4493,Ireland,Food & Beverage,Agricultural Products,
+FI0009014351,Oriola-KD,FI0009014351,Finland,Health Care,Biotechnology & Pharmaceuticals,
+FI0009014377,Orion,FI0009014377,Finland,Health Care,Medical Equipment & Supplies,Euro Stoxx 600
+NO0003733800,Orkla,NO0003733800,Norway,Food & Beverage,Processed Foods,Euro Stoxx 600
+FI0009002422,Outokumpu,FI0009002422,Finland,Extractives & Minerals Processing,Iron & Steel Producers,
+AT0000609607,PORR,AT0000609607,Austria,Infrastructure,Engineering & Construction Services,
+AT0000758305,Palfinger,AT0000758305,Austria,Resource Transformation,Industrial Machinery & Goods,
+DK0060252690,Pandora,DK0060252690,Denmark,Consumer Goods,"Apparel, Accessories & Footwear",Euro Stoxx 600
+SE0007100359,Pandox,SE0007100359,Sweden,Infrastructure,Real Estate Services,
+DE0005558696,Paragon,DE0005558696,Germany,Technology & Communications,Hardware,
+DK0060700516,Per Aarsleff Holding,DK0060700516,Denmark,Infrastructure,Engineering & Construction Services,
+FR0000120693,Pernod Ricard,FR0000120693,France,Food & Beverage,Alcoholic Beverages,
+NL0000009538,Philips,NL0000009538,Netherlands,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+FR0000073041,Pierre & Vacances,FR0000073041,France,Services,Hotels & Lodging,
+FI4000092556,Pihlajalinna,FI4000092556,Finland,Health Care,Health Care Delivery,
+IT0004240443,Piquadro ,IT0004240443,Italy,Consumer Goods,"Apparel, Accessories & Footwear",
+IT0005278236,Pirelli,IT0005278236,Italy,Transportation,Auto Parts,
+FI0009005078,Ponsse,FI0009005078,Finland,Resource Transformation,Industrial Machinery & Goods,
+DE000PAG9113,Porsche,DE000PAG9113,Germany,Transportation,Automobiles,Euro Stoxx 600
+DE000PAH0038,Porsche Automobil Holding,DE000PAH0038,Germany,Transportation,Automobiles,DAX 40
+NL0009739416,PostNL,NL0009739416,Netherlands,Transportation,Air Freight & Logistics,
+0568f6e7-2f0f-4538-b994-1546ae119267,Posten Bring,NA,Norway,Transportation,Air Freight & Logistics,
+DE000PSM7770,ProSiebenSat.1 Media,DE000PSM7770,Germany,Services,Media & Entertainment,
+ES0175438003,Prosegur,ES0175438003,Spain,Services,Professional & Commercial Services,
+ES0105229001,Prosegur Cash,ES0105229001,Spain,Services,Professional & Commercial Services,
+NL0013654783,Prosus,NL0013654783,Netherlands,Technology & Communications,Internet Media & Services,Euro Stoxx 600;Euro Stoxx 50
+BE0003810273,Proximus,BE0003810273,Belgium,Technology & Communications,Telecommunication Services,
+IT0004176001,Prysmian,IT0004176001,Italy,Resource Transformation,Electrical & Electronic Equipment,Euro Stoxx 600
+DE0006969603,Puma,DE0006969603,Germany,Consumer Goods,"Apparel, Accessories & Footwear",
+NL0015001WM6,QIAGEN,NL0015001WM6,Netherlands,Health Care,Biotechnology & Pharmaceuticals,DAX 40
+DE0005137004,QSC,DE0005137004,Germany,Technology & Communications,Telecommunication Services,
+FI4000198031,QT Group,FI4000198031,Finland,Technology & Communications,Software & IT Services,
+FR0000120560,Quadient,FR0000120560,France,Technology & Communications,Hardware,
+GB00B2B0DG97,RELX,GB00B2B0DG97,United Kingdom,Services,Professional & Commercial Services,Euro Stoxx 600
+DE000RENK730,RENK,DE000RENK730,Germany,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+NL0012650360,RHI Magnesita,NL0012650360,Netherlands,Extractives & Minerals Processing,Construction Materials,
+LU0061462528,RTL Group,LU0061462528,Luxembourg,Services,Media & Entertainment,
+DE0007037129,RWE,DE0007037129,Germany,Infrastructure,Electric Utilities & Power Generators,DAX 40;Euro Stoxx 600
+FR0000044471,Ramsay Sante,FR0000044471,France,Health Care,Health Care Delivery,
+NL0000379121,Randstad,NL0000379121,Netherlands,Services,Professional & Commercial Services,
+FI0009007355,Rapala VMC,FI0009007355,Finland,Consumer Goods,Toys & Sporting Goods,
+FI0009004741,Raute,FI0009004741,Finland,Resource Transformation,Industrial Machinery & Goods,
+NL0012044747,Redcare Pharmacy,NL0012044747,Netherlands,Health Care,Drug Retailers,
+ES0173093024,Redeia,ES0173093024,Spain,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+PTREL0AM0008,Redes Energeticas Nacionais,PTREL0AM0008,Portugal,Infrastructure,Electric Utilities & Power Generators,
+FR0000131906,Renault,FR0000131906,France,Transportation,Automobiles,Euro Stoxx 600
+ES0173516115,Repsol,ES0173516115,Spain,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+FR0010451203,Rexel,FR0010451203,France,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+DE0007030009,Rheinmetall,DE0007030009,Germany,Resource Transformation,Aerospace & Defence,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE0007042301,Rhön-Klinikum,DE0007042301,Germany,Health Care,Health Care Delivery,
+GB0007188757,Rio Tinto,GB0007188757,United Kingdom,Extractives & Minerals Processing,Metals & Mining,Euro Stoxx 600
+DK0010219153,Rockwool,DK0010219153,Denmark,Consumer Goods,Building Products & Furnishings,
+NL0011794037,Royal Ahold Delhaize,NL0011794037,Netherlands,Food & Beverage,Food Retailers & Distributors,Euro Stoxx 50;Euro Stoxx 600
+2bce243a-9f3c-46d5-a8bc-8a33f16341c7,Royal Schiphol,NA,Netherlands,Transportation,Air Freight & Logistics,
+DK0060634707,Royal Unibrew,DK0060634707,Denmark,Food & Beverage,Alcoholic Beverages,Euro Stoxx 600
+SE0020848356,Rusta,SE0020848356,Sweden,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+IE00BYTBXV33,Ryanair,IE00BYTBXV33,Ireland,Transportation,Airlines,Euro Stoxx 600
+ROSNNEACNOR8,S.N. Nuclearelectrica,ROSNNEACNOR8,Romania,Infrastructure,Electric Utilities & Power Generators,
+FR0000073272,SAFRAN,FR0000073272,France,Resource Transformation,Aerospace & Defence,Euro Stoxx 50;Euro Stoxx 600
+DE0007164600,SAP,DE0007164600,Germany,Technology & Communications,Software & IT Services,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+NO0010863285,SATS,NO0010863285,Norway,Services,Leisure Facilities,
+NL0000360618,SBM Offshore,NL0000360618,Netherlands,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+DE000A3ENQ51,SCHOTT Pharma,DE000A3ENQ51,Germany,Health Care,Medical Equipment & Supplies,
+LU0088087324,SES,LU0088087324,Luxembourg,Technology & Communications,Telecommunication Services,
+DE0007235301,SGL Carbon,DE0007235301,Germany,Resource Transformation,Chemicals,
+NL0011660485,SIF Holding,NL0011660485,Netherlands,Renewable Resources & Alternative Energy,Wind Technology & Project Developers,
+c510ef57-3f0b-4c47-898e-aefa544bb416,SNCF,NA,France,Transportation,Rail Transportation,
+SE0000171100,SSAB,SE0000171100,Sweden,Extractives & Minerals Processing,Iron & Steel Producers,
+NL0000226223,STMicroelectronics,NL0000226223,Netherlands,Technology & Communications,Semiconductors,Euro Stoxx 600
+SE0021921269,Saab,SE0021921269,Sweden,Resource Transformation,Aerospace & Defence,OMX Stockholm 30;Euro Stoxx 600
+FR0000125007,Saint-Gobain,FR0000125007,France,Extractives & Minerals Processing,Construction Materials,Euro Stoxx 50;Euro Stoxx 600
+DE0006202005,Salzgitter,DE0006202005,Germany,Extractives & Minerals Processing,Iron & Steel Producers,
+SE0000667891,Sandvik,SE0000667891,Sweden,Resource Transformation,Industrial Machinery & Goods,OMX Stockholm 30
+FR0000120578,Sanofi,FR0000120578,France,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 50;Euro Stoxx 600
+FI0009007694,Sanoma,FI0009007694,Finland,Services,Media & Entertainment,
+PLBZ00000044,Santander Bank Polska,PLBZ00000044,Poland,Financials,Commercial Banks,Euro Stoxx 600
+GRS204003008,Sarantis,GRS204003008,Greece,Consumer Goods,Household & Personal Products,
+DE0007165631,Sartorius,DE0007165631,Germany,Health Care,Medical Equipment & Supplies,Euro Stoxx 600
+FR0013154002,Sartorius Stedim Biotech,FR0013154002,France,Health Care,Medical Equipment & Supplies,Euro Stoxx 600
+DK0060696300,Scandinavian Tobacco,DK0060696300,Denmark,Food & Beverage,Tobacco,
+FI4000029905,Scanfil,FI4000029905,Finland,Resource Transformation,Electrical & Electronic Equipment,
+DE000SHA0019,Schaeffler,DE000SHA0019,Germany,Transportation,Auto Parts,
+DE0007229007,Schloss Wachenheim,DE0007229007,Germany,Food & Beverage,Alcoholic Beverages,
+FR0000121972,Schneider Electric,FR0000121972,France,Resource Transformation,Electrical & Electronic Equipment,Euro Stoxx 50
+AT0000946652,Schoeller-Bleckmann,AT0000946652,Austria,Extractives & Minerals Processing,Oil & Gas – Services,
+DK0010253921,Schouw & Co,DK0010253921,Denmark,Food & Beverage,Agricultural Products,
+DE000A12DM80,Scout24,DE000A12DM80,Germany,Technology & Communications,Internet Media & Services,DAX 40;Euro Stoxx 600
+IT0004729759,SeSa,IT0004729759,Italy,Technology & Communications,Software & IT Services,
+FR0000039109,Seche Environment,FR0000039109,France,Infrastructure,Waste Management,
+AT0000785555,Semperit,AT0000785555,Austria,Resource Transformation,Industrial Machinery & Goods,
+GB00BP6MXD84,Shell,GB00BP6MXD84,United Kingdom,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+DE0007236101,Siemens,DE0007236101,Germany,Resource Transformation,Electrical & Electronic Equipment,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE000ENER6Y0,Siemens Energy,DE000ENER6Y0,Germany,Resource Transformation,Electrical & Electronic Equipment,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+DE000SHL1006,Siemens Healthineers,DE000SHL1006,Germany,Health Care,Medical Equipment & Supplies,DAX 40;Euro Stoxx 600
+NL0011821392,Signify,NL0011821392,Netherlands,Resource Transformation,Electrical & Electronic Equipment,
+FI4000043435,Siili Solutions,FI4000043435,Finland,Technology & Communications,Software & IT Services,
+MT0000070103,Simonds Farsons Cisk,MT0000070103,Malta,Food & Beverage,Alcoholic Beverages,
+FI4000480215,Sitowise,FI4000480215,Finland,Infrastructure,Engineering & Construction Services,
+DE0007231326,Sixt,DE0007231326,Germany,Transportation,Car Rental & Leasing,
+SE0012141687,Skistar,SE0012141687,Sweden,Services,Leisure Facilities,
+NL0000817179,Sligro Food Group,NL0000817179,Netherlands,Food & Beverage,Restaurants,
+FR001400SF56,Societe LDC,FR001400SF56,France,Food & Beverage,"Meat, Poultry & Dairy",
+FR0000121220,Sodexo,FR0000121220,France,Food & Beverage,Restaurants,
+DK0010274844,Solar,DK0010274844,Denmark,Renewable Resources & Alternative Energy,Solar Technology & Project Developers,
+NO0003080608,Solstad Offshore,NO0003080608,Norway,Transportation,Marine Transportation,
+FR0013379484,Solutions 30,FR0013379484,Luxembourg,Technology & Communications,NA,
+BE0003470755,Solvay,BE0003470755,Belgium,Resource Transformation,Chemicals,
+IT0005329815,Somec,IT0005329815,Italy,Consumer Goods,Building Products & Furnishings,
+PTSON0AM0001,Sonae,PTSON0AM0001,Portugal,Food & Beverage,Food Retailers & Distributors,
+FR0000050809,Sopra Steria,FR0000050809,France,Technology & Communications,Software & IT Services,
+ROSFGPACNOR4,Sphera Franchise Group,ROSFGPACNOR4,Romania,Food & Beverage,Restaurants,
+DE000STAB1L8,Stabilus,DE000STAB1L8,Germany,Resource Transformation,Industrial Machinery & Goods,
+67a60e67-2ea2-4510-90d1-d18502481182,Statkraft,NA,Norway,Infrastructure,Electric Utilities & Power Generators,
+e4cfbf7f-de14-4fe0-b358-55617e867cca,Stedin,NA,Netherlands,Infrastructure,Electric Utilities & Power Generators,
+FR0000064271,Stef,FR0000064271,France,Transportation,Road Transportation,
+NL00150001Q9,Stellantis,NL00150001Q9,Netherlands,Transportation,Automobiles,Euro Stoxx 600
+FI0009005961,Stora Enso,FI0009005961,Finland,Renewable Resources & Alternative Energy,Pulp & Paper Products,Euro Stoxx 600
+LU0075646355,Subsea 7,LU0075646355,Luxembourg,Extractives & Minerals Processing,Oil & Gas – Services,Euro Stoxx 600
+SE0000112724,Svenska Cellulosa,SE0000112724,Sweden,Renewable Resources & Alternative Energy,Pulp & Paper Products,OMX Stockholm 30;Euro Stoxx 600
+SE0000872095,Swedish Orphan Biovitrum,SE0000872095,Sweden,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+BE0974464977,Syensqo,BE0974464977,Belgium,Resource Transformation,Chemicals,Euro Stoxx 600
+DE000SYM9999,Symrise,DE000SYM9999,Germany,Resource Transformation,Chemicals,DAX 40;Euro Stoxx 600
+SE0016609499,Systemair,SE0016609499,Sweden,Resource Transformation,Electrical & Electronic Equipment,
+DE0005104806,Syzygy,DE0005104806,Germany,Services,Advertising & Marketing,
+DE0008303504,TAG Immobilien,DE0008303504,Germany,Infrastructure,Real Estate,Euro Stoxx 600
+a29675dc-cd64-4208-bb8b-a073b25e47b2,TDC Net,NA,Denmark,Technology & Communications,Telecommunication Services,
+FR0000054900,TF1,FR0000054900,France,Services,Media & Entertainment,
+FR0013295789,TFF Group,FR0013295789,France,Resource Transformation,Containers & Packaging,
+NO0003078800,TGS NOPEC Geophysical,NO0003078800,Norway,Extractives & Minerals Processing,Oil & Gas – Services,
+NL0000852523,TKH,NL0000852523,Netherlands,Technology & Communications,Software & IT Services,
+EE0000001105,TKM Grupp,EE0000001105,Estonia,Food & Beverage,Food Retailers & Distributors,
+NO0012470089,TOMRA Systems,NO0012470089,Norway,Resource Transformation,Industrial Machinery & Goods,Euro Stoxx 600
+GB00BZ3CNK81,TORM,GB00BZ3CNK81,United Kingdom,Extractives & Minerals Processing,Oil & Gas – Midstream,
+FI4000153580,Talenom,FI4000153580,Finland,Services,Professional & Commercial Services,
+SK1120010287,Tatry Mountain Resorts,SK1120010287,Slovakia,Services,Hotels & Lodging,
+DE000A2YN900,TeamViewer,DE000A2YN900,Germany,Technology & Communications,Software & IT Services,
+NL0014559478,Technip Energies,NL0014559478,Netherlands,Infrastructure,Engineering & Construction Services,Euro Stoxx 600
+FI4000570890,Tecnotree Corporation,FI4000570890,Finland,Technology & Communications,Telecommunication Services,
+SE0005190238,Tele2,SE0005190238,Sweden,Technology & Communications,Telecommunication Services,OMX Stockholm 30;Euro Stoxx 600
+ES0178430E18,Telefónica,ES0178430E18,Spain,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+DE000A1J5RX9,Telefónica Deutschland,DE000A1J5RX9,Germany,Technology & Communications,Telecommunication Services,
+NO0010063308,Telenor,NO0010063308,Norway,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+FR0000051807,Teleperformance,FR0000051807,France,Technology & Communications,Software & IT Services,
+SE0000667925,Telia Company,SE0000667925,Sweden,Technology & Communications,Telecommunication Services,OMX Stockholm 30;Euro Stoxx 600
+LT0000123911,Telia Lithuania,LT0000123911,Lithuania,Technology & Communications,Telecommunication Services,
+LU2598331598,Tenaris,LU2598331598,Luxembourg,Extractives & Minerals Processing,Iron & Steel Producers,Euro Stoxx 600
+59fc0c41-f2f7-45c2-8e8d-d139c747eda5,TenneT Holding,NA,Netherlands,Infrastructure,Electric Utilities & Power Generators,
+FR0013333432,Thermador Groupe,FR0013333432,France,Consumer Goods,Multiline and Specialty Retailers & Distributors,
+DE0007500001,Thyssenkrupp,DE0007500001,Germany,Extractives & Minerals Processing,Iron & Steel Producers,
+DE000NCA0001,Thyssenkrupp Nucera ,DE000NCA0001,Germany,Infrastructure,Engineering & Construction Services,
+FI0009000277,Tietoevry,FI0009000277,Finland,Technology & Communications,Software & IT Services,
+BE0974338700,Titan Cement International,BE0974338700,Belgium,Extractives & Minerals Processing,Construction Materials,
+NL0013332471,TomTom,NL0013332471,Netherlands,Technology & Communications,Internet Media & Services,
+FR0000120271,TotalEnergies,FR0000120271,France,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 50;Euro Stoxx 600
+DE000TRAT0N7,Traton,DE000TRAT0N7,Germany,Resource Transformation,Industrial Machinery & Goods,
+CH1111227810,Trifork,CH1111227810,Switzerland,Technology & Communications,Internet Media & Services,
+FR0005691656,Trigano,FR0005691656,France,Transportation,Automobiles,
+569b6974-1f79-497a-9012-20123f0fe23f,Triodos Bank,NA,Netherlands,Financials,Commercial Banks,
+DE000TUAG505,Tui,DE000TUAG505,Germany,Services,Professional & Commercial Services,
+BE0003739530,UCB,BE0003739530,Belgium,Health Care,Biotechnology & Pharmaceuticals,Euro Stoxx 600
+FI0009005987,UPM,FI0009005987,Finland,Renewable Resources & Alternative Energy,Pulp & Paper Products,Euro Stoxx 600
+FR0000054470,Ubisoft,FR0000054470,France,Technology & Communications,Software & IT Services,
+BE0974320526,Umicore,BE0974320526,Belgium,Resource Transformation,Chemicals,Euro Stoxx 600
+IT0005239360,UniCredit,IT0005239360,Italy,Financials,Commercial Banks,Euro Stoxx 50;Euro Stoxx 600
+FR0013326246,Unibail-Rodamco-Westfield,FR0013326246,France,Infrastructure,Real Estate,Euro Stoxx 600
+GB00B10RZP78,Unilever,GB00B10RZP78,United Kingdom,Consumer Goods,Household & Personal Products,Euro Stoxx 600
+DE000UNSE026,Uniper,DE000UNSE026,Germany,Infrastructure,Electric Utilities & Power Generators,
+NL0015000IY2,Universal Music,NL0015000IY2,Netherlands,Services,Media & Entertainment,Euro Stoxx 600
+FR0000125486,VINCI,FR0000125486,France,Infrastructure,Engineering & Construction Services,Euro Stoxx 50;Euro Stoxx 600
+ad3a1d39-d7c2-44a5-bacb-067cb11e3579,VR Yhthyma,NA,Finland,Transportation,Rail Transportation,
+FI0009900682,Vaisala,FI0009900682,Finland,Resource Transformation,Electrical & Electronic Equipment,
+FR0013506730,Vallourec,FR0013506730,France,Extractives & Minerals Processing,Iron & Steel Producers,Euro Stoxx 600
+BE0003839561,Van de Velde,BE0003839561,Belgium,Consumer Goods,"Apparel, Accessories & Footwear",
+NO0011202772,Var Energi,NO0011202772,Norway,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+DE000A0TGJ55,Varta,DE000A0TGJ55,Germany,Renewable Resources & Alternative Energy,Fuel Cells & Industrial Batteries,
+XS0422688019,Vattenfall,XS0422688019,Sweden,Infrastructure,Electric Utilities & Power Generators,
+NO0005806802,Veidekke,NO0005806802,Norway,Infrastructure,Engineering & Construction Services,
+FR0013447729,Verallia SASU,FR0013447729,France,Resource Transformation,Containers & Packaging,
+DE000A0JL9W6,Verbio,DE000A0JL9W6,Germany,Renewable Resources & Alternative Energy,Biofuels,
+AT0000746409,Verbund,AT0000746409,Austria,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
+FI4000049812,Verkkokauppa.com,FI4000049812,Finland,Consumer Goods,E-Commerce,
+DK0061539921,Vestas,DK0061539921,Denmark,Renewable Resources & Alternative Energy,Wind Technology & Project Developers,Euro Stoxx 600
+ES0183746314,Vidrala,ES0183746314,Spain,Resource Transformation,Containers & Packaging,
+FI0009005250,Viking Line,FI0009005250,Finland,Transportation,Marine Transportation,
+FR0000031577,Virbac,FR0000031577,France,Health Care,Biotechnology & Pharmaceuticals,
+FR001400PVN6,Viridien,FR001400PVN6,France,Technology & Communications,Software & IT Services,
+ES0184262212,Viscofan,ES0184262212,Spain,Resource Transformation,Containers & Packaging,
+FR0000127771,Vivendi,FR0000127771,France,Services,Media & Entertainment,Euro Stoxx 50
+DE0007664039,Volkswagen,DE0007664039,Germany,Transportation,Automobiles,DAX 40;Euro Stoxx 50;Euro Stoxx 600
+SE0000115446,Volvo,SE0000115446,Sweden,Resource Transformation,Industrial Machinery & Goods,OMX Stockholm 30;Euro Stoxx 600
+DE000A1ML7J1,Vonovia,DE000A1ML7J1,Germany,Infrastructure,Real Estate,DAX 40;Euro Stoxx 600
+DE000WCH8881,WACKER Chemie,DE000WCH8881,Germany,Resource Transformation,Chemicals,
+NO0010571680,Wallenius Wilhelmsen,NO0010571680,Norway,Transportation,Marine Transportation,
+BE0974349814,Warehouse de Pauw,BE0974349814,Belgium,Infrastructure,Real Estate,Euro Stoxx 600
+FR0013357621,Wavestone,FR0013357621,France,Technology & Communications,Software & IT Services,
+DE000A2N4H07,Westwing Group,DE000A2N4H07,Germany,Consumer Goods,NA,
+NO0010571698,Wilh Wilhelmsen Holding,NO0010571698,Norway,Transportation,Marine Transportation,
+PLWRTPL00027,Wirtualna Polska,PLWRTPL00027,Poland,Technology & Communications,Internet Media & Services,
+NL0000395903,Wolters Kluwer,NL0000395903,Netherlands,Services,Professional & Commercial Services,Euro Stoxx 50;Euro Stoxx 600
+FI0009003727,Wärtsilä,FI0009003727,Finland,Consumer Goods,Appliance Manufacturing,Euro Stoxx 600
+FI0009800643,YIT,FI0009800643,Finland,Infrastructure,Home Builders,
+NL0009805522,Yandex,NL0009805522,Netherlands,Technology & Communications,Internet Media & Services,
+NO0010208051,Yara International,NO0010208051,Norway,Resource Transformation,Chemicals,Euro Stoxx 600
+LU2910446546,Zabka,LU2910446546,Luxembourg,Food & Beverage,Food Retailers & Distributors,
+DE000ZAL1111,Zalando,DE000ZAL1111,Germany,Consumer Goods,E-Commerce,DAX 40;Euro Stoxx 600
+AT0000837307,Zumtobel Group,AT0000837307,Austria,Resource Transformation,Electrical & Electronic Equipment,
+CH0011075394,Zurich,CH0011075394,Switzerland,Financials,Insurance,Euro Stoxx 600
+DE000A1EWWW0,adidas,DE000A1EWWW0,Germany,Consumer Goods,"Apparel, Accessories & Footwear",DAX 40;Euro Stoxx 50;Euro Stoxx 600
+BE0974362940,barco,BE0974362940,Belgium,Technology & Communications,Hardware,
+NL0011872650,basic-Fit,NL0011872650,Netherlands,Services,Leisure Facilities,
+FR0013280286,bioMerieux,FR0013280286,France,Health Care,Medical Equipment & Supplies,
+GB0007980591,bp,GB0007980591,United Kingdom,Extractives & Minerals Processing,Oil & Gas – Exploration & Production,Euro Stoxx 600
+BE0003883031,cfe,BE0003883031,Belgium,Infrastructure,Engineering & Construction Services,
+DE000A0Z2ZZ5,freenet,DE000A0Z2ZZ5,Germany,Technology & Communications,Telecommunication Services,Euro Stoxx 600
+AT0000937503,voestalpine,AT0000937503,Austria,Extractives & Minerals Processing,Iron & Steel Producers,Euro Stoxx 600
+DK0060094928,Ørsted,DK0060094928,Denmark,Infrastructure,Electric Utilities & Power Generators,Euro Stoxx 600
