@@ -215,6 +215,7 @@ winsorize <- function(x, p_low = 0.01, p_high = 0.99) {
   cuts <- quantile(x, probs = c(p_low, p_high), type = 2, na.rm = TRUE) 
   x[x < cuts[1]] <- cuts[1]
   x[x > cuts[2]] <- cuts[2]
+  x
 }
 
 truncate <- function(x, p_low = 0.01, p_high = 0.99) {
@@ -238,6 +239,19 @@ sum
 ### Chunk 3.3 · Compare raw, winsorized and truncated ROA
 
 ```{r chunk_3_3}
+cs <- cs |> mutate(roa_w = winsorize(roa),
+                   roa_t = truncate(roa))
+ 
+cs |> select(roa, roa_w, roa_t) |>
+  pivot_longer(everything(), names_to = "version") |>
+  group_by(version) |>
+  summarise(N = sum(!is.na(value)),
+            mean = mean(value, na.rm = TRUE),
+            median = median(value, na.rm = TRUE),
+            sd = sd(value, na.rm = TRUE),
+            min = min(value, na.rm = TRUE),
+            max = max(value, na.rm =TRUE)) |> 
+  mutate(across(where(is.numeric), ~round(.x,3)))
 
 
 ```
@@ -252,7 +266,17 @@ Does the share of loss firms change?
 
 ```{r task_C1}
 ## Which firms are cut off at the bottom and at the top?
+
+cs |>
+  filter(!is.na(roa), is.na(roa_t)) |>
+  group_by(group = if_else(roa < 0, "bottom 1%", "top 1%")) |>
+  summarise(N = n(),
+            median_at = median(at, na.rm = TRUE),
+            median_mv = median(mv, na.rm = TRUE))
 ## Share of loss firms: raw vs. truncated sample
+c(raw = mean(cs$roa < 0, na.rm = TRUE),
+                truncated = mean(cs$roa < 0, na.rm = TRUE))
+
 
 
 ```
@@ -262,6 +286,10 @@ Winsorize pooled or by year?
 Compute the 1% cut-off of ROA for each fiscal year separately — are they similar?
 
 ```{r task_C2}
+cs |>
+  group_by(fyear) |>
+  summarise(p1  = quantile(roa, 0.01, na.rm = TRUE),
+            p99 = quantile(roa, 0.99, na.rm = TRUE))
 
 
 ```
@@ -269,6 +297,20 @@ Compute the 1% cut-off of ROA for each fiscal year separately — are they simil
 ### Chunk 3.4 · Boxplot by industry and a time trend
 
 ```{r chunk_3_4}
+## Boxplot: Winsorized ROA by 1-digit SIC industry
+ggplot(cs |>  filter (!is.na(sic1)), aes(x=sic1, y= roa_w)) +
+  geom_boxplot() +
+  labs(title = "ROA by one-digit SIC industry", x = "SIC1", y="ROA (winsorized)")
+## Time trend: median ROA per fiscal year
+cs |>
+  group_by(fyear) |>
+  summarise(median_roa = median(roa, na.rm = TRUE),
+            share_loss = mean(ib < 0, na.rm = TRUE)) |>
+  ggplot(aes(x = fyear, y = share_loss)) +
+  geom_line() + geom_point() +
+  labs(title = "Share of loss firms", x = "Fiscal year", y = "Share with ib < 0")
+
+
 
 
 ```
@@ -277,6 +319,12 @@ Compute the 1% cut-off of ROA for each fiscal year separately — are they simil
 What does the picture tell you about these two size proxies?
 
 ```{r task_C}
+cs |>
+  filter(fyear == 2013, at > 0, mv > 0) |>
+  ggplot(aes(x = log(at), y = log(mv))) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "lm") +
+  labs(title = "Two size proxies, 2013", x = "log(Total Assets)", y = "log(Market Value)")
 
 
 ```
@@ -298,6 +346,14 @@ Do they measure the same thing?
 
 ```{r chunk_4_1}
 ## Pearson correlation (raw values) vs. Spearman (ranks)
+size <- cs |>
+  filter(fyear == 2014, mv > 0, at > 0, sale > 0, emp > 0) |> 
+  select (conm, sic1, mv, at, sale, emp)
+nrow(size)
+ 
+round(cor(size[c("mv", "at", "sale", "emp")]), 2)
+      
+round(cor(size[c("mv", "at", "sale", "emp")], method = "spearman"), 2)
 
 
 ```
@@ -309,6 +365,12 @@ Rank correlations (Spearman) are more robust.
 Which proxy makes banks (SIC 6) look biggest — and why?
 
 ```{r task_D}
+top10 <- function(var) size |>  slice_max({{ var }}, n =10 )|> pull(conm)
+tibble (by_mv = top10(mv), by_at =top10(at), by_sale =top10(sale), by_emp =top10(emp))
+
+## Banks: huge balance sheets, relatively few employees
+
+
 ## Banks: huge balance sheets, relatively few employees
 
 
@@ -322,6 +384,13 @@ Dividing by price makes the measure comparable across firms — but what happens
 ### Chunk 4.2 · Where do the extreme values come from?
 
 ```{r chunk_4_2}
+summary(cs$surprise)
+cs |>  filter(!is.na(surprise)) |> 
+  slice_max(surprise, n= 8) |> 
+  select(conm, fyear, eps, eps_lag, price_lag, surprise)
+
+
+
 
 
 ```
@@ -335,7 +404,23 @@ Three ways to deal with it:
 ### Chunk 4.3 · Lang & Lundholm's industry-year percentile ranks
 
 ```{r chunk_4_3}
+cs <- cs |>
+  mutate(surprise_w = winsorize(surprise)) |>
+  group_by(sic2, fyear) |>
+  mutate(n_ind = sum(!is.na(surprise)),
+         surprise_r= (rank(surprise, na.last = "keep") - 1) / (n_ind-1)) |> 
+  ungroup()
+cs |> filter(!is.na(surprise)) |> 
+  select(surprise, surprise_w, surprise_r) |> 
+  summary()
+
+
 ## Same concept, three versions: how similar are they?
+cs |> select(surprise, surprise_w, surprise_r) |>
+  cor(use = "complete.obs")                        # Pearson
+cs |> select(surprise, surprise_w, surprise_r) |>
+  cor(use = "complete.obs", method = "spearman")   # Spearman
+
 
 
 ```
@@ -352,6 +437,18 @@ A simple proxy for **disclosure completeness**: the share of the 27 ESRS indicat
 ### Chunk 4.4 · A completeness proxy
 
 ```{r chunk_4_4}
+srn_raw <- read_csv(here("data", "srn_main_esrs_kpi_v2.4.csv"),
+                    col_types = cols(.default = col_character()))
+
+completeness <- srn_raw |> 
+  group_by(company_id, isin, company_name, country, sector, year) |> 
+  summarise(n_kpis = n(),
+            n_found = sum(!is.na(value) & value != "NOT_FOUND"),
+            share_found = n_found/27, 
+            .groups = "drop")
+
+summary(completeness$ share_found)
+
 
 
 ```
@@ -359,6 +456,18 @@ A simple proxy for **disclosure completeness**: the share of the 27 ESRS indicat
 ### Chunk 4.5 · Is completeness just size?
 
 ```{r chunk_4_5}
+
+
+ revenues <- srn_raw |> 
+  filter(field_slug == "revenues") |> 
+  transmute(company_id, year, revenue = parse_number(value, na = c("", "NA", "NOT_FOUND")))
+ 
+ completeness <- completeness |>
+  select(-starts_with("revenue")) |>
+  left_join(revenues, by = c("company_id", "year"))
+cor(completeness$share_found, log(completeness$revenue),
+    use = "complete.obs", method = "spearman")
+
 
 
 ```
