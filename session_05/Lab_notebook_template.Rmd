@@ -1,0 +1,149 @@
+---
+title: "Research Design & Evidence Lab — Notebook"
+subtitle: "[Author(s), year, journal of your approved paper]"
+author: "[Your name]"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", message = FALSE, warning = FALSE)
+library(tidyverse)
+library(fixest)
+```
+
+<!--
+How to use this template
+- This notebook is file 3 of your submission (Component 4: assumption challenge and AI audit).
+- You collect all data yourself: find the sources, download, merge, match and prepare them
+  in this notebook (or in a script you call from it). Document every step.
+- Licensed data (e.g. WRDS) stay in your git-ignored data/ folder: do not submit or upload them.
+  The knitted HTML with all outputs embedded is what we read.
+- Knit to HTML so that all outputs are embedded. Everything must run from top to bottom.
+- Do not repeat your memo here: reference it ("see memo §2") instead.
+- Worked example: session_05/Session_05_worked_example.Rmd (Hail, Tahoun and Wang 2014), Part 4.2.
+-->
+
+# 1 · The vulnerability
+
+Which assumption of the paper do you challenge (memo §1–2), and why could it matter for the central claim? (3–5 sentences)
+
+# 2 · Data collection and preparation
+
+## 2.1 Sources
+
+Which databases or sources do you use (e.g. Worldscope, Compustat, CRSP, hand-collected event dates), for which variables, and for which period? Cite them as the paper does.
+
+```{r data_download}
+## download or import the raw data (credentials never in the code: use .Renviron)
+```
+
+## 2.2 Merging and matching
+
+Which identifiers link your sources (e.g. company code, ISIN, CUSIP, gvkey)? How many observations match — and how many do not?
+
+```{r data_merge}
+
+```
+
+## 2.3 Variables
+
+Construct every variable as defined in the paper (cite the table or page) and say where you deviate.
+
+```{r variables}
+
+```
+
+## 2.4 Sample selection
+
+Apply the paper's filters one at a time and report the number of observations after each step; compare with the paper.
+
+```{r sample_steps}
+
+```
+
+## 2.5 Outliers and checks
+
+Truncate or winsorize as in the paper; then check duplicates, ranges and descriptive statistics against the paper's descriptive table.
+
+```{r data_checks}
+
+```
+
+# 3 · Data-generating process (if you simulate)
+
+Describe every element of your simulation: units, periods, variables, parameters, the **true effect**, and which parameter switches the threat on and off.
+
+```{r dgp}
+## simulate_data <- function(true_effect = 0, threat = TRUE, seed = 1) { ... }
+```
+
+# 4 · Sanity checks
+
+Show that your code does what you claim: for a simulation, (a) without the threat the design recovers the true effect and (b) a known non-zero effect is recovered; for real data, (c) reproduce a key table of the paper as closely as possible and say where and why you differ.
+
+```{r sanity_checks}
+
+```
+
+# 5 · Diagnostic or simulation result
+
+Apply the paper's design to your data (real or simulated) and run your diagnostic. For a simulation, repeat it (e.g. 100 draws) if a single draw could be noise.
+
+```{r main_result}
+
+```
+
+# 6 · What does it mean for the paper?
+
+Does the paper contain evidence (table, figure, test) that speaks to this threat? Compare it with your result. A simulation shows a vulnerability — not that the published conclusion is false.
+
+# 7 · Independent verification
+
+Check at least one number in a *different* way than it was produced (recompute a table cell, re-implement an estimator, compare two implementations).
+
+```{r independent_check}
+
+```
+
+# 8 · AI audit
+
+## 8.1 The assigned AI product (received 14 December)
+
+Quote or summarise the product (critique or code).
+
+## 8.2 Classification of its material claims
+
+| Claim | Classification (verified / qualified / contradicted / unverifiable) | Original source or diagnostic used | Consequence for the central inference |
+|-------|------|------|------|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+
+If the product is sound, substantiate that conclusion — do not invent errors.
+
+## 8.3 Correction of the most material issue
+
+Corrected passage or code segment, and why this issue matters most.
+
+```{r ai_correction}
+
+```
+
+## 8.4 AI verification record
+
+| Item | Entry |
+|------|-------|
+| Tool, model and version | |
+| Date(s) of use | |
+| Relevant prompts | |
+| What you checked and how | |
+
+# Session info
+
+```{r session_info}
+sessionInfo()
+```

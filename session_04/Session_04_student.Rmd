@@ -1,0 +1,418 @@
+---
+title: "Tutorial 4 · Causal Inference in Practice"
+subtitle: "Empirical Research in Accounting, Auditing and Capital Markets · WS 2026/27"
+author: "Your Name"
+date: "26 November 2026"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", message = FALSE, warning = FALSE,
+                      fig.width = 7, fig.height = 4)
+```
+
+# How to use this document
+
+This R Markdown belongs to the slides of **Tutorial 4**. Whenever a slide shows the blue **▶ IN RSTUDIO** bar, switch to this document.
+
+| Part | Topic |
+|------|-------|
+| 0 | Setup: the anchor paper and our data |
+| 1 | Research designs and the estimand |
+| 2 | OLS assumptions and how to check them |
+| 3 | DAGs and controls |
+| 4 | Difference-in-differences and fixed effects |
+| 5 | Design diagnostics and the true effect |
+| 6 | Wrap-up |
+
+**Today is about concepts, not about programming.** Almost all chunks are complete: run them and spend your time on the tasks — what does the output mean? You write code only in **chunks 4.2 and 4.3** (one line each).
+
+**New package:** `install.packages("fixest")` (once).
+
+------------------------------------------------------------------------
+
+# Part 0 · Setup
+
+### The anchor paper
+
+> Chen, Y.-C., Hung, M., & Wang, Y. (2018). The effect of mandatory CSR disclosure on firm profitability and social externalities: Evidence from China. *Journal of Accounting and Economics*, 65(1), 169–190.
+
+**Main idea:** In 2008, the Shanghai and Shenzhen stock exchanges required a subset of listed firms — firms in the Shanghai corporate governance index, the Shenzhen 100 index, cross-listed and financial firms — to publish a CSR report together with their annual report. All other firms were not required to. Using a difference-in-differences design, the authors find that the profitability (ROA, ROE) of the mandated firms **decreased** after the mandate, while pollution in the most affected cities went down. The mandate did not require any CSR spending — but disclosure changed firm behaviour.
+
+**Our data:** a *simulated* panel that copies this setting in a simplified way: 600 firms, 2004–2011, 150 of them mandated from fiscal year 2008. The advantage: we know the true effect and can check which design finds it. The script `simulate_csr_mandate.R` creates the data — please do not open it before Part 5.
+
+### Chunk 0.1 · Packages and data (given)
+
+```{r chunk_0_1}
+library(tidyverse)
+library(here)
+library(fixest)   # regressions with fixed effects and clustered standard errors
+
+source(here("session_04", "simulate_csr_mandate.R"))
+print(csr_panel)
+```
+
+| Variable | Meaning |
+|----------|---------|
+| `treated` | 1 = firm must publish a CSR report from 2008 (in the paper: index membership) — "NEW" |
+| `post` | 1 = fiscal year 2008 or later — "POST" |
+| `treat_post` | `treated × post`: firm-year actually under the mandate |
+| `size` | log total assets |
+| `log_sales` | log sales |
+| `csr_spend` | CSR spending in % of total assets |
+| `roa` | return on assets in % |
+
+------------------------------------------------------------------------
+
+# Part 1 · Research designs and the estimand
+
+Three designs you find in almost every accounting paper on a regulation:
+
+| Design | Compares | Regression | Main problem |
+|--------|----------|------------|--------------|
+| Cross-section | treated vs. other firms after the mandate | `roa ~ treated` | the groups differ anyway |
+| Pre-post | treated firms before vs. after | `roa ~ post` | everything else that changed in time |
+| Difference-in-differences | change of treated vs. change of other firms | `roa ~ treated * post` | trends must be parallel |
+
+Before running any of them, write down **which effect** you want — the *estimand* (Lundberg, Johnson and Stewart 2021):
+
+> The effect of **[treatment]** on **[outcome]** for **[which units]** in **[which period]**, compared with **[which counterfactual]**.
+
+**Task A:** Write the estimand of our study in one sentence. Is it an ATE (all firms) or an ATT (only the mandated firms)?
+
+
+### Chunk 1.1 · Who is treated? (given)
+
+```{r chunk_1_1}
+## count firms (one year is enough) by treated
+csr_panel |>
+  filter(year == 2007) |>
+  count(treated)
+
+## compare mean size, csr_spend and roa of treated and other firms before the mandate
+csr_panel |>
+  filter(post == 0) |>
+  group_by(treated) |>
+  summarise(size = mean(size), csr_spend = mean(csr_spend), roa = mean(roa))
+```
+
+### Chunk 1.2 · Raw trends: mean ROA by year and group (given)
+
+```{r chunk_1_2}
+## mean roa by year and treated, line plot, dashed vertical line at 2007.5
+csr_panel |>
+  group_by(year, treated) |>
+  summarise(roa = mean(roa), .groups = "drop") |>
+  ggplot(aes(x = year, y = roa, colour = factor(treated))) +
+  geom_line() +
+  geom_point() +
+  geom_vline(xintercept = 2007.5, linetype = "dashed") +
+  labs(colour = "Mandated firm", y = "Mean ROA (%)", x = NULL)
+```
+
+**Task B:** What does a cross-sectional comparison after 2008 suggest? And a pre-post comparison of the mandated firms? Why are both misleading?
+
+
+------------------------------------------------------------------------
+
+# Part 2 · OLS assumptions and how to check them
+
+All designs today are estimated with OLS. What OLS does, in simple words:
+
+* **OLS** draws the line that is as close as possible to all data points (smallest squared distances).
+* **β** tells you how much ROA changes on average when x rises by one unit — with all other variables in the model held fixed.
+* **u**, the error, collects everything that affects ROA but is *not* in the model.
+
+The assumptions tell you when you can trust the coefficient (assumptions 1, 3, 4) and when you can trust its standard error and p-value (assumptions 2, 5, 6) (Wooldridge 2020, ch. 3; Heiss 2020, ch. 3):
+
+| # | Assumption | In simple words | In our CSR data |
+|---|------------|-----------------|-----------------|
+| 1 | Linear in parameters | The model has the right shape. Logs and squares are allowed. | ROA rises with size for small firms and falls for large ones — a straight line misses the hump. |
+| 2 | Random sampling, independent observations | Every observation brings new information. | The same firm appears eight times: high ROA in 2008 → high ROA in 2009. |
+| 3 | No perfect collinearity | Every variable brings something new. | Size and sales move almost together — OLS cannot tell which one matters. |
+| 4 | Zero conditional mean | Nothing hidden in the error is related to x. | Governance quality is in the error and decides who is in the index. |
+| 5 | Homoskedasticity | The errors are equally noisy everywhere. | ROA of small firms jumps around much more. |
+| 6 | Normal errors | The errors follow a bell curve. | A few firms have ROA of +36% or −22%. |
+
+Why can we not check assumption 4 with the residuals? OLS makes the residuals unrelated to x *by construction* — they always look fine. Only the research design can make assumption 4 plausible.
+
+**Checklist — violated, so what?**
+
+| # | Assumption | Violated → | How to check | What to do |
+|---|------------|-----------|--------------|------------|
+| 1 | Linear in parameters | biased fit | residuals vs. fitted: curvature? | logs, squares |
+| 2 | Random sampling, independent observations | standard errors too small | think: panel = same firm repeated | cluster by firm |
+| 3 | No perfect collinearity | coefficient `NA`; huge SEs if nearly collinear | `NA` in output; VIF | drop one variable |
+| 4 | **Zero conditional mean** E[u \| X] = 0 | **biased — not causal** | **not testable with residuals** | research design: DAG, FE, DiD |
+| 5 | Homoskedasticity | wrong standard errors | residuals vs. fitted: funnel? | robust / clustered SEs |
+| 6 | Normal errors | inference in *small* samples | Q-Q plot, influential observations | large N; winsorize |
+
+We check 1, 3, 5 and 6 now with a simple pooled regression. Assumption 2 comes back in Part 4 (clustering), assumption 4 is the topic of Parts 3–5.
+
+### Chunk 2.1 · Linearity: residuals vs. fitted values (given)
+
+```{r chunk_2_1, fig.height = 4}
+## m_lin: lm(roa ~ treated + post + treat_post + size)
+m_lin <- lm(roa ~ treated + post + treat_post + size, data = csr_panel)
+
+## m_sq: the same plus I(size^2)
+m_sq <- lm(roa ~ treated + post + treat_post + size + I(size^2), data = csr_panel)
+
+## residuals vs. fitted for both: plot(model, which = 1); par(mfrow = c(1, 2)) puts two plots side by side
+par(mfrow = c(1, 2))
+plot(m_lin, which = 1, main = "Linear in size")
+plot(m_sq, which = 1, main = "With size squared")
+par(mfrow = c(1, 1))
+```
+
+### Chunk 2.2 · Constant variance? Residual spread by size quartile (given)
+
+```{r chunk_2_2}
+## add resid(m_sq) and ntile(size, 4) to the data, then sd of the residuals per quartile
+csr_panel |>
+  mutate(resid = resid(m_sq), size_quartile = ntile(size, 4)) |>
+  group_by(size_quartile) |>
+  summarise(sd_resid = sd(resid))
+```
+
+### Chunk 2.3 · Normality and influential observations (given)
+
+```{r chunk_2_3, fig.height = 4}
+## Q-Q plot (which = 2) and Cook's distance (which = 4) for m_sq
+par(mfrow = c(1, 2))
+plot(m_sq, which = 2)
+plot(m_sq, which = 4)
+par(mfrow = c(1, 1))
+
+## the five most influential firm-years
+csr_panel |>
+  mutate(cooks_d = cooks.distance(m_sq)) |>
+  arrange(desc(cooks_d)) |>
+  select(firm_id, year, treated, size, roa, cooks_d) |>
+  head(5)
+```
+
+### Chunk 2.4 · Multicollinearity: variance inflation factor (given)
+
+```{r chunk_2_4}
+## regress size on log_sales; VIF = 1 / (1 - R2); R2 via summary(model)$r.squared
+r2 <- summary(lm(size ~ log_sales, data = csr_panel))$r.squared
+1 / (1 - r2)
+
+## what happens to the coefficient and standard error of size if log_sales is added?
+summary(lm(roa ~ size, data = csr_panel))$coefficients
+summary(lm(roa ~ size + log_sales, data = csr_panel))$coefficients
+```
+
+**Task C:** For each chunk: is the assumption violated here? What do you do about it?
+
+
+------------------------------------------------------------------------
+
+# Part 3 · DAGs and controls
+
+A **DAG** (directed acyclic graph) writes your assumptions about what causes what as arrows. It tells you which variables to control for:
+
+| Role | Example here | Control for it? |
+|------|--------------|-----------------|
+| **Confounder** — causes treatment and outcome | size; governance quality (unobserved) | **Yes** (if you can) |
+| **Mediator** — on the path from treatment to outcome | CSR spending | **No** — removes part of the effect |
+| **Collider** — caused by treatment and outcome | e.g. "included in a sustainability ranking" | **No** — creates bias |
+
+### Chunk 3.1 · Cross-sectional regressions, post-period only (given)
+
+```{r chunk_3_1}
+## keep years >= 2008
+post_period <- csr_panel |> filter(year >= 2008)
+
+## (1) naive: roa on treated
+m_naive <- feols(roa ~ treated, data = post_period, cluster = ~firm_id)
+
+## (2) add the confounder size (and size squared, see chunk 2.1)
+m_size <- feols(roa ~ treated + size + I(size^2), data = post_period, cluster = ~firm_id)
+
+## show both with etable()
+etable(m_naive, m_size)
+```
+
+**Task D:** Draw the DAG (paper or dagitty.net). Why does controlling for size not solve the problem?
+
+
+------------------------------------------------------------------------
+
+# Part 4 · Difference-in-differences and fixed effects
+
+**Difference-in-differences** compares the *change* of treated firms (treatment sample, "NEW") with the *change* of control firms (benchmark sample). It works if four conditions hold:
+
+| DiD assumption | In simple words | In our setting |
+|----------------|-----------------|----------------|
+| Common (parallel) trends | Without the treatment, both groups would have moved in parallel. | Without the mandate, the ROA of index firms would have fallen as much as that of other firms during the crisis. |
+| Group differences are constant over time | Whatever makes the groups different stays the same. | Index firms are better governed — but not *increasingly* better governed after 2008. |
+| Time shocks hit both groups equally | A shock in a year affects treated and control firms in the same way. | The financial crisis hits index firms and other firms equally hard. |
+| Exogenous treatment | Firms cannot choose the treatment because they expect a certain outcome. | Firms did not join or leave the indexes to avoid the mandate. |
+
+### Chunk 4.1 · The 2×2 by hand (given)
+
+```{r chunk_4_1}
+## mean roa by treated and post, then pivot_wider so that post is in columns
+did_table <- csr_panel |>
+  group_by(treated, post) |>
+  summarise(roa = mean(roa), .groups = "drop") |>
+  pivot_wider(names_from = post, values_from = roa, names_prefix = "post_") |>
+  mutate(change = post_1 - post_0)
+print(did_table)
+
+## DiD = change of treated - change of others
+did_table$change[did_table$treated == 1] - did_table$change[did_table$treated == 0]
+```
+
+### Chunk 4.2 · From the 2×2 to a regression: pre-post vs. NEW × POST (your turn)
+
+$$ROA_{it} = \beta_0 + \beta_1 NEW_i + \beta_2 POST_t + \beta_3 \, NEW_i \times POST_t + \varepsilon_{it}$$
+
+```{r chunk_4_2}
+## pre-post: mandated firms only
+## replace ... : m_prepost <- feols(roa ~ ..., data = filter(csr_panel, treated == 1), cluster = ~firm_id)
+## DiD with interaction, all firms -- replace ... :
+## m_did <- feols(roa ~ ..., data = csr_panel, cluster = ~firm_id)
+## then: etable(m_prepost, m_did)
+
+
+```
+
+**Task E:** Match each coefficient of `m_did` to a cell of the 2×2 table. Why is the pre-post estimate so much larger?
+
+
+### Chunk 4.3 · Two-way fixed effects (your turn)
+
+**Underlying idea: demeaning within groups.** A fixed effect gives every group its own intercept. Firm fixed effects compare each firm-year with the firm's own average, so only *changes within a firm* are used. That removes everything constant within a firm — including governance quality, which we cannot observe — and replaces `treated`. **Year fixed effects** compare each firm-year with the average of all firms in that year: they remove shocks that hit all firms in a year — like the crisis — and replace `post`. Industry fixed effects work the same way for industries. Limits: confounders that change over time stay, and variables that hardly change within a firm ("sticky" variables) cannot be estimated.
+
+$$ROA_{it} = \beta \, NEW_i \times POST_t + \alpha_i + \gamma_t + \varepsilon_{it}$$
+
+```{r chunk_4_3}
+## fixed effects go after the |
+## replace ... : m_twfe <- feols(roa ~ treat_post | ..., data = csr_panel)
+## then: etable(m_twfe, vcov = ~firm_id)
+
+
+```
+
+### Chunk 4.4 · Standard errors and a bad control (given)
+
+**Which standard errors?** Classical standard errors assume independent, equally noisy observations. *Robust* standard errors allow for unequal noise (assumption 5). *Clustered* standard errors also allow observations of the same firm to be related (assumption 2). Rules of thumb: cluster at the level where the treatment is assigned; you need enough clusters (rule of thumb: at least 30–50); two-way clustering (e.g. firm and year) needs enough of both (Petersen 2009).
+
+```{r chunk_4_4}
+## the same model with three types of standard errors
+etable(m_twfe, m_twfe, m_twfe, vcov = list("iid", "hetero", ~firm_id),
+       headers = c("Classical", "Robust", "Clustered by firm"))
+
+## bad control: add the mediator csr_spend
+m_twfe_csr <- feols(roa ~ treat_post + csr_spend | firm_id + year,
+                    data = csr_panel, cluster = ~firm_id)
+etable(m_twfe, m_twfe_csr, vcov = ~firm_id)
+```
+
+**Task F:** Which standard errors do you report? And what happens when you control for CSR spending?
+
+
+### Chunk 4.5 · Event study: check the pre-trends (given)
+
+```{r chunk_4_5}
+## one coefficient per year, 2007 is the reference year
+m_event <- feols(roa ~ i(year, treated, ref = 2007) | firm_id + year,
+                 data = csr_panel, cluster = ~firm_id)
+
+## plot it with iplot()
+iplot(m_event, main = "Effect of the CSR mandate by year", xlab = "Fiscal year")
+```
+
+**Task G:** Do the coefficients before 2008 support parallel trends?
+
+
+### Other designs you will meet in papers (reading, no code)
+
+* **Matching.** If treated and control firms differ a lot, build a control group that looks like the treated firms *before* the treatment. Propensity score matching estimates each firm's probability of being treated and pairs firms with similar probabilities (Shipman, Swanquist and Whited 2017). Entropy balancing reweights control firms so that their averages match the treated firms — e.g. Fiechter, Hitz and Lehmann (2022) compare EU firms under the CSR Directive with US firms. Matching only balances *observed* characteristics.
+* **Regression discontinuity.** If a threshold assigns the treatment — e.g. the EU Non-Financial Reporting Directive applied to firms with more than 500 employees — firms just above and just below the threshold are very similar. Compare them. Works if there are many firms close to the threshold and firms cannot manipulate their position (e.g. stay at 499 employees).
+* **Staggered DiD.** If firms or countries are treated in different years — e.g. IFRS adoption and enforcement changes across EU countries (Christensen, Hail and Leuz 2013) — the simple two-way FE estimator can be biased; newer estimators exist (Baker, Larcker and Wang 2022).
+
+------------------------------------------------------------------------
+
+# Part 5 · Design diagnostics and the true effect
+
+### Chunk 5.1 · Placebo test: a fake mandate in 2006 (given)
+
+If the design is right, a mandate that did not happen should have **no** effect. Use only the pre-period (2004–2007) and pretend the mandate started in 2006.
+
+```{r chunk_5_1}
+## keep years <= 2007 and create fake_treat_post = treated * (year >= 2006)
+placebo_data <- csr_panel |>
+  filter(year <= 2007) |>
+  mutate(fake_treat_post = treated * (year >= 2006))
+
+## same TWFE regression with fake_treat_post
+m_placebo <- feols(roa ~ fake_treat_post | firm_id + year,
+                   data = placebo_data, cluster = ~firm_id)
+etable(m_placebo)
+```
+
+
+### Chunk 5.2 · Reveal: the true effect (given)
+
+Now open `simulate_csr_mandate.R`. Which effect did "nature" build in? The object `true_att` contains the true average effect for the mandated firms.
+
+```{r chunk_5_2, fig.height = 3.5}
+estimates <- tibble(
+  design   = c("Cross-section", "Cross-section + size", "Pre-post",
+               "DiD + CSR spending (bad control)", "DiD with firm and year FE"),
+  estimate = c(coef(m_naive)["treated"], coef(m_size)["treated"],
+               coef(m_prepost)["post"], coef(m_twfe_csr)["treat_post"],
+               coef(m_twfe)["treat_post"]),
+  se       = c(se(m_naive)["treated"], se(m_size)["treated"],
+               se(m_prepost)["post"], se(m_twfe_csr)["treat_post"],
+               se(m_twfe, cluster = ~firm_id)["treat_post"])
+)
+
+ggplot(estimates, aes(x = estimate, y = fct_rev(fct_inorder(design)))) +
+  geom_vline(xintercept = true_att, colour = "red", linetype = "dashed") +
+  geom_errorbarh(aes(xmin = estimate - 1.96 * se, xmax = estimate + 1.96 * se), height = 0.2) +
+  geom_point(size = 3) +
+  labs(x = "Estimated effect on ROA in pp (red line = true effect)", y = NULL)
+
+true_att
+```
+
+**Task H · Transfer to your lab paper:** Write three sentences — (1) your estimand and research design, (2) the most important confounder or bad control in your DAG, (3) one diagnostic that could convince a sceptical reader.
+
+
+------------------------------------------------------------------------
+
+# Part 6 · Wrap-up
+
+**Checklist — can you do this now?**
+
+-   [ ] Distinguish cross-section, pre-post and difference-in-differences designs
+-   [ ] Write down the estimand before running a regression
+-   [ ] Name the OLS assumptions and check them with residual plots
+-   [ ] Draw a DAG and decide which variables are good and bad controls
+-   [ ] Estimate a DiD with `treated * post` and with firm and year fixed effects
+-   [ ] Choose clustered standard errors, plot an event study, run a placebo test
+
+**Before Tutorial 5 (Fri 27 Nov):** commit and push your completed version of this document; bring the three sentences of Task H for your lab paper.
+
+**Read more:**
+
+* Chen, Hung and Wang (2018), *Journal of Accounting and Economics* 65(1) — the anchor paper.
+* Wooldridge (2020), *Introductory Econometrics: A Modern Approach*, 7th ed., ch. 3, 8 and 13 — OLS assumptions, heteroskedasticity, DiD.
+* Heiss (2020), *Using R for Introductory Econometrics*, 2nd ed. (free at urfie.net) — the same in R.
+* Huntington-Klein (2022), *The Effect*, ch. 6–8, 16 and 18 (free at theeffectbook.net) — DAGs, fixed effects, DiD.
+* Cunningham (2021), *Causal Inference: The Mixtape*, ch. 9 (free at mixtape.scunning.com) — DiD.
+* Petersen (2009), "Estimating standard errors in finance panel data sets", *Review of Financial Studies* 22(1) — clustering.
+* Gassen (2014), "Causal inference in empirical archival financial accounting research", *Accounting, Organizations and Society* 39(7).
+
+```{r session_info}
+sessionInfo()
+```

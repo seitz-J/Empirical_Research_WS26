@@ -1,0 +1,556 @@
+---
+title: "Tutorial 5 · Lab Workshop — a worked example"
+subtitle: "Hail, Tahoun and Wang (2014): Dividend payouts and information shocks"
+author: "Your Name"
+date: "27 November 2026"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "", message = FALSE, warning = FALSE,
+                      fig.width = 7, fig.height = 4)
+```
+
+# How to use this document
+
+This notebook shows **one way** to work through Assignment 3 (Research Design & Evidence Lab) for one paper. It is a worked example, not a model answer.
+
+**Be aware — this example is shorter than your Lab.** It covers all five components, but Components 1, 2, 3 and 5 only as short bullet points (your memo needs full paragraphs, your visual needs a full page). Component 4 uses real Worldscope data plus one simulation. The raw data were collected and matched for you — in your Lab, you collect all data yourself. The AI product in Part 4 was written by us for practice; your real AI product comes on **14 December**.
+
+**Coding today is light.** All chunks are complete. Run them, read the output and fill in the tasks.
+
+**Data:** download `hail_raw_firm_years.csv.gz` and `hail_raw_dividends_1997_2008.csv.gz` from Moodle and save them in the `data/` folder of your project (licensed data — do not upload them anywhere else). Part 4.2 turns them into the analysis sample.
+
+| Part | Component of the Lab | Hours in the Lab |
+|------|----------------------|------------------|
+| 1 | Question and claim | 5 |
+| 2 | Design reconstruction (see the slides for the visual) | 5 |
+| 3 | Evidence audit | 5 |
+| 4 | Assumption challenge and AI audit | 15 |
+| 5 | Redesign | 5 |
+
+> Hail, L., Tahoun, A., & Wang, C. (2014). Dividend payouts and information shocks. *Journal of Accounting Research*, 52(2), 403–456.
+
+------------------------------------------------------------------------
+
+# Part 1 · Question and claim (Component 1)
+
+* **X:** an exogenous improvement of the country's information environment — proxied by mandatory IFRS adoption and by the first prosecution under insider trading (IT) laws.
+* **Y:** the firm's dividend policy — mainly the probability of paying a dividend (also increases, decreases, information content).
+* **Target population:** listed firms in 49 countries, 1993–2008 (Worldscope).
+* **Central claim:** after the information shock, firms in affected countries are *less* likely to pay dividends — consistent with dividends being less needed to mitigate agency costs of free cash flow (p. 403, p. 407).
+* **Type of claim:** **causal** (difference-in-differences around "largely exogenous" country-level events, p. 406). The authors deliberately do *not* claim that IFRS per se causes the effect; both events proxy for a general information shock (footnotes 2 and 13).
+
+------------------------------------------------------------------------
+
+# Part 2 · Design reconstruction (Component 2)
+
+The one-page visual (Libby boxes and DAG) is on the slides. In words:
+
+* **Unit and timing:** firm-year; IFRS setting compares 2001–2004 with 2005–2008 (Table 3A).
+* **Measures:** `Dividend Payments` = 1 if dividends per share > 0 (Worldscope); treatment `InfoEvent` = 1 for fiscal years ending on or after 31 December of the mandate year (Table 3 notes).
+* **Model:** logit with controls and country, one-digit industry and year fixed effects; standard errors clustered by country (eq. 1, p. 413–414).
+* **Estimand:** the average change in the probability of paying dividends for firms in treated countries after the event, relative to the change in benchmark countries (an ATT).
+* **Three key assumptions:**
+  1. *Parallel trends:* without the event, dividend propensities in treated and benchmark countries would have moved in parallel.
+  2. *No concurrent shocks:* nothing else that affects payouts happened in treated countries at the same time (e.g. other EU reforms, enforcement changes).
+  3. *Exogenous treatment:* firms cannot avoid or select into the treatment (e.g. by delisting) because of their payout plans (footnote 4).
+
+------------------------------------------------------------------------
+
+# Part 3 · Evidence audit (Component 3)
+
+| Table / figure | What it supports | Assumption it informs | What remains untested |
+|----------------|------------------|-----------------------|-----------------------|
+| Table 3A (2×2 DiD of % dividend payers) | Payers fall by 4.75 pp in IFRS countries, rise by 2.82 pp elsewhere → DiD −7.57 pp | Parallel trends (only via the comparison group) | Whether the groups would have converged anyway: IFRS countries start 5 pp *higher* |
+| Table 3B (logit, eq. 1) | Negative `IFRS Adoption` coefficient (−0.397) with controls and FE | Controls for observable firm differences | Unobserved, time-varying country differences |
+| Table 4A (timing test) | Effect starts around the event, not before | Parallel pre-trends | Shocks that start exactly at the event year |
+
+**Task 1:** Look at Table 3A of the paper. Why is the level difference *before* the event (62.53 % vs. 57.47 %) worth worrying about?
+
+
+------------------------------------------------------------------------
+
+# Part 4 · Assumption challenge and AI audit (Component 4)
+
+## 4.1 The vulnerability
+
+**Threat to parallel trends: convergence.** Suppose the information shock has **no effect at all**, but each country's share of dividend payers slowly moves towards a common level. IFRS countries start higher, so they decline more. Could this alone produce the negative DiD estimate? We check this in three steps: (1) we rebuild the paper's sample and reproduce Table 3 (4.3), (2) we run diagnostics on the real data (4.4–4.5), and (3) we simulate data where we know the truth (4.6).
+
+## 4.2 From raw data to the analysis sample
+
+**What was prepared for you — and what you will have to do yourself.** To keep today's session focused on the analysis, we did the first part of the work in advance: the **raw data** were downloaded from Worldscope (company financials, dividends, stock data) and Compustat (to identify non-US firms listed on a US stock exchange), the tables were **merged** by company and fiscal year, each firm was **matched** to its country and the country's IFRS mandate year (Daske et al. 2008), and US cross-listings were **matched** to Worldscope via the ISIN. **In your Lab you collect all data yourself** — finding the data sources, downloading, merging and matching are part of the work (and part of the 35 hours).
+
+Everything else happens **in this notebook**: constructing the variables, selecting the sample, truncating outliers and checking the result. Run the chunks in order and compare each step with the paper.
+
+> **Licensed data.** The two files below come from WRDS. Download them from Moodle into your project's `data/` folder. They are ignored by Git — never push them to GitHub and never paste them into AI tools.
+
+### Step 1 · Load the raw data
+
+| File | Content |
+|------|---------|
+| `hail_raw_firm_years.csv.gz` | Worldscope firm-years 1999–2008 for the 49 countries: one row per firm and fiscal year, raw items as reported, plus `country`, `ifrs_year`, `sic` and the matching result `us_crosslisted` |
+| `hail_raw_dividends_1997_2008.csv.gz` | dividends per share and total assets for 1997–2008 (a longer history, used in 4.5) |
+
+```{r chunk_1}
+library(tidyverse)
+library(fixest)
+library(here)
+
+raw      <- read_csv(here("data", "hail_raw_firm_years.csv.gz"), show_col_types = FALSE)
+raw_long <- read_csv(here("data", "hail_raw_dividends_1997_2008.csv.gz"), show_col_types = FALSE)
+
+print(raw)
+## one row per firm and fiscal year?
+stopifnot(!any(duplicated(raw[, c("firm_id", "year")])))
+```
+
+The raw items (all from Worldscope; item numbers in brackets, amounts in local currency unless stated otherwise):
+
+| Column | Worldscope item |
+|--------|-----------------|
+| `dividends_per_share` | dividends per share (05101) |
+| `total_assets_usd`, `total_assets` | total assets in US$ (07230) and in local currency (02999) |
+| `operating_income` | operating income (01250) |
+| `total_debt` | total debt (03255) |
+| `common_equity`, `market_value` | book value of common equity (03501), market capitalisation (08001) |
+| `shares_retired`, `preferred_stock` | funds used to reduce shares outstanding (04751), preferred stock (03451) |
+| `accounting_standard` | accounting standards followed (07536) |
+| `fiscal_year_end` | date of the fiscal year end (05350) |
+| `price_volatility`, `total_return` | price volatility (08806), one-year total return in % (08801) |
+
+### Step 2 · Construct the variables
+
+Definitions follow Table 2 of the paper (p. 422). Variables that need the previous year (lagged dividends, change in preferred stock, average total assets) are computed **within each firm** and only if the previous fiscal year exists.
+
+```{r chunk_2}
+firm_vars <- raw |>
+  arrange(firm_id, year) |>
+  group_by(firm_id) |>
+  mutate(
+    has_prev     = lag(year) == year - 1,
+    ## dependent variable: 1 if dividends per share > 0, missing dividends count as 0 (fn. 12)
+    div_payer    = as.integer(coalesce(dividends_per_share, 0) > 0),
+    div_lag      = if_else(has_prev, lag(div_payer), NA_integer_),
+    ## share repurchases: funds used to reduce shares, net of the change in preferred stock
+    repurch      = as.integer(coalesce(shares_retired, 0) -
+                                coalesce(preferred_stock - lag(preferred_stock), 0) > 0),
+    log_at       = log(total_assets_usd / 1000),                    # US$ thousand
+    mtb          = if_else(common_equity > 0, market_value / common_equity, NA_real_),
+    leverage     = total_debt / total_assets,
+    roa          = if_else(has_prev, operating_income / ((total_assets + lag(total_assets)) / 2), NA_real_),
+    ret_var      = price_volatility,     # proxy: the paper uses the SD of daily Datastream returns
+    stock_ret    = total_return / 100,
+    neg_earn     = as.integer(operating_income < 0)
+  ) |>
+  ungroup() |>
+  mutate(
+    fye          = coalesce(fiscal_year_end, make_date(year, 12, 31)),
+    ifrs_country = as.integer(!is.na(ifrs_year)),
+    ## treatment: fiscal years ending on or after 31 December of the mandate year (Table 3 notes)
+    info_event   = as.integer(!is.na(ifrs_year) & fye >= make_date(ifrs_year, 12, 31)),
+    ## benchmark cut-off for the 2x2 comparison: 31 December 2005 (fn. 23)
+    post_2005    = as.integer(fye >= as.Date("2005-12-31")),
+    sic1         = substr(as.character(sic), 1, 1)
+  )
+
+firm_vars |> select(firm_id, country, year, div_payer, div_lag, repurch, log_at, mtb, roa, info_event)
+```
+
+### Step 3 · Identify voluntary IFRS adopters
+
+The paper excludes firms that switched to IFRS *before* the mandate (fn. 18). Worldscope's item 07536 records the accounting standards a firm followed; codes 2, 6, 16 and 23 stand for international standards / IFRS.
+
+```{r chunk_3}
+firm_vars |> count(accounting_standard, sort = TRUE)
+
+voluntary_adopters <- firm_vars |>
+  filter(ifrs_country == 1,
+         accounting_standard %in% c(2, 6, 16, 23),
+         fye < make_date(ifrs_year, 12, 31)) |>
+  distinct(firm_id)
+nrow(voluntary_adopters)
+```
+
+### Step 4 · Select the sample — step by step
+
+Each step follows pp. 415–416 and footnote 18 of the paper. We record the number of firm-years after every step: this table belongs in every paper and every Lab.
+
+```{r chunk_4}
+controls <- c("div_lag", "repurch", "log_at", "mtb", "leverage", "roa", "ret_var", "stock_ret", "neg_earn")
+
+steps <- list()
+sample_ifrs <- firm_vars |> filter(year >= 2001, year <= 2008)
+steps[["Firm-years 2001-2008 in the 49 countries"]] <- nrow(sample_ifrs)
+
+sample_ifrs <- sample_ifrs |> filter(total_assets_usd >= 1e7)
+steps[["Total assets of at least US$ 10 million"]] <- nrow(sample_ifrs)
+
+sample_ifrs <- sample_ifrs |> anti_join(voluntary_adopters, by = "firm_id")
+steps[["Without voluntary IFRS adopters"]] <- nrow(sample_ifrs)
+
+sample_ifrs <- sample_ifrs |> filter(us_crosslisted == 0)
+steps[["Without non-US firms listed on a US exchange"]] <- nrow(sample_ifrs)
+
+sample_ifrs <- sample_ifrs |>
+  group_by(country) |> filter(sum(!is.na(dividends_per_share)) >= 10) |> ungroup()
+steps[["Countries with at least 10 dividend observations"]] <- nrow(sample_ifrs)
+
+sample_ifrs <- sample_ifrs |> filter(if_all(all_of(controls), ~ !is.na(.x) & is.finite(.x)))
+steps[["All control variables available"]] <- nrow(sample_ifrs)
+
+tibble(step = names(steps), firm_years = unlist(steps))
+```
+
+### Step 5 · Outliers: truncate (as in the paper) — or winsorize?
+
+Accounting ratios have extreme values (Tutorial 3). The paper **truncates** all continuous variables at the 1st and 99th percentile, i.e. it *drops* those firm-years (Table 2 notes). The alternative is to **winsorize**: keep the firm-years but set extreme values to the percentile. We follow the paper and keep a winsorized version for a robustness check in 4.3.
+
+```{r chunk_5}
+continuous <- c("log_at", "mtb", "leverage", "roa", "ret_var", "stock_ret")
+
+winsorize <- function(x, p = c(0.01, 0.99)) {
+  q <- quantile(x, p, na.rm = TRUE)
+  pmin(pmax(x, q[1]), q[2])
+}
+
+## truncation: drop firm-years outside the 1st-99th percentile of any continuous variable
+firm_years <- sample_ifrs
+for (v in continuous) {
+  q <- quantile(sample_ifrs[[v]], c(0.01, 0.99), na.rm = TRUE)
+  firm_years <- firm_years |> filter(.data[[v]] >= q[1], .data[[v]] <= q[2])
+}
+
+## winsorizing: keep all firm-years, cap the extreme values
+firm_years_wins <- sample_ifrs |> mutate(across(all_of(continuous), winsorize))
+
+c(before = nrow(sample_ifrs), truncated = nrow(firm_years), winsorized = nrow(firm_years_wins))
+```
+
+
+### Step 6 · Check the result before you use it
+
+Compare the descriptive statistics with Table 2 of the paper — the most important sanity check of any replication.
+
+```{r chunk_6}
+firm_years |>
+  summarise(firm_years = n(), firms = n_distinct(firm_id), countries = n_distinct(country),
+            treated_firm_years = sum(info_event), earliest_treated_fye = min(fye[info_event == 1]))
+
+firm_years |>
+  summarise(across(c(div_payer, repurch, log_at, mtb, leverage, roa, stock_ret, neg_earn),
+                   ~ round(mean(.x), 3))) |>
+  pivot_longer(everything(), names_to = "variable", values_to = "mean_ours") |>
+  mutate(mean_paper = c(0.617, 0.222, 12.564, 2.093, 0.227, 0.043, 0.174, 0.184))
+```
+
+**Original from the paper — Table 2 (p. 422), descriptive statistics, 1993–2008:**
+
+```{r fig_table2, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here("session_05", "img", "hail_table2.png"))
+```
+
+
+### Step 7 · Country-year shares for the longer history (1997–2008)
+
+For the diagnostics in 4.5 we aggregate the long file to the share of dividend payers per country and year (same size filter; firm-years with dividend data).
+
+```{r chunk_7}
+country_years <- raw_long |>
+  filter(total_assets_usd >= 1e7, !is.na(dividends_per_share)) |>
+  mutate(div_payer = as.integer(dividends_per_share > 0)) |>
+  group_by(country, ifrs_year, year) |>
+  summarise(n_firms = n(), share_payers = mean(div_payer), .groups = "drop")
+country_years
+```
+
+## 4.3 Replication of Table 3
+
+**Panel A — the 2×2 difference-in-differences** (share of dividend payers, fiscal years before and after 31 December 2005):
+
+```{r chunk_8}
+table_3a <- firm_years |>
+  mutate(group  = if_else(ifrs_country == 1, "IFRS adopters", "Non-IFRS"),
+         period = if_else(post_2005 == 1, "post", "pre")) |>
+  group_by(group, period) |>
+  summarise(pct_payers = round(100 * mean(div_payer), 2), n = n(), .groups = "drop") |>
+  pivot_wider(names_from = period, values_from = c(pct_payers, n)) |>
+  mutate(change = pct_payers_post - pct_payers_pre)
+table_3a
+
+## DiD (paper: IFRS 62.53 -> 57.78, Non-IFRS 57.47 -> 60.29, DiD -7.57)
+table_3a$change[1] - table_3a$change[2]
+```
+
+**Original from the paper — Table 3, Panel A (p. 427):**
+
+```{r fig_table3a, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here("session_05", "img", "hail_table3a.png"))
+```
+
+**Panel B, Model 1 — logit with controls** and country, industry and year fixed effects, standard errors clustered by country (equation 1, p. 413):
+
+```{r chunk_9}
+m_table3b <- feglm(div_payer ~ info_event + div_lag + repurch + log_at + mtb + leverage +
+                     roa + ret_var + stock_ret + neg_earn | country + sic1 + year,
+                   data = firm_years, family = binomial, cluster = ~country)
+etable(m_table3b)
+
+## the paper's coefficients for comparison
+tribble(
+  ~variable,               ~paper,
+  "IFRS Adoption",         -0.397,
+  "Dividend Payments t-1",  4.191,
+  "Share Repurchases",      0.187,
+  "Log (Total Assets)",     0.197,
+  "Market-to-Book",        -0.071,
+  "Leverage",              -1.303,
+  "Return on Assets",       5.834,
+  "Observations",       147430
+)
+```
+
+**Original from the paper — Table 3, Panel B (p. 428), IFRS columns:**
+
+```{r fig_table3b, echo=FALSE, out.width="75%"}
+knitr::include_graphics(here("session_05", "img", "hail_table3b.png"))
+```
+
+**Robustness: winsorize instead of truncate.**
+
+```{r chunk_9b}
+m_table3b_wins <- update(m_table3b, data = firm_years_wins)
+etable(m_table3b, m_table3b_wins, keep = "info_event", headers = c("Truncated (paper)", "Winsorized"))
+```
+
+**Task 2:** How close is the replication? What could explain the remaining differences?
+
+
+## 4.4 Diagnostics on the firm-level sample
+
+**(a) The paper's timing test (Table 4A):** split the effect into years t−2/t−1, t/t+1 and t ≥ +2 (base: earlier years).
+
+```{r chunk_10}
+firm_years <- firm_years |>
+  mutate(rel_year    = year - ifrs_year,
+         pre_2_1     = as.integer(!is.na(rel_year) & rel_year %in% -2:-1),
+         event_0_1   = as.integer(!is.na(rel_year) & rel_year %in% 0:1),
+         post_2_plus = as.integer(!is.na(rel_year) & rel_year >= 2))
+
+m_timing <- feglm(div_payer ~ pre_2_1 + event_0_1 + post_2_plus + div_lag + repurch + log_at +
+                    mtb + leverage + roa + ret_var + stock_ret + neg_earn | country + sic1 + year,
+                  data = firm_years, family = binomial, cluster = ~country)
+etable(m_timing, keep = c("pre_2_1", "event_0_1", "post_2_plus"))
+## paper, Table 4A column 1: +0.182, -0.104, -0.449**
+```
+
+**Original from the paper — Table 4, Panel A (p. 430), IFRS columns:**
+
+```{r fig_table4a, echo=FALSE, out.width="75%"}
+knitr::include_graphics(here("session_05", "img", "hail_table4a.png"))
+```
+
+**(b) Country-specific trends:** allow every country its own linear trend in the propensity to pay dividends.
+
+```{r chunk_11}
+m_trends <- feglm(div_payer ~ info_event + div_lag + repurch + log_at + mtb + leverage +
+                    roa + ret_var + stock_ret + neg_earn | country[year] + sic1 + year,
+                  data = firm_years, family = binomial, cluster = ~country)
+etable(m_table3b, m_trends, keep = "info_event",
+       headers = c("Table 3B design", "+ country trends"))
+```
+
+## 4.5 A longer look back: country-years 1997–2008
+
+The firm-level sample starts in 2001. The country-year file goes back to 1997.
+
+```{r chunk_12}
+country_years |>
+  mutate(group = if_else(!is.na(ifrs_year), "IFRS adopters", "Other countries")) |>
+  group_by(group, year) |>
+  summarise(pct_payers = 100 * weighted.mean(share_payers, n_firms), .groups = "drop") |>
+  ggplot(aes(x = year, y = pct_payers, colour = group)) +
+  annotate("rect", xmin = 2000.5, xmax = 2004.5, ymin = -Inf, ymax = Inf, alpha = 0.15) +
+  geom_vline(xintercept = 2004.5, linetype = "dashed") +
+  geom_line() +
+  geom_point() +
+  labs(x = NULL, y = "% dividend payers", colour = NULL,
+       caption = "Shaded: pre-period of Table 3A")
+
+## placebo: pretend the IFRS countries were treated from 2001 (data 1997-2004 only)
+placebo <- country_years |>
+  filter(year <= 2004) |>
+  mutate(fake_event = as.integer(!is.na(ifrs_year) & year >= 2001))
+m_placebo <- feols(share_payers ~ fake_event | country + year,
+                   data = placebo, weights = ~n_firms, cluster = ~country)
+etable(m_placebo)
+```
+
+**Original from the paper — Figure 2, Panel A (p. 424): event time −3 to +3 around IFRS adoption:**
+
+```{r fig_figure2a, echo=FALSE, out.width="85%"}
+knitr::include_graphics(here("session_05", "img", "hail_figure2a.png"))
+```
+
+**Task 3:** What do the timing test, the country trends and the longer look back tell you about the convergence threat?
+
+
+## 4.6 Simulation: can convergence alone produce the result?
+
+The real data cannot tell us the truth. A simulation can: we build data with **zero** true effect and convergence, and apply the paper's design.
+
+**Data-generating process (documented in full):**
+
+* 49 countries (real treatment years) × 40 firms × 8 years (2001–2008).
+* Country share of dividend payers in 2001: 55 % plus 10 pp for IFRS countries (close to Table 3A), plus noise.
+* **Convergence:** every year, the distance to a common level of 58 % shrinks by the factor `rho` (`rho = 1`: no convergence).
+* Common year shocks; a firm-specific propensity.
+* **True effect:** `true_effect` (0 in the main scenario).
+
+```{r chunk_13}
+## the 49 countries and their IFRS years, taken from the prepared data
+countries <- country_years |> distinct(country, ifrs_year)
+
+simulate_payouts <- function(true_effect = 0, rho = 0.8, n_firms = 40, seed = 1) {
+  set.seed(seed)
+  cty <- countries |>
+    mutate(ifrs_country = as.integer(!is.na(ifrs_year)),
+           p_start      = 0.55 + 0.10 * ifrs_country + rnorm(n(), 0, 0.08))
+  firms <- cty |>
+    slice(rep(1:n(), each = n_firms)) |>
+    mutate(firm_id  = paste0(country, "_", sequence(rep(n_firms, nrow(cty)))),
+           firm_dev = rnorm(n(), 0, 0.15))
+  year_shock <- c(0, -0.01, -0.02, -0.01, 0, 0.01, 0.01, -0.02)   # 2001-2008, all countries
+  expand_grid(firm_id = firms$firm_id, year = 2001:2008) |>
+    left_join(firms, by = "firm_id") |>
+    mutate(
+      info_event = as.integer(!is.na(ifrs_year) & year >= ifrs_year),
+      p_country  = 0.58 + (p_start - 0.58) * rho^(year - 2001) + year_shock[year - 2000],
+      p          = pmin(pmax(p_country + firm_dev + true_effect * info_event, 0.01), 0.99),
+      div_payer  = rbinom(n(), 1, p)
+    )
+}
+
+run_scenario <- function(label, true_effect, rho, trends = FALSE, reps = 100) {
+  fml <- if (trends) div_payer ~ info_event | country[year] + year else div_payer ~ info_event | country + year
+  map_dfr(1:reps, function(r) {
+    tibble(scenario = label, true_effect = true_effect,
+           estimate = coef(feols(fml, data = simulate_payouts(true_effect, rho, seed = r)))["info_event"])
+  })
+}
+
+mc <- bind_rows(
+  run_scenario("A: no effect, no convergence",              0,     1),
+  run_scenario("B: no effect, convergence",                 0,     0.8),
+  run_scenario("C: no effect, convergence, country trends", 0,     0.8, trends = TRUE),
+  run_scenario("D: true effect -5 pp, no convergence",     -0.05,  1)
+)
+
+mc |>
+  group_by(scenario, true_effect) |>
+  summarise(mean_estimate = round(mean(estimate), 3), .groups = "drop")
+
+ggplot(mc, aes(x = estimate, y = scenario)) +
+  geom_vline(aes(xintercept = true_effect), colour = "red", linetype = "dashed") +
+  geom_boxplot(width = 0.5) +
+  labs(x = "Estimated effect of InfoEvent; red line = true effect", y = NULL)
+```
+
+**Task 4:** Interpret scenarios A–D.
+
+
+## 4.7 Independent verification
+
+An independent check means: recompute a number in a *different* way than the one you want to check.
+
+```{r chunk_14}
+## (a) Table 3A of the paper: the DiD is the difference of the two changes
+table_3a_paper <- tribble(
+  ~setting,         ~sample,     ~treat_pre, ~treat_post, ~bench_pre, ~bench_post, ~did_reported,
+  "IFRS",           "full",          62.53,       57.78,      57.47,       60.29,         -7.57,
+  "IFRS",           "constant",      75.41,       77.15,      70.28,       75.40,         -3.38,
+  "IT enforcement", "full",          89.19,       66.17,      72.30,       59.73,        -10.45,
+  "IT enforcement", "constant",      89.50,       80.23,      76.00,       70.65,         -3.92
+)
+table_3a_paper |>
+  mutate(did_recomputed = (treat_post - treat_pre) - (bench_post - bench_pre),
+         matches        = abs(did_recomputed - did_reported) < 0.015)
+
+## (b) p. 426: a logit coefficient of -0.397 means about 9 % lower probability "at the means".
+##     Marginal effect of a logit at probability p: beta * p * (1 - p)
+-0.397 * 0.60 * (1 - 0.60)
+
+## (c) our own replication: 2x2 by hand (4.3) vs. a regression with the same comparison
+coef(feols(div_payer ~ ifrs_country * post_2005, data = firm_years))["ifrs_country:post_2005"] * 100
+table_3a$change[1] - table_3a$change[2]
+```
+
+
+## 4.8 Preview: the AI audit
+
+**The AI product.** For practice, we wrote the following critique with an AI assistant (Claude) and deliberately left some errors in it. It is not your assigned product — that comes on 14 December and is generated by the instructors for **your** paper.
+
+> **AI critique of Hail, Tahoun and Wang (2014)**
+>
+> (C1) The study uses a global sample of firms from 49 countries over 1993–2008. (C2) The main specification is an OLS regression with firm fixed effects. (C3) Standard errors are not clustered, so the significance of the results is overstated. (C4) The authors never test whether the decline in dividends starts before the event. (C5) Mandatory IFRS adoption reduces the probability of paying dividends by about 9 %. (C6) Because IFRS countries already paid dividends more often before 2005, the decline could reflect convergence rather than an information shock. (C7) The effect is driven by the 2008 financial crisis in the United States. (C8) Later studies have replicated the result for the CSRD.
+
+**The AI code product.** The same assistant suggested this code for the DiD on our firm-level data:
+
+```{r chunk_15}
+## AI-generated code (as received)
+d_ai <- firm_years |> mutate(info_event_ai = as.integer(year > ifrs_year))
+m_ai <- feols(div_payer ~ info_event_ai | country + year, data = d_ai, cluster = ~year)
+etable(m_ai)
+```
+
+**Task 5:** Classify each claim C1–C8 as *verified*, *qualified*, *contradicted* or *unverifiable*. Cite the page, table or diagnostic you used and state the consequence for the central inference. Then find the most material problem in the AI code.
+
+| Claim | Classification | Source or diagnostic used | Consequence for the central inference |
+|-------|----------------|---------------------------|----------------------------------------|
+| C1 | | | |
+| C2 | | | |
+| C3 | | | |
+| C4 | | | |
+| C5 | | | |
+| C6 | | | |
+| C7 | | | |
+| C8 | | | |
+
+Most material problem in the AI code:
+
+
+**Corrected code segment (run it after Task 5):**
+
+```{r chunk_16}
+## corrected: benchmark countries get 0, treatment by fiscal-year end (Step 2), clustered by country
+m_fixed <- feols(div_payer ~ info_event | country + year, data = firm_years, cluster = ~country)
+etable(m_ai, m_fixed, headers = c("AI code", "Corrected"))
+```
+
+**AI verification record (what you must document):**
+
+| Item | Entry |
+|------|-------|
+| Tool, model and version | Claude Opus 5.5 (claude.ai) |
+| Date | 25 November 2026 |
+| Relevant prompts | "Write a short critique of Hail, Tahoun and Wang (2014, JAR) …"; "Write R code for the DiD with an InfoEvent indicator …" |
+| Checks used | paper pages and tables; close replication 4.3; real-data diagnostics 4.5; simulation 4.6; recomputation 4.7 |
+
+------------------------------------------------------------------------
+
+# Part 5 · Redesign (Component 5)
+
+* **Stronger test:** use the **staggered** insider trading enforcement dates (embedded data: first prosecutions between 1961 and 1998). Global convergence happens in calendar time; staggered events happen at different calendar times. An event study with a heterogeneity-robust staggered DiD estimator (e.g. `fixest::sunab()`) and a long pre-period separates the two better than one event in 2005.
+* **Data:** Worldscope dividends 1993–2008 (as above, longer window); event dates as embedded.
+* **Assumptions:** no other country reforms at the same dates; enough not-yet-treated countries in each year.
+* **Trade-offs:** fewer treated countries per year → less power; IT enforcement is a different (and less clearly informational) shock than IFRS.
+* **What would change my mind?** If, in the staggered IT design with a long pre-period, payouts fall *before* the first prosecution as much as after it, I would conclude that convergence — not information shocks — drives the result. If they fall only after it, the information-shock explanation gains support.
+
+```{r session_info}
+sessionInfo()
+```
