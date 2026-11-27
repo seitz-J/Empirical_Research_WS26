@@ -24,7 +24,7 @@ This notebook shows **one way** to work through Assignment 3 (Research Design & 
 
 **Coding today is light.** All chunks are complete. Run them, read the output and fill in the tasks.
 
-**Data:** download `hail_raw_firm_years.csv.gz` and `hail_raw_dividends_1997_2008.csv.gz` from Moodle and save them in the `data/` folder of your project (licensed data — do not upload them anywhere else). Part 4.2 turns them into the analysis sample.
+**Data:** download `hail_raw_firm_years.csv.gz` and `hail_raw_dividends_1997_2008.csv.gz` from Moodle and save them in the `data/` folder of your project. Part 4.2 turns them into the analysis sample.
 
 | Part | Component of the Lab | Hours in the Lab |
 |------|----------------------|------------------|
@@ -84,11 +84,11 @@ The one-page visual (Libby boxes and DAG) is on the slides. In words:
 
 ## 4.2 From raw data to the analysis sample
 
-**What was prepared for you — and what you will have to do yourself.** To keep today's session focused on the analysis, we did the first part of the work in advance: the **raw data** were downloaded from Worldscope (company financials, dividends, stock data) and Compustat (to identify non-US firms listed on a US stock exchange), the tables were **merged** by company and fiscal year, each firm was **matched** to its country and the country's IFRS mandate year (Daske et al. 2008), and US cross-listings were **matched** to Worldscope via the ISIN. **In your Lab you collect all data yourself** — finding the data sources, downloading, merging and matching are part of the work (and part of the 35 hours).
+For this session, we did part of the work in advance. We downloaded the raw data from Worldscope (financial statements, dividends, stock data) and from Compustat (to find non-US firms listed on a US stock exchange). We then merged the tables by firm and fiscal year, added each firm's country and the year its country made IFRS mandatory (Daske et al. 2008), and flagged the US cross-listings by matching ISINs.
 
-Everything else happens **in this notebook**: constructing the variables, selecting the sample, truncating outliers and checking the result. Run the chunks in order and compare each step with the paper.
+In your Lab, you collect all data yourself. Finding the sources, downloading, merging and matching are part of the work and count towards the 35 hours.
 
-> **Licensed data.** The two files below come from WRDS. Download them from Moodle into your project's `data/` folder. They are ignored by Git — never push them to GitHub and never paste them into AI tools.
+The rest is done in this notebook: we build the variables, select the sample, deal with outliers and check the result against the paper. Run the chunks in order. The two data files are on Moodle; save them in the `data/` folder of your project.
 
 ### Step 1 · Load the raw data
 
