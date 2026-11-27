@@ -1,7 +1,7 @@
 ---
 title: "Tutorial 4 · Causal Inference in Practice"
 subtitle: "Empirical Research in Accounting, Auditing and Capital Markets · WS 2026/27"
-author: "Your Name"
+author: "Pauline Jans"
 date: "26 November 2026"
 output:
   html_document:
@@ -83,6 +83,7 @@ Before running any of them, write down **which effect** you want — the *estima
 > The effect of **[treatment]** on **[outcome]** for **[which units]** in **[which period]**, compared with **[which counterfactual]**.
 
 **Task A:** Write the estimand of our study in one sentence. Is it an ATE (all firms) or an ATT (only the mandated firms)?
+The effect of the CSR disclosure requirements (in 2008) on the Profitability( ROA and ROE) of 150 mandated companies from 2008 to 2011, compared with not mandated Firms (450) in the same period.
 
 
 ### Chunk 1.1 · Who is treated? (given)
@@ -153,7 +154,7 @@ Why can we not check assumption 4 with the residuals? OLS makes the residuals un
 
 We check 1, 3, 5 and 6 now with a simple pooled regression. Assumption 2 comes back in Part 4 (clustering), assumption 4 is the topic of Parts 3–5.
 
-### Chunk 2.1 · Linearity: residuals vs. fitted values (given)
+### Chunk 2.1 · Linearity: residuals vs. fitted values (given) Checklist Nr 1
 
 ```{r chunk_2_1, fig.height = 4}
 ## m_lin: lm(roa ~ treated + post + treat_post + size)
@@ -169,7 +170,7 @@ plot(m_sq, which = 1, main = "With size squared")
 par(mfrow = c(1, 1))
 ```
 
-### Chunk 2.2 · Constant variance? Residual spread by size quartile (given)
+### Chunk 2.2 · Constant variance? Residual spread by size quartile (given)  Checkliste Nr.5
 
 ```{r chunk_2_2}
 ## add resid(m_sq) and ntile(size, 4) to the data, then sd of the residuals per quartile
@@ -179,7 +180,7 @@ csr_panel |>
   summarise(sd_resid = sd(resid))
 ```
 
-### Chunk 2.3 · Normality and influential observations (given)
+### Chunk 2.3 · Normality and influential observations (given) Checkliste Nr 6
 
 ```{r chunk_2_3, fig.height = 4}
 ## Q-Q plot (which = 2) and Cook's distance (which = 4) for m_sq
@@ -196,7 +197,7 @@ csr_panel |>
   head(5)
 ```
 
-### Chunk 2.4 · Multicollinearity: variance inflation factor (given)
+### Chunk 2.4 · Multicollinearity: variance inflation factor (given) Checkliste Nr3. 3
 
 ```{r chunk_2_4}
 ## regress size on log_sales; VIF = 1 / (1 - R2); R2 via summary(model)$r.squared
@@ -209,6 +210,13 @@ summary(lm(roa ~ size + log_sales, data = csr_panel))$coefficients
 ```
 
 **Task C:** For each chunk: is the assumption violated here? What do you do about it?
+Linearity (2.1): violated, because the straight line cannot show the humps in the date
+
+Multicollinearity: violated because > 10; size and log_sales are to similar - the regression model cannot correctly separate the effects.
+
+Homoskedacticity: is to be expected, because smaller firms are more affected by small changes in the balance sheet (larger percentage). you need correction otherwise wrongful significance is assumed
+
+Normality: Extreme values have more influence on the samples - you should winsorize the sample otherwise values like median/mean are biased - use robust standard errors
 
 
 ------------------------------------------------------------------------
@@ -277,9 +285,15 @@ $$ROA_{it} = \beta_0 + \beta_1 NEW_i + \beta_2 POST_t + \beta_3 \, NEW_i \times 
 ```{r chunk_4_2}
 ## pre-post: mandated firms only
 ## replace ... : m_prepost <- feols(roa ~ ..., data = filter(csr_panel, treated == 1), cluster = ~firm_id)
+m_prepost <- feols(roa ~ post, data = filter(csr_panel, treated == 1), cluster = ~firm_id)
+
+m_did <- feols(roa ~ post*treated, data = filter(csr_panel, treated == 1), cluster = ~firm_id)
+
 ## DiD with interaction, all firms -- replace ... :
 ## m_did <- feols(roa ~ ..., data = csr_panel, cluster = ~firm_id)
 ## then: etable(m_prepost, m_did)
+
+etable(m_prepost, m_did)
 
 
 ```
@@ -297,6 +311,8 @@ $$ROA_{it} = \beta \, NEW_i \times POST_t + \alpha_i + \gamma_t + \varepsilon_{i
 ## fixed effects go after the |
 ## replace ... : m_twfe <- feols(roa ~ treat_post | ..., data = csr_panel)
 ## then: etable(m_twfe, vcov = ~firm_id)
+m_twfe <- feols(roa ~ treat_post | firm_id + year, data = csr_panel)
+etable(m_twfe, vcov = ~firm_id)
 
 
 ```
